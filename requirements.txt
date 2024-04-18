@@ -1,0 +1,7 @@
+pandas
+python-dotenv
+azure-eventhub
+azure-kusto-data
+azure-kusto-ingest
+faker
+pyodbc
