@@ -29,8 +29,7 @@ You will learn how to:
 * Create reports for real time visualizations using RTA (Real time analytics) dashboards
 
 All the code in this tutorial can be found here:   
-[ADX Analytics github repo](<https://github.com/denisa-ms/adx-analytics-fabric>)  
-
+[Building a Medallion Architecture on Fabric Real time analytics](<https://github.com/microsoft/FabricRTA-Retail/>)  
 
 Built by:   
 **Denise Schlesinger**   
@@ -41,6 +40,17 @@ Built by:
 ---
 
 # What is the Medallion Architecture?
+The inspiration for this tutorial was the realization that Eventhouse aligns perfectly with the Medallion’s architecture requirements.
+The Medallion architecture is a data design pattern with 3 layers:
+
+The Bronze layer: containing raw data being streamed into a data platform, these are Eventhouse continuous ingestion capabilities.
+The Silver Layer: a curated enriched layer of data, based on transformed data from the Bronze layer. This can be achieved with Eventhouse’s update policies.
+The Gold Layer: aggregated data for reporting and BI, this can be achieved with Eventhouse’s materialized views
+So, in this article we will explore how to build a Real time analytics platform using the Medallion architecture using MS Fabric Eventhouse.
+
+A detailed blog post explaining this tutorial can be found here:
+[Building a Medallion Architecture on Fabric Real time analytics](<https://techcommunity.microsoft.com/t5/startups-at-microsoft/building-a-real-time-medallion-architecture-using-eventhouse-in/ba-p/4110686>)  
+
 A medallion architecture (also coined by Databricks) is a data design pattern used to logically organize data.
 The goal is to incrementally improve the structure and quality of data as it flows through each layer of the architecture.
 Medallion architectures are sometimes also referred to as "multi-hop" architectures.
