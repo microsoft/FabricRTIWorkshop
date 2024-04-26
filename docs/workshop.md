@@ -44,7 +44,9 @@ The inspiration for this tutorial was the realization that Eventhouse aligns per
 The Medallion architecture is a data design pattern with 3 layers:
 
 * The Bronze layer: containing raw data being streamed into a data platform, these are Eventhouse continuous ingestion capabilities.  
-* The Silver Layer: a curated enriched layer of data, based on transformed data from the Bronze layer. This can be achieved with Eventhouse’s update policies.  
+
+* The Silver Layer: a curated enriched layer of data, based on transformed data from the Bronze layer. This can be achieved with Eventhouse’s update policies.   
+
 * The Gold Layer: aggregated data for reporting and BI, this can be achieved with Eventhouse’s materialized views.  
 So, in this article we will explore how to build a Real time analytics platform using the Medallion architecture using MS Fabric Eventhouse.  
 
