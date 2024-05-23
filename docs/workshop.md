@@ -288,7 +288,7 @@ Open the RTADemo Eventhouse from your Fabric Workspace.  Click on "Explore your 
 
 
 Run the KQL scripts to create all the tables.  
-Open the  [createAll.kql](<https://github.com/denisa-ms/adx-analytics-fabric/blob/main/kql/createAll.kql>) file and copy the entire file content.  
+Open the  [createAll.kql](kql/createAll.kql) file and copy the entire file content.  
 ![alt text](assets/fabrta26.png)
 Paste it in the KQL panel in the KQL DB and run it.  
 ![alt text](assets/fabrta27.png)
@@ -399,7 +399,7 @@ Name it "RTA Dashboard"
 ![alt text](assets/fabrta51.png)
 
 ## Create all dashboard tiles 
-All KQL queries for the tiles can be found in the  [dashboard-RTA.kql](<https://github.com/denisa-ms/adx-analytics-fabric/blob/main/dashboards/RTA%20dashboard/dashboard-RTA.kql>) file
+All KQL queries for the tiles can be found in the  [dashboard-RTA.kql](dashboard/RTA dashboard/dashboard-RTA.kql) file
 
 ### Clicks by date 
 ```
