@@ -231,7 +231,7 @@ Click on "Keys" and copy the event hub name to a notepad
 ![alt text](assets/fabrta8.png)
 
 ## Import Data Generator Notebook
-Import the [Generate synthetic events notebook](https://github.com/microsoft/FabricRTA-Retail/blob/main/notebooks/Generate%20synthetic%20events.ipynb) to generate events using streaming
+Import the [Generate synthetic events notebook](<https://github.com/microsoft/FabricRTA-Retail/blob/main/notebooks/Generate%20synthetic%20events.ipynb>) to generate events using streaming
 ![alt text](assets/fabrta8.1.png)
 ![alt text](assets/fabrta8.2.png)
 
@@ -288,7 +288,7 @@ Open the RTADemo Eventhouse from your Fabric Workspace.  Click on "Explore your 
 
 
 Run the KQL scripts to create all the tables.  
-Open the  [createAll.kql](https://github.com/microsoft/FabricRTA-Retail/blob/main/kql/createAll.kql) file and copy the entire file content.  
+Open the  [createAll.kql](<https://github.com/microsoft/FabricRTA-Retail/blob/main/kql/createAll.kql>) file and copy the entire file content.  
 ![alt text](assets/fabrta26.png)
 Paste it in the KQL panel in the KQL DB and run it.  
 ![alt text](assets/fabrta27.png)
@@ -399,7 +399,7 @@ Name it "RTA Dashboard"
 ![alt text](assets/fabrta51.png)
 
 ## Create all dashboard tiles 
-All KQL queries for the tiles can be found in the  [dashboard-RTA.kql](https://github.com/microsoft/FabricRTA-Retail/blob/main/dashboard/RTA%20dashboard/dashboard-RTA.kql) file
+All KQL queries for the tiles can be found in the  [dashboard-RTA.kql](<https://github.com/microsoft/FabricRTA-Retail/blob/main/dashboard/RTA%20dashboard/dashboard-RTA.kql>) file
 
 ### Clicks by date 
 ```
