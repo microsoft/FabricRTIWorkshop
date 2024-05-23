@@ -1,19 +1,19 @@
 //Clicks by hour
-Event 
+events
 | where eventDate between (_startTime.._endTime) and eventType == "CLICK" 
 | summarize date_count = count() by bin(eventDate, 1h) 
-| render timechart  
 | top 30 by date_count 
+| render timechart
 
 //Impressions by hour
-Event 
+events 
 | where eventDate between (_startTime.._endTime) and eventType == "IMPRESSION" 
 | summarize date_count = count() by bin(eventDate, 1h) 
 | render timechart  
 | top 30 by date_count 
 
 //show map of impressions location
-Event 
+events 
 | where eventDate  between (_startTime.._endTime) and eventType == "IMPRESSION" 
 | join external_table('products') on $left.productId == $right.ProductID 
 | project lon = geo_info_from_ip_address(ip_address).longitude, lat = geo_info_from_ip_address(ip_address).latitude, Name 
@@ -21,19 +21,19 @@ Event
 
 
 //Average Page Load time
-Event 
+events 
 | where eventDate   between (_startTime.._endTime) and eventType == "IMPRESSION" 
 | summarize average_loadtime = avg(page_loading_seconds) by bin(eventDate, 1h) 
 | render linechart 
 
 // Impressions, clicks and CTR
 let imp =  
-Event 
+events 
 | where eventDate  between (_startTime.._endTime) and eventType == "IMPRESSION" 
 | extend dateOnly = substring(todatetime(eventDate).tostring(), 0, 10) 
 | summarize imp_count = count() by dateOnly; 
 let clck =  
-Event 
+events 
 | where eventDate  between (_startTime.._endTime) and eventType == "CLICK" 
 | extend dateOnly = substring(todatetime(eventDate).tostring(), 0, 10) 
 | summarize clck_count = count() by dateOnly;
