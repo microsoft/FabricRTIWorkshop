@@ -238,19 +238,7 @@ Import the [Generate synthetic events notebook](<https://github.com/microsoft/Fa
 Copy the connectionstring and key you pasted into a notepad in the previous step and paste it in the Notebook first code block
 ![alt text](assets/fabrta9.png)
 
-## Create an environment 
-In order for the compute to run the notebook to have the right libraries, we will create an "environment".
-Make sure you are creating an environment with Spark 3.4 (see image below).  
-Add the libraries:  
-- azure-eventhub  
-- faker  
-- pyodbc  
 
-![alt text](assets/fabrta10.png)
-![alt text](assets/fabrta11.png)
-![alt text](assets/fabrta12.png)
-![alt text](assets/fabrta13.png)
-![alt text](assets/fabrta14.png)
 
 ## Run the notebook
 Open the "generate synthetic events" notebook in your Fabric Workspace.  
@@ -399,7 +387,7 @@ Name it "RTA Dashboard"
 ![alt text](assets/fabrta51.png)
 
 ## Create all dashboard tiles 
-All KQL queries for the tiles can be found in the  [dashboard-RTA.kql](<https://github.com/microsoft/FabricRTA-Retail/blob/main/dashboard/RTA%20dashboard/dashboard-RTA.kql>) file
+All KQL queries for the tiles can be found in the  [dashboard-RTA.kql](<https://github.com/microsoft/FabricRTA-Retail/blob/main/dashboards/RTA%20dashboard/dashboard-RTA.kql>) file
 
 ### Clicks by date 
 ```
