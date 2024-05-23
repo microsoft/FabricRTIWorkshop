@@ -101,16 +101,16 @@ policy update @'[{"Source": "SalesOrderDetail", "Query": "ParseSalesOrderDetail"
     SilverSalesOrderDetail
     | summarize arg_max(IngestionDate, *) by SalesOrderDetailID
 }
-.create  materialized-view with (backfill=true) GoldDailyClicks on table Event
+.create  materialized-view with (backfill=true) GoldDailyClicks on table events
 {
-  Event
+  events
     | where eventType == "CLICK"
     | extend dateOnly = substring(todatetime(eventDate).tostring(), 0, 10) 
     | summarize count() by dateOnly, eventType
 }
-.create  materialized-view with (backfill=true) GoldDailyImpressions on table Event
+.create  materialized-view with (backfill=true) GoldDailyImpressions on table events
 {
-  Event
+  events
     | where eventType == "IMPRESSION"
     | extend dateOnly = substring(todatetime(eventDate).tostring(), 0, 10) 
     | summarize count() by dateOnly, eventType
