@@ -1,10 +1,8 @@
 # Fabric - Real Time Intelligence 
 
-## Lab - Building a Medallion Architecture on Fabric Real time analytics
+## Building a Medallion Architecture on Fabric Real time analytics
 
-Please follow the tutorial here to build this:  
-[Building a Medallion Architecture on Fabric Real time analytics](<https://aka.ms/ws?src=gh:microsoft/fabricrta-retail/main/docs/>)
-
+E-Commerce Lab - https://aka.ms/fabricrta-retail
 
 ## Contributing
 
