@@ -6,13 +6,11 @@ short_title: MS Fabric - Real time analytics Tutorial    # Optional. Short title
 description: In this technical workshop, you will build a complete Analytics Platform   # Required.
 level: advanced                         # Required. Can be 'beginner', 'intermediate' or 'advanced'
 authors:                                # Required. You can add as many authors as needed      
-  - Denise Schlesinger
+  - Microsoft
 contacts:                               # Required. Must match the number of authors
-  - https://github.com/denisa-ms
-  - https://www.linkedin.com/in/deniseschlesinger/
+  - https://microsoft.com
 duration_minutes: 180                    # Required. Estimated duration in minutes
-tags: azure, data, analytics, Kusto, bicep, azure data explorer, fabric         # Required. Tags for filtering and searching
-
+tags: realtime, intelligence, streaming, azure, data, analytics, Kusto, bicep, azure data explorer, fabric         # Required. Tags for filtering and searching
 ---
 
 # Introduction
@@ -31,11 +29,11 @@ You will learn how to:
 All the code in this tutorial can be found here:   
 [Building a Medallion Architecture on Fabric Real time analytics](<https://github.com/microsoft/FabricRTA-Retail/>)  
 
-Built by:   
-**Denise Schlesinger**   
-**Principal Cloud Solution Architect @Microsoft**   
-[Linkedin](<https://www.linkedin.com/in/deniseschlesinger/>)     
-[Github](<https://github.com/denisa-ms>)
+Authors:
+[Denise Schlesinger](<https://github.com/denisa-ms>), Microsoft, Prin CSA
+Hiram Fleitas](<https://aka.ms/hiram>), Microsoft, Sr CSA
+Guy Yehudy, Microsoft, Prin PM
+
 
 ---
 
