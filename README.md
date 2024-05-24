@@ -4,7 +4,7 @@
 
 E-Commerce Lab - https://aka.ms/fabricrta-retail
 
-[MOA docs](workshop/docs)
+[MOA docs](docs/workshop.md)
 
 
 ## Contributing
