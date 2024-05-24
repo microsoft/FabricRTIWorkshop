@@ -22,9 +22,9 @@ This workshop will walk you through the process of building an end-to-end Real T
 You will learn how to:
 * Build a medallion architecture in MS Fabric Real Time Intelligence
 * Use Fabric data pipelines for copying data from an operational DB (SQL server with Adventure works sample data)
-* Stream events and ingest them into MS Fabric RTA (Real Time Intelligence) using EventStream
-* Create data transformations in Fabric RTA (Real Time Intelligence)
-* Create reports for real time visualizations using RTA (Real Time Intelligence) dashboards
+* Stream events and ingest them into MS Fabric RTI (Real Time Intelligence) using EventStream
+* Create data transformations in Fabric RTI (Real Time Intelligence)
+* Create reports for real time visualizations using RTI (Real Time Intelligence) dashboards
 
 All the code in this tutorial can be found here:   
 [Building a Medallion Architecture on Fabric Real Time Intelligence](<https://github.com/microsoft/FabricRTA-Retail/>)  
