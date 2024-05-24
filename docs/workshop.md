@@ -1,9 +1,9 @@
 ---
 published: true                        # Optional. Set to true to publish the workshop (default: false)
 type: workshop                          # Required.
-title: Building a Medallion Architecture on MS Fabric Real time Analytics               # Required. Full title of the workshop
-short_title: MS Fabric - Real time analytics Tutorial    # Optional. Short title displayed in the header
-description: In this technical workshop, you will build a complete Analytics Platform   # Required.
+title: Building a Medallion Architecture using MS Fabric Real Time Intelligence               # Required. Full title of the workshop
+short_title: MS Fabric - Real Time Intelligence Tutorial    # Optional. Short title displayed in the header
+description: In this technical workshop, you will build a complete analytics platform for streaming & batching data.   # Required.
 level: advanced                         # Required. Can be 'beginner', 'intermediate' or 'advanced'
 authors:                                # Required. You can add as many authors as needed      
   - Microsoft Fabric - Real Time Intelligence
