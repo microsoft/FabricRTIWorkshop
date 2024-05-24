@@ -16,15 +16,15 @@ tags: realtime, intelligence, streaming, azure, data, analytics, Kusto, bicep, a
 # Introduction
 Suppose you own an e-commerce website selling bike accessories.  
 You have millions of visitors a month, you want to analyze the website traffic, consumer patterns and predict sales.  
-This workshop will walk you through the process of building an end-to-end Real time Analytics Solution in MS Fabric, using the medallion architecture, for your e-commerce website.  
+This workshop will walk you through the process of building an end-to-end Real Time Intelligence Solution in MS Fabric, using the medallion architecture, for your e-commerce website.  
 
 
 You will learn how to:
-* Build a medallion architecture in MS Fabric Real time analytics
+* Build a medallion architecture in MS Fabric Real Time Intelligence
 * Use Fabric data pipelines for copying data from an operational DB (SQL server with Adventure works sample data)
-* Stream events and ingest them into MS Fabric RTA (Real time analytics) using EventStream
-* Create data transformations in Fabric RTA (Real time analytics)
-* Create reports for real time visualizations using RTA (Real time analytics) dashboards
+* Stream events and ingest them into MS Fabric RTA (Real Time Intelligence) using EventStream
+* Create data transformations in Fabric RTA (Real Time Intelligence)
+* Create reports for real time visualizations using RTA (Real Time Intelligence) dashboards
 
 All the code in this tutorial can be found here:   
 [Building a Medallion Architecture on Fabric Real Time Intelligence](<https://github.com/microsoft/FabricRTA-Retail/>)  
@@ -48,7 +48,7 @@ The Medallion architecture is a data design pattern with 3 layers:
 * The Silver Layer: a curated enriched layer of data, based on transformed data from the Bronze layer. This can be achieved with Eventhouse’s update policies.   
 
 * The Gold Layer: aggregated data for reporting and BI, this can be achieved with Eventhouse’s materialized views.  
-So, in this article we will explore how to build a Real time analytics platform using the Medallion architecture using MS Fabric Eventhouse.  
+So, in this article we will explore how to build a Real Time Intelligence platform using the Medallion architecture using MS Fabric Eventhouse.  
 
 A medallion architecture (also coined by Databricks) is a data design pattern used to logically organize data.
 The goal is to incrementally improve the structure and quality of data as it flows through each layer of the architecture.
@@ -59,7 +59,7 @@ Unstructured and raw data are ingested using scalable pipelines to output the hi
 
 ---
 
-# Fabric Real time analytics features 
+# Fabric Real Time Intelligence features 
 
 ## Event streams
 * [Event streams](<https://learn.microsoft.com/en-us/fabric/real-time-analytics/event-streams/overview>)   
@@ -184,7 +184,7 @@ This is the reason we need to activate this feature "before" we load the data in
 ![alt text](assets/fabrta70.png)
 
 You can read more about this here.  
-[Announcing Delta Lake support in Real-Time Analytics KQL Database](<https://support.fabric.microsoft.com/en-us/blog/announcing-delta-support-in-real-time-analytics-kql-db?ft=All>)   
+[Announcing Delta Lake support in Real-Time Intelligence KQL Database](<https://support.fabric.microsoft.com/en-us/blog/announcing-delta-support-in-real-time-analytics-kql-db?ft=All>)   
 
 Enabling data availability of KQL Database in OneLake means that customers can enjoy the best of both worlds: they can query the data with high performance and low latency in their KQL database and query the same data in Delta Lake format via any other Fabric engines such as Power BI Direct Lake mode, Warehouse, Lakehouse, Notebooks, and more.
 
