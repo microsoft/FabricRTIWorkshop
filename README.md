@@ -2,6 +2,8 @@
 
 ## Building a Medallion Architecture on Fabric Real time analytics
 
+To get started proceed to the MOA lab. 
+
 - https://aka.ms/fabricrta-retail (MOA Lab)
 - [MOA docs](docs/workshop.md)
 
