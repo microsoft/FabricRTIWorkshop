@@ -6,9 +6,9 @@ short_title: MS Fabric - Real time analytics Tutorial    # Optional. Short title
 description: In this technical workshop, you will build a complete Analytics Platform   # Required.
 level: advanced                         # Required. Can be 'beginner', 'intermediate' or 'advanced'
 authors:                                # Required. You can add as many authors as needed      
-  - Microsoft
+  - Microsoft Fabric - Real Time Intelligence
 contacts:                               # Required. Must match the number of authors
-  - https://microsoft.com
+  - https://aka.ms/fabric-docs-rta
 duration_minutes: 180                    # Required. Estimated duration in minutes
 tags: realtime, intelligence, streaming, azure, data, analytics, Kusto, bicep, azure data explorer, fabric         # Required. Tags for filtering and searching
 ---
