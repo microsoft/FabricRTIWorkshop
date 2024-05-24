@@ -31,7 +31,7 @@ All the code in this tutorial can be found here:
 
 Also, here's a detailed [article](<https://techcommunity.microsoft.com/t5/startups-at-microsoft/building-a-real-time-medallion-architecture-using-eventhouse-in/ba-p/4110686>) explaining this tutorial.
 
-Authors:
+### Authors
 - [Denise Schlesinger](<https://github.com/denisa-ms>), Microsoft, Prin CSA
 - [Hiram Fleitas](<https://aka.ms/hiram>), Microsoft, Sr CSA
 - Guy Yehudy, Microsoft, Prin PM
