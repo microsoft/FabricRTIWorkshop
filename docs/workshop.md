@@ -30,9 +30,9 @@ All the code in this tutorial can be found here:
 [Building a Medallion Architecture on Fabric Real time analytics](<https://github.com/microsoft/FabricRTA-Retail/>)  
 
 Authors:
-[Denise Schlesinger](<https://github.com/denisa-ms>), Microsoft, Prin CSA
-Hiram Fleitas](<https://aka.ms/hiram>), Microsoft, Sr CSA
-Guy Yehudy, Microsoft, Prin PM
+- [Denise Schlesinger](<https://github.com/denisa-ms>), Microsoft, Prin CSA
+- [Hiram Fleitas](<https://aka.ms/hiram>), Microsoft, Sr CSA
+- Guy Yehudy, Microsoft, Prin PM
 
 
 ---
