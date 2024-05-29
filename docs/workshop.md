@@ -44,21 +44,21 @@ Also, here's a detailed [article](<https://techcommunity.microsoft.com/t5/startu
 ---
 
 # What is the Medallion Architecture?
-The inspiration for this tutorial was the realization that Eventhouse aligns perfectly with the Medallion’s architecture requirements.
+The inspiration for this tutorial was the realization that **Eventhouse** aligns perfectly with the Medallion's architecture requirements. 
+
 The Medallion architecture is a data design pattern with 3 layers:
 
-🥉 The Bronze layer: containing raw data being streamed into a data platform, these are Eventhouse continuous ingestion capabilities.  
+🥉 The Bronze layer: containing raw data being streamed into a data platform, these are **Eventhouse** continuous ingestion capabilities.  
 
-🥈 The Silver Layer: a curated enriched layer of data, based on transformed data from the Bronze layer. This can be achieved with Eventhouse’s update policies.   
+🥈 The Silver Layer: a curated enriched layer of data, based on transformed data from the Bronze layer. This can be achieved with Eventhouse's **update policies**.   
 
-🥇 The Gold Layer: aggregated data for reporting and BI, this can be achieved with Eventhouse’s materialized views.  
+🥇 The Gold Layer: aggregated data for reporting and BI, this can be achieved with Eventhouse's **materialized views**.  
 
-A medallion architecture (also coined by Databricks) is a data design pattern used to logically organize data.
-The goal is to incrementally improve the structure and quality of data as it flows through each layer of the architecture.
-Medallion architectures are sometimes also referred to as "multi-hop" architectures.
+A medallion architecture (also coined by Databricks) is a data design pattern used to logically organize data. The goal is to **incrementally** improve the structure and quality of data as it flows through each layer of the architecture. Medallion architectures are sometimes also referred to as "multi-hop" architectures.
 
-Creating a multi layer data platform allow companies to improve data quality across the layers and at the same time provide for their business needs.
-Unstructured and raw data are ingested using scalable pipelines to output the highest quality enriched data.
+Creating a multi-layer data platform allow companies to improve data quality across the layers and at the same time provide for their business needs. Unstructured and raw data are ingested using scalable pipelines to output the highest quality enriched data.
+
+Reference: https://dataengineering.wiki/Concepts/Medallion+Architecture
 
 ---
 
