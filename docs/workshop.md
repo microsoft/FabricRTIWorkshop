@@ -42,6 +42,7 @@ Rate this lab or give us feedback to improve using this short [Eval](<https://fo
 ![QR Code](assets/QRCodeLabEvalSmall.png "QR Code")  
 
 If you'd like to contribute to this lab or report a bug-issue, please send a Pull-request for us to review or submit the issue in our [GH repo](<https://github.com/microsoft/FabricRTA-Retail/>).
+
 ---
 
 # What is the Medallion Architecture?
