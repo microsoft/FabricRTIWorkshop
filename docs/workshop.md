@@ -388,7 +388,7 @@ All KQL queries for the tiles can be found in the  [dashboard-RTA.kql](<https://
 ### Clicks by date 
 ```
 //Clicks by hour
-Event 
+events 
 | where eventDate between (_startTime.._endTime) and eventType == "CLICK" 
 | summarize date_count = count() by bin(eventDate, 1h) 
 | render timechart  
@@ -397,7 +397,7 @@ Event
 ![alt text](assets/fabrta52.png)
 ```
 //Impressions by hour
-Event 
+events 
 | where eventDate between (_startTime.._endTime) and eventType == "IMPRESSION" 
 | summarize date_count = count() by bin(eventDate, 1h) 
 | render timechart  
@@ -406,7 +406,7 @@ Event
 ![alt text](assets/fabrta53.png)
 ```
 //show map of impressions location
-Event 
+events 
 | where eventDate  between (_startTime.._endTime) and eventType == "IMPRESSION" 
 | join external_table('products') on $left.productId == $right.ProductID 
 | project lon = geo_info_from_ip_address(ip_address).longitude, lat = geo_info_from_ip_address(ip_address).latitude, Name 
@@ -416,7 +416,7 @@ Event
 ![alt text](assets/fabrta54.png)
 ```
 //Average Page Load time
-Event 
+events 
 | where eventDate   between (_startTime.._endTime) and eventType == "IMPRESSION" 
 | summarize average_loadtime = avg(page_loading_seconds) by bin(eventDate, 1h) 
 | render linechart 
@@ -425,12 +425,12 @@ Event
 The 3 tiles showing a card with a number use the same query (see below) but show a different field.  
 ```
 let imp =  
-Event 
+events 
 | where eventDate  between (_startTime.._endTime) and eventType == "IMPRESSION" 
 | extend dateOnly = substring(todatetime(eventDate).tostring(), 0, 10) 
 | summarize imp_count = count() by dateOnly; 
 let clck =  
-Event 
+events 
 | where eventDate  between (_startTime.._endTime) and eventType == "CLICK" 
 | extend dateOnly = substring(todatetime(eventDate).tostring(), 0, 10) 
 | summarize clck_count = count() by dateOnly;
@@ -445,4 +445,19 @@ imp
 ## Stop running the notebook
 ![alt text](assets/fabrta60.png)
 
-THAT's ALL FOLKS!!  
+## THAT's ALL FOLKS!!
+
+🎉 Congratulations on completing this lab! 
+
+Did you like it, did you not like it? Let us know in this short [Eval](<https://forms.office.com/r/xhW3GAtAhi>).
+
+If you'd like to contribute to this lab or report a bug-issue, please send a Pull-request for us to review or submit the issue in our [GH repo](<https://github.com/microsoft/FabricRTA-Retail/>).
+
+## Continue your learning
+
+- https://aka.ms/learn.kql
+- https://aka.ms/fabric-learn
+- [Implement a Real-Time Intelligence Solution with Microsoft Fabric](<https://learn.microsoft.com/en-us/training/paths/explore-real-time-analytics-microsoft-fabric/>)
+- https://aka.ms/fabricblog
+- https://aka.ms/adx.blog
+- https://aka.ms/adx.youtube
