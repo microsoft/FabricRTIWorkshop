@@ -60,6 +60,8 @@ Creating a multi-layer data platform allow companies to improve data quality acr
 
 Reference: https://dataengineering.wiki/Concepts/Medallion+Architecture
 
+In summary, Microsoft Fabric Real-Time Intelligence (RTI) features benefit building a medallion architecture. They provide minimal latency for data in-motion, automatic light-weight transformations, dashboards, copilots to help you derive insights in a no-code experience, and allow you to take actions in real-time over your data. Additionally, all data is made avaiable via OneLake in delta-parquet format to Lakehouses using OneLake Availability as OneLogical copy for all your data. 
+
 ---
 
 # Fabric Real Time Intelligence features 
