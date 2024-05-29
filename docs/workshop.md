@@ -156,11 +156,14 @@ Photo by <a href="https://unsplash.com/@jxk?utm_content=creditCopyText&utm_mediu
 ---
 
 # Pre-requisites
-* You must have access to a [Microsoft Fabric](<https://www.microsoft.com/en-us/microsoft-fabric/getting-started>) workspace with at least Contributor permissions.
+- Recommended material to review (at least one) prior to this lab, however it's not required:
+  - https://aka.ms/learn.kql
+  - [Real-Time Intelligence Tutorial](<https://learn.microsoft.com/fabric/real-time-intelligence/tutorial-introduction>)
+- To complete the lab you **must** have access to a [Microsoft Fabric](<https://www.microsoft.com/en-us/microsoft-fabric/getting-started>) workspace with at least Contributor permissions.
 
 If you need a new Trial Tenant, suggest to register a new Outlook.com email and follow these steps:
 1. [Provision Fabric Trial Tenant](<https://github.com/microsoft/FabricRTA-in-a-Day/tree/main/assets/trialtenant>) - see document and powershell script to setup a lab admin, 25 workspaces and 24 additional logins (one workspace per user will be automatically created). Attendies can create items specified in lab excercises in their own workspace.
-2. [Office 365 E5 Trial](<https://blog.fabric.microsoft.com/en-us/blog/accessing-microsoft-fabric-for-developers-startups-and-enterprises>). :warning: Make sure to disable recurring billing, otherwise your credit card will be charged for Office E5. 
+2. [Office 365 E5 Trial](<https://blog.fabric.microsoft.com/en-us/blog/accessing-microsoft-fabric-for-developers-startups-and-enterprises>). ⚠️ Make sure to disable recurring billing, otherwise your credit card will be charged for Office E5.
 
 ---
 
@@ -457,6 +460,7 @@ If you'd like to contribute to this lab or report a bug-issue, please send a Pul
 ## Continue your learning
 
 - https://aka.ms/learn.kql
+- https://detective.kusto.io, https://detective.kusto.io/sans2023
 - https://aka.ms/fabric-learn
 - [Implement a Real-Time Intelligence Solution with Microsoft Fabric](<https://learn.microsoft.com/en-us/training/paths/explore-real-time-analytics-microsoft-fabric/>)
 - https://aka.ms/fabricblog
