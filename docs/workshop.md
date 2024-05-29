@@ -68,7 +68,8 @@ In summary, Microsoft Fabric Real-Time Intelligence (RTI) features benefit build
 
 Let's cover the key-features and how we plan to use them for our architecture.
 
-### [Event streams](<https://learn.microsoft.com/fabric/real-time-analytics/event-streams/overview>)
+### Event streams
+- https://learn.microsoft.com/fabric/real-time-analytics/event-streams/overview
 - Clicks and Impressions events are ingested from an Eventstream into the `events` table. This feature allows us to bring real-time events into Fabric, transform them, and then route them to various destinations wihtout writing any code (no-code). Enhanced capabilities allows us to source data into Eventstreams from Azure Event Hubs, IoT Hubs, Azure SQL Database (CDC), PostgreSQL Database (CDC), MySQL Database (CDC), Azure Cosmos DB (CDC), Google Cloud Pub/Sub, Amazon Kinesis Data Streams, Confluent Cloud Kafka, Azure Blog Storage events, Fabric Workspace Item events, Sample data or Custom endpoint (Custom App).
 
 ### [Data pipelines](<https://learn.microsoft.com/fabric/data-factory/tutorial-end-to-end-pipeline>) 
