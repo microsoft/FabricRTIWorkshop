@@ -68,43 +68,43 @@ In summary, Microsoft Fabric Real-Time Intelligence (RTI) features benefit build
 
 Let's cover the key-features and how we plan to use them for our architecture.
 
-## [Event streams](<https://learn.microsoft.com/fabric/real-time-analytics/event-streams/overview>)
+### [Event streams](<https://learn.microsoft.com/fabric/real-time-analytics/event-streams/overview>)
 - Clicks and Impressions events are ingested from an Eventstream into the `events` table. This feature allows us to bring real-time events into Fabric, transform them, and then route them to various destinations wihtout writing any code (no-code). Enhanced capabilities allows us to source data into Eventstreams from Azure Event Hubs, IoT Hubs, Azure SQL Database (CDC), PostgreSQL Database (CDC), MySQL Database (CDC), Azure Cosmos DB (CDC), Google Cloud Pub/Sub, Amazon Kinesis Data Streams, Confluent Cloud Kafka, Azure Blog Storage events, Fabric Workspace Item events, Sample data or Custom endpoint (Custom App).
 
-## [Data pipelines](<https://learn.microsoft.com/fabric/data-factory/tutorial-end-to-end-pipeline>) 
+### [Data pipelines](<https://learn.microsoft.com/fabric/data-factory/tutorial-end-to-end-pipeline>) 
 - Bronze layer tables are populated by a Data Factory pipeline to copy data from our operational SQL DB.
 
-## [Shortcuts](<https://learn.microsoft.com/fabric/real-time-analytics/onelake-shortcuts?tabs=onelake-shortcut>)
+### [Shortcuts](<https://learn.microsoft.com/fabric/real-time-analytics/onelake-shortcuts?tabs=onelake-shortcut>)
 - `Product` and `ProductCategory` SQL tables are defined as external tables (Fabric shortcuts). Meaning the data is not copied but served from the SQL DB itself. Shortcuts allow data to remain stored in outside of Fabric like in our operational SQL DB, yet presented in Fabric as a central location.
 - Shortcuts enable us to create live connections between OneLake and existing target data sources, whether internal or external to Azure. This allows us to retrieve data from these locations as if they were seamlessly integrated into Microsoft Fabric.
 - A shortcut is a schema entity that references data stored external to a KQL database in your cluster. In Lakehouses, Eventhouses, or KQL Databases it's possible to create shortcuts referencing Internal locations within Microsoft Fabric, ADLS Gen2, Spark Notebooks, AWS S3 storage accounts, or Microsoft Dataverse.
 - From my perspective, I value the fact that all data is aligned under a unified namespace, allowing seamless access through the same ADLS Gen2 APIs, even when sourced from AWS S3. By enabling us to reference different storage locations, OneLake's Shortcuts provides a unified source of truth for all our data within the Microsoft Fabric environment and ensures clarity regarding the origin of our data.  
 
-## [Eventhouse](<https://learn.microsoft.com/fabric/real-time-intelligence/eventhouse>)
+### [Eventhouse](<https://learn.microsoft.com/fabric/real-time-intelligence/eventhouse>)
 - The Eventhouse can host multiple KQL Databases for easier management. It will store relational data from an operational SQL DB, levergage shortcuts and automate transformations in real-time.
 - The Eventhouse is the best place to store streaming data in Fabric. It provides a highly-scalable analytics system with built-in Machine Learning capabilities for discrete analytics over high-granular data. It's useful for any scenario that includes event-based data, for example, telemetry and log data, time series and IoT data, security and compliance logs, or financial records. The Eventhouse supports Kusto Query Languanguage (KQL) queries, T-SQL queries and Python. The data is automatically made available in delta-parquet format and can be easily accessed from Notebooks for mroe advanced transformaitons. The Eventhouse is specifically tailored to time-based, streaming/batch events with structured, semistructured, and unstructured data.
 
-## [KQL Update policies](<https://learn.microsoft.com/azure/data-explorer/kusto/management/update-policy>)
+### [KQL Update policies](<https://learn.microsoft.com/azure/data-explorer/kusto/management/update-policy>)
 - This feature is also known as a mini-ETL. Update policies are automation mechanisms triggered when new data is written to a table. They eliminate the need for special orchestration by running a query to transform the ingested data and save the result to a destination table. Multiple update policies can be defined on a single table, allowing for different transformations and saving data to multiple tables simultaneously. **Target** tables can have a different schema, retention policy, and other policies than the **Source** table. The data in derived silver layer tables (targets) of our medallion architecture is inserted upon ingestion to bronze tables (sources). Based on Kusto's update policy feature, this allows to append transformed rows in real-time to a target table as data is landing in a source table and can also be set to run in a transaction. Meaning if the data from bronze fails to be transformed to silver, it will not be loaded to bronze either, by default this is set to off allowing maximum throughput.  
 
-## [KQL Materialized Views](<https://learn.microsoft.com/azure/data-explorer/kusto/management/materialized-views/materialized-view-overview>)
+### [KQL Materialized Views](<https://learn.microsoft.com/azure/data-explorer/kusto/management/materialized-views/materialized-view-overview>)
 - Materialized views expose an aggregation query over a source table, or over another materialized view. We will use materialized views to create the Gold Layer in our medallion architecture. Most common materialized views provide the current reading of a metric or statistics of metrics over time. They can also be backfilled with historial data; however, by default they are automatically populated by newly ingested data.
 
-## [One Logical Copy](<https://learn.microsoft.com/fabric/real-time-analytics/one-logical-copy>)
+### [One Logical Copy](<https://learn.microsoft.com/fabric/real-time-analytics/one-logical-copy>)
 - Creates a one logical copy of KQL Database data by turning on OneLake availability. Turning on OneLake availability for your KQL tables, database or Eventhouse means that you can query the data in your KQL database in Delta Lake format via other Fabric engines such as Direct Lake mode in Power BI, Warehouse, Lakehouse, Notebooks, and more. When activated, it will copy via mirroring the KQL data to your Fabric Datalake in delta-parquet format. Allowing you to shortcut tables from your KQL Database via OneLake to your Fabric Lakehouse, Data Warehouse, and also query the data in delta-parquet format using Spark Notebooks or the SQL-endpoint of the Lakehouse.
 
-## [KQL Dynamic fields](<https://learn.microsoft.com/azure/data-explorer/kusto/query/scalar-data-types/dynamic>)
+### [KQL Dynamic fields](<https://learn.microsoft.com/azure/data-explorer/kusto/query/scalar-data-types/dynamic>)
 - Dynamic fields are a powerful feature of Eventhouse / KQL DB that support evolving schema changes and object polymorphism, allowing to store different event types that have a common denominator of base fields.
 
-## [Kusto Query Language (KQL)](<https://learn.microsoft.com/azure/data-explorer/kusto/query/>)
+### [Kusto Query Language (KQL)](<https://learn.microsoft.com/azure/data-explorer/kusto/query/>)
 - KQL commands will be automatically written by the Get Data UI wizard when configuring the Eventhouse KQL Database destination in Eventstream. The commands will create the `events` table and JSON mapping. Secondly, the control commands will be issued in a database script that automate creation of additional schema items such as Tables, Shortcuts, Functions, Policies and Materialized-Views.
 - KQL is also known as the language of the cloud. It's available in many other servies such as Microsoft Sentinel, Azure Monitor, Azure Resource Graph and Microsoft Defender. The code-name **Kusto** engine was invented by 4 engineers from the Power BI team over 10 years ago and has been implemented across all Microsoft services including Github Copilot, LinkedIn, Azure, Office 365, and XBOX.
 - KQL queries are easy to write, read and edit. The language is most commonly used to analyze logs, sign-on events, application traces, diagnostics, signals, metrics and much more. Supports multi-statement queries, relational operators such as filters (where clauses), union, joins aggregations to produce a tabular output. It allows the ability to simply pipe (|) additional commands for ad-hoc analytics without needing to re-write entire queries. It has similaries to PowerShell, Excel functions, LINQ, function SQL, and OS Shell (Bash). It supports DML statements, DDL statements (referred to as Control Commands), built-in machine learning operators for forecasting & anomaly dectection, plus more... including in-line Python & R-Lang. 
 
-## [Real-time Dashboards](<https://learn.microsoft.com/fabric/real-time-intelligence/dashboard-real-time-create>)
+### [Real-time Dashboards](<https://learn.microsoft.com/fabric/real-time-intelligence/dashboard-real-time-create>)
 - Will contain a collection of visual tiles _Click Through Rate_ stat KPIs, _Impressions_ area chart, _Clicks_ area chart, _Impressions by Location_ map for geo-spatial analytics and _Average Page Load Time_ in a line chart. This feature support filter parameters, additional pages, markdown tiles, inlcuding Plotly, multiple KQL datasources, base queries, embedding. Supports sharing with permissions controls, setting an Alert by leveraging Data Activator for actions, and automatic refresh with a minimum frequency of 30 seconds. These dashboards are commonly used for Operations and Power BI is commonly used for Business Intelligence. Power BI supports more advanced visualizations and rich data-story capabilities. Real-time Dashboards refresh very fast and allow with ease to togle between visual analytist to pro-developer that can explore queries or edit without needing to download a desktop tool. They make the experience simpler for analysts to visualize over high-granular data.
 
-## [Data Activator](<https://learn.microsoft.com/fabric/data-activator/data-activator-introduction>)
+### [Data Activator](<https://learn.microsoft.com/fabric/data-activator/data-activator-introduction>)
 - We will to Set an Alert in our Real-time Dashboard to message me in Teams. Data Activator (code-name Reflex) is a no-code experience in Microsoft Fabric for automatically taking actions when patterns or conditions are detected in changing data. It monitors data in Power BI reports, Eventstreams items and Real-time Dashboards, for when the data hits certain thresholds or matches other patterns. It then automatically takes appropriate action such as alerting users or kicking off Power Automate workflows.
 - Some common use cases are:
   - Run Ads when same-store sales decline.
