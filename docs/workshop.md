@@ -156,10 +156,11 @@ Photo by <a href="https://unsplash.com/@jxk?utm_content=creditCopyText&utm_mediu
 ---
 
 # Pre-requisites
-* An [Azure Subscription](<https://azure.microsoft.com/en-us/free/>) where you have admin permissions.   
-* [Microsoft Fabric](<https://www.microsoft.com/en-us/microsoft-fabric/getting-started>) with admin permissions.   
-* [Azure Data Studio](<https://learn.microsoft.com/en-us/azure-data-studio/download-azure-data-studio?view=sql-server-ver16&tabs=win-install%2Cwin-user-install%2Credhat-install%2Cwindows-uninstall%2Credhat-uninstall>)  
+* You must have access to a [Microsoft Fabric](<https://www.microsoft.com/en-us/microsoft-fabric/getting-started>) workspace with at least Contributor permissions.
 
+If you need a new Trial Tenant, suggest to register a new Outlook.com email and follow these steps:
+1. [Provision Fabric Trial Tenant](<https://github.com/microsoft/FabricRTA-in-a-Day/tree/main/assets/trialtenant>) - see document and powershell script to setup a lab admin, 25 workspaces and 24 additional logins (one workspace per user will be automatically created). Attendies can create items specified in lab excercises in their own workspace.
+2. [Office 365 E5 Trial](<https://blog.fabric.microsoft.com/en-us/blog/accessing-microsoft-fabric-for-developers-startups-and-enterprises>). :warning: Make sure to disable recurring billing, otherwise your credit card will be charged for Office E5. 
 
 ---
 
@@ -296,10 +297,10 @@ Select Source - External and click "+" to create a new connection to the SQL DB
 
 Fill in the details as follows:  
 ```
-servername= adxdemo.database.windows.net
-Database name=aworks
-UserName=sqlread
-Password=ChangeYourAdminPassword1
+ServerName = adxdemo.database.windows.net
+DatabaseName = aworks
+UserName = sqlread
+Password = ChangeYourAdminPassword1
 
 ```
 ![alt text](assets/fabrta35.png)
