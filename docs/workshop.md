@@ -130,16 +130,16 @@ Let's cover the key-features and how we plan to use them for our architecture.
 # The e-commerce store   
 
 The e-commerce store database entities are:  
-* Product: the product catalog. 
-* ProductCategory: the product categories.  
-* Customer: the customers that purchased items in the store.
-* Address: the addresses of the customers.
-* SalesOrderHeader: the metadata for the orders.
-* SalesOrderDetail: every item purchased in an order.
-* Event: a click or impression event.   
-  - An impression event is logged when a product appears in the search results.
+- **Product:** the product catalog. 
+- **ProductCategory:** the product categories.  
+- **Customer:** the customers that purchased items in the store.
+- **Address:** the addresses of the customers.
+- **SalesOrderHeader:** the metadata for the orders.
+- **SalesOrderDetail:** every item purchased in an order.
+- **events:** a click or impression event.   
+  - An **impression event** is logged when a product appears in the search results.
 ![Impressions](assets/store1.png)  
-  - A click event is logged when the product is clicked and the customer has viewed the details.  
+  - A **click event** is logged when the product is clicked and the customer has viewed the details.  
 ![Clicks](assets/store2.png)  
 
 Photo by <a href="https://unsplash.com/@himiwaybikes?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Himiway Bikes</a> on <a href="https://unsplash.com/photos/black-and-gray-motorcycle-parked-beside-brown-wall-Gj5PXw1kM6U?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>  
@@ -153,6 +153,7 @@ Photo by <a href="https://unsplash.com/@jxk?utm_content=creditCopyText&utm_mediu
 
 ![Architectural Diagram](assets/architecture.png)
 
+Additionally, we'll set alerts based on Real-time Dashboard tiles to send a message in Teams with conditional threasholds. This will effectively create a Data Activator (code-name Reflex) item in our Fabric workspace and architecture. 
 
 ---
 
@@ -165,22 +166,35 @@ Photo by <a href="https://unsplash.com/@jxk?utm_content=creditCopyText&utm_mediu
 ## Tables
 | Table| Origin     | Description|
 |------|------------|------------|
-| Customer| Copied using Pipeline| Describes customers and their geographic location|
-| Address| Copied using Pipeline|Customers addresses|
-| SalesOrderHeader| Copied using Pipeline|Information about sales orders|
-| SalesOrderDetail| Copied using Pipeline|Detailed information about sales orders, including product IDs and quantities sold|
-| Product|Shortcut to SQL DB|Products, including descriptions and prices|
-| ProductCategory|Shortcut to SQL DB|Product category|
-| SilverCustomer|EventHouse table|Table created based on an update policy with transformed data|
-| SilverAddress|EventHouse table|Table created based on an update policy with transformed data|
-| SilverOrdersHeader|EventHouse table|Table created based on an update policy with transformed data|
-| SilverOrdersDetail|EventHouse table|Table created based on an update policy with transformed data|
-| GoldAddress|EventHouse table|Materialized view showing only the latest changes in the source table showing how to handle duplicate or updated records|
-| GoldCustomer|EventHouse table|Materialized view showing only the latest changes in the source table showing how to handle duplicate or updated records|
-| GoldSalesOrderHeader|EventHouse table|Materialized view showing only the latest changes in the source table showing how to handle duplicate or updated records|
-| GoldSalesOrderDetail|EventHouse table|Materialized view showing only the latest changes in the source table showing how to handle duplicate or updated records|
-| Event|EventHouse table|Streaming events representing the product being seen or clicked by the customer. Will be streamed into Fabric Eventhouse from an eventstream. We will push synthetic data (fake data) into an endpoint, using a Fabric Notebook.|
+| **events**|EventHouse table|Streaming events representing the product being seen or clicked by the customer. Will be streamed into Fabric Eventhouse from an eventstream. We'll use a Fabric Notebook to simulate and push synthetic data (fake data) into an endpoint.|
+| **Customer**| Copied using Pipeline| Describes customers and their geographic location|
+| **Address**| Copied using Pipeline|Customers addresses|
+| **SalesOrderHeader**| Copied using Pipeline|Information about sales orders|
+| **SalesOrderDetail**| Copied using Pipeline|Detailed information about sales orders, including product IDs and quantities sold|
+| **SilverCustomer**|EventHouse table|Table created based on an update policy with **transformed data**|
+| **SilverAddress**|EventHouse table|Table created based on an update policy with **transformed data**|
+| **SilverOrdersHeader**|EventHouse table|Table created based on an update policy with transformed data|
+| **SilverOrdersDetail**|EventHouse table|Table created based on an update policy with transformed data|
 
+## External Tables
+| **Product**|**Shortcut** to SQL DB|Products, including descriptions and prices|
+| **ProductCategory**|**Shortcut** to SQL DB|Product category|
+
+## Functions
+| Function| Description|
+|------|------------|------------|
+|**ParseAddress**|Adds watermark column based on `ingestion_time()`|
+|**ParseCustomer**|Adds watermark column based on `ingestion_time()`|
+|**ParseSalesOrderHeader**|Adds calculated column `DaysShipped` by measuring the number of days between `ShipDate` and `OrderDate`. Also, adds watermark column based on `ingestion_time()` |
+|**ParseSalesOrderDetail**|Adds watermark column based on `ingestion_time()`|
+
+## Materialized-Views
+| View | Origin     | Description|
+|------|------------|------------|
+| **GoldAddress**|EventHouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records|
+| **GoldCustomer**|EventHouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records|
+| **GoldSalesOrderHeader**|EventHouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records|
+| **GoldSalesOrderDetail**|EventHouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records|
 
 ---
 
