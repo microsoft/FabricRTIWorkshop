@@ -152,14 +152,12 @@ Photo by <a href="https://unsplash.com/@jxk?utm_content=creditCopyText&utm_mediu
 # Architecture
 
 ## Components of Fabirc's Real Time Intelligence
-Real-Time Intelligence allows organizations to ingest and process, analyze and transform, and automatically act on data. With a central hub, Real-Time Hub, to easily access and visualize all internal and external, first- and third-party streaming data, you can achieve faster, more accurate decision-making and accelerated time to insight.
 ![RTIComponents](assets/RTIComponents.png "Components of Fabric's Real Time Intelligence")
-
+Real-Time Intelligence allows organizations to ingest, process, analyze, transform and automatically act on data. With a central hub (Real-Time Hub) to easily access and visualize all internal and external, first- and third-party streaming data. We can achieve faster, more accurate decision-making and accelerated time to insight.
 
 ## Expanded Architecture
 ![Architectural Diagram](assets/architecture.png "Architecture Diagram")
-
-Additionally, we'll set alerts based on Real-time Dashboard tiles to send a message in Teams with conditional threasholds. This will effectively create a Data Activator (code-name Reflex) item in our Fabric workspace and architecture. 
+Now with Data Activator (Reflex), we can also set alerts on Real-time Dashboards to send a message in Teams with conditional threasholds or even more advanced actions. 
 
 ---
 
