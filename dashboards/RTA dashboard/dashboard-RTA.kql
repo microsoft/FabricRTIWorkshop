@@ -12,7 +12,7 @@ events
 | render timechart  
 | top 30 by date_count 
 
-//show map of impressions location
+//Impressions by Location (Show Map)
 events 
 | where eventDate  between (_startTime.._endTime) and eventType == "IMPRESSION" 
 | join external_table('products') on $left.productId == $right.ProductID 
@@ -23,10 +23,13 @@ events
 //Average Page Load time
 events 
 | where eventDate   between (_startTime.._endTime) and eventType == "IMPRESSION" 
-| summarize average_loadtime = avg(page_loading_seconds) by bin(eventDate, 1h) 
-| render linechart 
+//| summarize average_loadtime = avg(page_loading_seconds) by bin(eventDate, 1h) 
+| make-series average_loadtime = avg(page_loading_seconds) on eventDate from _startTime to _endTime+4h step 1h
+| extend forecast = series_decompose_forecast(average_loadtime, 4)
+| render timechart
 
-// Impressions, clicks and CTR
+
+//Impressions, clicks and CTR
 let imp =  
 events 
 | where eventDate  between (_startTime.._endTime) and eventType == "IMPRESSION" 
@@ -41,3 +44,24 @@ imp
 | join clck on $left.dateOnly == $right.dateOnly 
 | project selected_date = dateOnly , impressions = imp_count , clicks = clck_count, CTR = clck_count * 100 / imp_count
 
+
+//Avg Page Load Time Anomalies
+events
+| where eventDate   between (_startTime.._endTime) and eventType == "IMPRESSION" 
+| make-series average_loadtime = avg(page_loading_seconds) on eventDate from _startTime to _endTime+4h step 1h
+| extend anomalies = series_decompose_anomalies(average_loadtime)
+| render anomalychart
+
+
+//Strong Anomalies
+events
+| where eventDate between (_startTime.._endTime) and eventType == "IMPRESSION" 
+| make-series average_loadtime = avg(page_loading_seconds) on eventDate from _startTime to _endTime+4h step 1h
+| extend anomalies = series_decompose_anomalies(average_loadtime,2.5)
+| mv-expand eventDate, average_loadtime, anomalies
+| where anomalies <> 0
+| project-away anomalies
+
+
+//Logo
+![AdventureWorks](https://vikasrajput.github.io/resources/PBIRptDev/AdventureWorksLogo.jpg "AdventureWorks")
