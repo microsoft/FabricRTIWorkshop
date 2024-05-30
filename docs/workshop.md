@@ -177,6 +177,8 @@ Additionally, we'll set alerts based on Real-time Dashboard tiles to send a mess
 | **SilverOrdersDetail**|EventHouse table|Table created based on an update policy with transformed data|
 
 ## External Tables
+| Table| Origin     | Description|
+|------|------------|------------|
 | **Product**|**Shortcut** to SQL DB|Products, including descriptions and prices|
 | **ProductCategory**|**Shortcut** to SQL DB|Product category|
 
