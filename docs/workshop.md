@@ -496,7 +496,7 @@ imp
 
 Did you like it, did you not like it? Let us know in this short [Eval](<https://forms.office.com/r/xhW3GAtAhi>). Scan this QR Code to open the Eval form on your phone.
 
-![QR Code](assets/QRCodeLabEvalSmall.png "QR Code")  
+![QR Code](assets/QRCodeLabEval-Small.png "QR Code")  
 
 If you'd like to contribute to this lab or report a bug-issue, please send a Pull-request for us to review or submit the issue in our [GH repo](<https://github.com/microsoft/FabricRTA-Retail/>).
 
