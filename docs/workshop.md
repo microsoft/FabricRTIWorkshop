@@ -184,7 +184,7 @@ Additionally, we'll set alerts based on Real-time Dashboard tiles to send a mess
 
 ## Functions
 | Function| Description|
-|------|------------|------------|
+|------------|------------|
 |**ParseAddress**|Adds watermark column based on `ingestion_time()`|
 |**ParseCustomer**|Adds watermark column based on `ingestion_time()`|
 |**ParseSalesOrderHeader**|Adds calculated column `DaysShipped` by measuring the number of days between `ShipDate` and `OrderDate`. Also, adds watermark column based on `ingestion_time()` |
