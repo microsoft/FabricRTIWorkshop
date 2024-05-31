@@ -424,6 +424,7 @@ In this section, we will build a real-time dashboard to visualize the streaming 
 8. Proceed to paste each query below, add a visual, and apply changes. (Optionally) All queries are avilable in this script file [dashboard-RTA.kql](<https://github.com/microsoft/FabricRTA-Retail/blob/main/dashboards/RTA%20dashboard/dashboard-RTA.kql>).
 
 ### Clicks by hour
+
 ```
 events
 | where eventDate between (_startTime.._endTime) and eventType == "CLICK" 
@@ -431,6 +432,7 @@ events
 | render timechart  
 | top 30 by date_count
 ```
+
 1. Set Time rage parameter at the top left to **Last 7 days**. This paramater is referenced by the query in the `where` clause by using fields `_startTime` and `_endTime`.
 2. Click **Run**
 3. Click **+ Add visual**
