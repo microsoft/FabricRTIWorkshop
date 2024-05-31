@@ -533,7 +533,10 @@ imp
 </div>
 
 
-## Stop running the notebook
+## 13. Stop the notebook
+At this point you've completed the lab, so you may stop running the notebook. 
+1. Open the notebook "Generate synthetic events" from your workspace and click **Stop** on the last code cell if its still running.
+2. (Optionally) You can click **Cancel All** on the top menu or click the stop red-sequare button to Stop session. These only appear when your session is active or the notebook is running.
 ![alt text](assets/fabrta60.png)
 
 ## THAT's ALL FOLKS!!
