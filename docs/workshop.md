@@ -418,23 +418,34 @@ In this section, we will build a real-time dashboard to visualize the streaming 
 2. Current workspace should be the same one.
 3. Scroll down and choose **Real-Time Dashboard**
 4. Name it "RTA Dashboard"
-5. Click + Add tile.
-6. Click + Data source. 
-7. Set the Database to "RTADemo" & click Create. 
-8. Proceed to paste each query below, add the visual, click Apply. (Optionally) All queries are avilable in this script file [dashboard-RTA.kql](<https://github.com/microsoft/FabricRTA-Retail/blob/main/dashboards/RTA%20dashboard/dashboard-RTA.kql>).
+5. Click **+ Add tile**.
+6. Click **+ Data source**. 
+7. Set the **Database** to "RTADemo" & click Create. 
+8. Proceed to paste each query below, add a visual, and apply changes. (Optionally) All queries are avilable in this script file [dashboard-RTA.kql](<https://github.com/microsoft/FabricRTA-Retail/blob/main/dashboards/RTA%20dashboard/dashboard-RTA.kql>).
 
-### Clicks per hour
+### Clicks by hour
 ```
-//Clicks by hour
-events 
+events
 | where eventDate between (_startTime.._endTime) and eventType == "CLICK" 
 | summarize date_count = count() by bin(eventDate, 1h) 
 | render timechart  
-| top 30 by date_count 
+| top 30 by date_count
 ```
-![alt text](assets/fabrta52.png)
+1. Set Time rage parameter at the top left to **Last 7 days**. This paramater is referenced by the query in the `where` clause by using fields `_startTime` and `_endTime`.
+2. Click **Run**
+3. Click **+ Add visual**
+4. Format the visual
+5. Set Tile name to "Click by hour"
+6. Set Visual type to **Area chart**
+7. Click **Apply Changes**
+![ClicksByHour](</assets/ClicksByHour.png>)
+
+9. Click **Manage** on the top left, click **Parameters**
+10. Edit the "Time range" parameter by setting the Default value to **Last 7 Days**, click Close & Done.
+11. Click **+ Add tile** to proceed with the next visuals.
+
+### Impressions by hour
 ```
-//Impressions by hour
 events 
 | where eventDate between (_startTime.._endTime) and eventType == "IMPRESSION" 
 | summarize date_count = count() by bin(eventDate, 1h) 
@@ -442,6 +453,7 @@ events
 | top 30 by date_count 
 ```
 ![alt text](assets/fabrta53.png)
+
 ```
 //show map of impressions location
 events 
