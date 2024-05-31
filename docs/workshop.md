@@ -220,7 +220,7 @@ If you need a new Trial Tenant, suggest to register a new Outlook.com email and 
 ## 1. Login to Lab Enviroment
 1. Proceed to [app.fabric.microsoft.com](<https://app.fabric.microsoft.com/>)
 2. Login with provided credentials, if a trial fabric tenant was previously setup (reference Pre-reqs). You may also choose to run the lab in your own Fabric Tenant if you already have one
-3. Click **Real Time Intelligence**.
+3. Click **Real-Time Intelligence**.
 ![Fabric Home](assets/FabricHome.png "Real Time Intelligence")
 
 ## 2. Fabric Workspace 
