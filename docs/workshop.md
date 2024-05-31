@@ -514,13 +514,13 @@ imp
 ![alt text](assets/fabrta58.png)
 
 
-### Set Auto-refresh
+### Auto-refresh
 22. While editing the dashboard, click **Manage** > **Auto refresh**.
 23. Set it to **Enabled**, and **Default** refresh rate to **30 seconds**, click Apply.
 24. Click **Home** and then **Save**.
 
-## 13. Data Activator - Reflex
-1. While editing the dashboard, click Manage > Set Alert.
+## 13. Reflex
+1. While editing the dashboard, click **Manage** > Set Alert.
 2. Choose "Clicks by hour"
 3. Select Condition "Becomes greater than"
 4. Set Value to 250.
