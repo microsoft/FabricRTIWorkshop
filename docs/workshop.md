@@ -309,7 +309,7 @@ Here's how to set this up:
 ![alt text](assets/fabrta69.png)
 
 
-## Build the KQL DB schema
+## 9. Build the KQL DB schema
 In this section we will create all the tables, functions, materialized-views, and enable update policies and in our Eventhouse KQL Database. Two of the tables (product and productCategory) are shortcuts to our SQL DB and the data is NOT being copied into our KQL DB.
 ![alt text](assets/fabrta71.png)
 
@@ -327,7 +327,7 @@ In this section we will create all the tables, functions, materialized-views, an
 ![alt text](assets/fabrta28.png)
 
 
-## Data Pipeline
+## 10. Data Pipeline
 In this section we will demonstrate how to use Fabric Data Factory pipeline to copy data from our SQL DB into our Eventhouse KQL DB via **batch** ingestion. This type of ingestion can be a one-time thing or scheduled to run periodically.
 ![alt text](assets/fabrta72.png)
 
@@ -398,16 +398,19 @@ GoldAddress
 <div class="info" data-title="Note">
   
 > Repeat the steps for the **Customer**, **SalesOrderHeader** and **SalesOrderDetail** tables.
-> Copy/Paste or duplicate the "Address" Copy Data activity onto the canvas three-times (3x). One for each additional table, then **change the Source & Destination** accordingly. 
-> Notice how the Copy Activity Mapping for the **SalesOrderDetail** automatically maps sql data type `money` to `decimal` data type in KQL. You can see this by clicking Import schemas under the Mapping tab of the Copy Data activity. 
-> Also, you can right-click and deactivate the "Address" Copy Data activity and then **Run** the pipeline **twice** to execute the additional three Copy Data activities. Note, they will run in parrallel. 
 </div>
 
-![AddressDeactivate](assets/AddressDeactivate.png "Deactivate Activity")
+## 11. Edit the Data Pipeline
+
+1. Copy/Paste or duplicate the "Address" Copy Data activity onto the canvas three-times (3x). One for each additional table, then **change the Source & Destination** accordingly.
+2. Notice how the Copy Activity Mapping for the **SalesOrderDetail** automatically maps sql data type `money` to `decimal` data type in KQL. You can see this by clicking Import schemas under the Mapping tab of the Copy Data activity. 
+3. Right-click and deactivate the "Address" Copy Data activity, then **Run** the pipeline **twice** to execute the same scenario for the additional three Copy Data activities. Note, they will run in parrallel. 
+
+![AddressDeactivate](assets/AddressDeactivateSmall.png "Deactivate Activity")
 ![SalesOrderDetailMapping](assets/SalesOrderDetailMapping.png "SalesOrderDetail - Copy Data Mapping")
 
 
-# Real-Time Dashboard
+# 12. Real-Time Dashboard
 We will build a real-time dashboard to visualize the streaming data.  
 It will be refreshed every 30 seconds.
 ![alt text](assets/dashboard.png)
