@@ -215,7 +215,7 @@ If you need a new Trial Tenant, suggest to register a new Outlook.com email and 
 
 ---
 
-# Building the Analytics platform
+# Building the platform
 ## 1. Login to Lab Enviroment
 1. Proceed to [app.fabric.microsoft.com](<https://app.fabric.microsoft.com/>)
 2. Login with provided credentials, if a trial fabric tenant was previously setup (reference Pre-reqs). You may also choose to run the lab in your own Fabric Tenant if you already have one
@@ -411,26 +411,19 @@ GoldAddress
 
 
 # 12. Real-Time Dashboard
-We will build a real-time dashboard to visualize the streaming data.  
-It will be refreshed every 30 seconds.
-![alt text](assets/dashboard.png)
+In this section, we will build a real-time dashboard to visualize the streaming data and set it to refresh every 30 seconds. (Optionally) A pre-built version of the dashobard is available to download [here](<https://github.com/microsoft/FabricRTA-Retail/blob/main/dashboards/RTA%20dashboard/dashboard-RTA Dashboard.json>), which can be imported and configured to your KQL DB data source. 
+![Real-Time Dashboard](assets/RealTimeDashboard.png "Real-Time Dashboard")
 
-Go to your Fabric Workspace and click on New - More options
-![alt text](assets/fabrta47.png)
+1. Click + Create (button is located at top left Menu undreath Home).
+2. Current workspace should be the same one.
+3. Scroll down and choose **Real-Time Dashboard**
+4. Name it "RTA Dashboard"
+5. Click + Add tile.
+6. Click + Data source. 
+7. Set the Database to "RTADemo" & click Create. 
+8. Proceed to paste each query below, add the visual, click Apply. (Optionally) All queries are avilable in this script file [dashboard-RTA.kql](<https://github.com/microsoft/FabricRTA-Retail/blob/main/dashboards/RTA%20dashboard/dashboard-RTA.kql>).
 
-Scroll down and choose Real-Time Dashboard
-![alt text](assets/fabrta48.png)
-Name it "RTA Dashboard"  
-![alt text](assets/fabrta49.png)
-![alt text](assets/fabrta50.png)
-
-## Define Data source  
-![alt text](assets/fabrta51.png)
-
-## Create all dashboard tiles 
-All KQL queries for the tiles can be found in the  [dashboard-RTA.kql](<https://github.com/microsoft/FabricRTA-Retail/blob/main/dashboards/RTA%20dashboard/dashboard-RTA.kql>) file
-
-### Clicks by date 
+### Clicks per hour
 ```
 //Clicks by hour
 events 
@@ -457,7 +450,6 @@ events
 | project lon = geo_info_from_ip_address(ip_address).longitude, lat = geo_info_from_ip_address(ip_address).latitude, Name 
 | render scatterchart with (kind = map)
 ```
-
 ![alt text](assets/fabrta54.png)
 ```
 //Average Page Load time
