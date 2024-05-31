@@ -423,7 +423,10 @@ In this section, we will build a real-time dashboard to visualize the streaming 
 7. Set the **Database** to "RTADemo" & click Create. 
 8. Proceed to paste each query below, add a visual, and apply changes. (Optionally) All queries are avilable in this script file [dashboard-RTA.kql](<https://github.com/microsoft/FabricRTA-Retail/blob/main/dashboards/RTA%20dashboard/dashboard-RTA.kql>).
 
+
+### Clicks by hour
 ```
+//Clicks by hour
 events
 | where eventDate between (_startTime.._endTime) and eventType == "CLICK" 
 | summarize date_count = count() by bin(eventDate, 1h) 
@@ -431,23 +434,27 @@ events
 | top 30 by date_count
 ```
 
-### Clicks by hour
-
 1. Set Time rage parameter at the top left to **Last 7 days**. This paramater is referenced by the query in the `where` clause by using fields `_startTime` and `_endTime`.
-2. Click **Run**
-3. Click **+ Add visual**
-4. Format the visual
-5. Set Tile name to "Click by hour"
-6. Set Visual type to **Area chart**
-7. Click **Apply Changes**
+2. Click **Run**.
+3. Click **+ Add visual**.
+4. Format the visual.
+5. Set Tile name to "Click by hour".
+6. Set Visual type to **Area chart**.
+7. Click **Apply Changes**.
+
 ![ClicksByHour](assets/ClicksByHour.png "Clicks by hour")
 
-9. Click **Manage** on the top left, click **Parameters**
+9. While editing the dashboard, click **Manage** on the top left, and click **Parameters**.
 10. Edit the "Time range" parameter by setting the Default value to **Last 7 Days**, click Close & Done.
-11. Click **+ Add tile** to proceed with the next visuals.
+
+![TimeRangeParameter](assets/TimeRangeParameter.png "Parameter Default Value")
+
+11. Click **+ Add tile** again to proceed with the next visuals.
 
 ### Impressions by hour
+12. Visual type: **Area chart**
 ```
+//Impressions by hour
 events 
 | where eventDate between (_startTime.._endTime) and eventType == "IMPRESSION" 
 | summarize date_count = count() by bin(eventDate, 1h) 
@@ -456,8 +463,10 @@ events
 ```
 ![alt text](assets/fabrta53.png)
 
+### Impressions by location
+12. Visual type: **Map**
 ```
-//show map of impressions location
+//Impressions by location
 events 
 | where eventDate  between (_startTime.._endTime) and eventType == "IMPRESSION" 
 | join external_table('products') on $left.productId == $right.ProductID 
@@ -465,6 +474,9 @@ events
 | render scatterchart with (kind = map)
 ```
 ![alt text](assets/fabrta54.png)
+
+### Average Page Load time
+13. Visual type: **Timechart**
 ```
 //Average Page Load time
 events 
@@ -473,15 +485,23 @@ events
 | render linechart 
 ```
 ![alt text](assets/fabrta55.png)
-The 3 tiles showing a card with a number use the same query (see below) but show a different field.  
+
+### Impressions, Clicks & CTR
+14. Add a tile & paste the query below once. Note, this is a multi-statement query that uses multiple let statements & a query combined by semicolons. 
+15. Set Tile name: **Impressions**
+16. Visual type: **Stat**
+17. Data Value column to `impressions`.
+18. Click **Apply changes**.
+19. Click the 3-dots (...) at the top right of the tile you just created to **Duplicate** it two more times.
+20. Name the 2nd one **Clicks**, set the Data value column to `clicks`, then Apply changes.
+21. Name the 3rd **Click Through Rate**, set the Data value column to `CTR`, then Apply changes.
 ```
-let imp =  
-events 
+//Clicks, Impressions, CTR
+let imp =  events 
 | where eventDate  between (_startTime.._endTime) and eventType == "IMPRESSION" 
 | extend dateOnly = substring(todatetime(eventDate).tostring(), 0, 10) 
 | summarize imp_count = count() by dateOnly; 
-let clck =  
-events 
+let clck = events 
 | where eventDate  between (_startTime.._endTime) and eventType == "CLICK" 
 | extend dateOnly = substring(todatetime(eventDate).tostring(), 0, 10) 
 | summarize clck_count = count() by dateOnly;
@@ -492,6 +512,26 @@ imp
 ![alt text](assets/fabrta56.png)
 ![alt text](assets/fabrta57.png)
 ![alt text](assets/fabrta58.png)
+
+
+### Set Auto-refresh
+22. While editing the dashboard, click **Manage** > **Auto refresh**.
+23. Set it to **Enabled**, and **Default** refresh rate to **30 seconds**, click Apply.
+24. Click **Home** and then **Save**.
+
+## 13. Data Activator - Reflex
+1. While editing the dashboard, click Manage > Set Alert.
+2. Choose "Clicks by hour"
+3. Select Condition "Becomes greater than"
+4. Set Value to 250.
+5. Action choose **Message me in Teams**.
+6. Click Create.
+
+<div class="info" data-title="Note">
+  
+> The Reflex item will appear in your workspace and you can edit the Reflex trigger action. The same Reflex item can also trigger multiple actions. 
+</div>
+
 
 ## Stop running the notebook
 ![alt text](assets/fabrta60.png)
