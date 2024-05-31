@@ -218,14 +218,15 @@ If you need a new Trial Tenant, suggest to register a new Outlook.com email and 
 
 # Building the Analytics platform
 ## 1. Login to Lab Enviroment
-1. Proceed to [app.fabric.microsoft.com](<https://app.fabric.microsoft.com>)
+1. Proceed to [https://app.fabric.microsoft.com](<https://app.fabric.microsoft.com/>)
 2. Login with provided credentials, if a trial fabric tenant was previously setup (reference Pre-reqs). You may also choose to run the lab in your own Fabric Tenant if you already have one
 3. Click **Real Time Intelligence**.
+![Fabric Home](assets/FabricHome.png "Real Time Intelligence")
 
 ## 2. Fabric Workspace 
-1. Open the Fabric Workspace designated to your login by the Fabric Trial Tenant. If using your own Fabric Tenant, we recommend to create a seperate lab workspace for this lab. 
+1. Click **Workspaces** on the left menu and open the Fabric Workspace **designated** to your login by the Fabric Trial Tenant.
+2. (Optional) If using your own Fabric Tenant, create a new workspace for this lab. 
 ![alt text](assets/fabrta0.png)
-![alt text](assets/fabrta0-1.png)
 
 ## 3. Create a new Eventhouse  
 1. Create an Eventhouse called "RTAdemo"  
@@ -273,7 +274,7 @@ In this section we will be streaming events (impressions and clicks events) gene
 ![alt text](assets/fabrta18.png)
 5. Create a new table in our KQL DB called `events`.
 ![alt text](assets/fabrta19.png)
-6. You will see a sample of the streaming data showing click and impression events, Click Finish and Close.
+6. You will see a sample of the **streaming** data showing _click_ and _impression_ events, click Finish and Close.
 ![alt text](assets/fabrta20.png)
 ![alt text](assets/fabrta21.png)
 7. You should see the Eventstream destination is in mode "Ingesting" or "Streaming". You may need to click Publish prior and the Refresh button. 
@@ -327,9 +328,8 @@ In this section we will create all the tables, functions, materialized-views, an
 ![alt text](assets/fabrta28.png)
 
 
-## Data pipeline
-In this section we will demonstrate how to use Fabric Data pipelines to copy data from our SQL DB into our Eventhouse KQL DB using batch ingest.
-This ingestion type can be a one time ingestion or can be scheduled to run periodically.
+## Data Factory pipeline
+In this section we will demonstrate how to use Fabric Data Factory pipeline to copy data from our SQL DB into our Eventhouse KQL DB via **batch** ingestion. This type of ingestion can be a one-time ingestion or can be scheduled to run periodically.
 ![alt text](assets/fabrta72.png)
 
 Create the Data Pipelines that you can run periodically to copy data to our Eventhouse DB.
