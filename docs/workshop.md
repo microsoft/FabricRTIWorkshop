@@ -438,7 +438,7 @@ events
 5. Set Tile name to "Click by hour"
 6. Set Visual type to **Area chart**
 7. Click **Apply Changes**
-![ClicksByHour](</assets/ClicksByHour.png>)
+![ClicksByHour](assets/ClicksByHour.png "Clicks by hour")
 
 9. Click **Manage** on the top left, click **Parameters**
 10. Edit the "Time range" parameter by setting the Default value to **Last 7 Days**, click Close & Done.
