@@ -1,12 +1,12 @@
 ---
 published: true                        # Optional. Set to true to publish the workshop (default: false)
 type: workshop                          # Required.
-title: Building a Medallion Architecture using MS Fabric Real Time Intelligence               # Required. Full title of the workshop
-short_title: MS Fabric - Real Time Intelligence Tutorial    # Optional. Short title displayed in the header
+title: Building a Medallion Architecture using MS Fabric Real-Time Intelligence               # Required. Full title of the workshop
+short_title: Real-Time Intelligence Tutorial    # Optional. Short title displayed in the header
 description: In this technical workshop, you will build a complete analytics platform for streaming & batching data.   # Required.
 level: advanced                         # Required. Can be 'beginner', 'intermediate' or 'advanced'
 authors:                                # Required. You can add as many authors as needed      
-  - Microsoft Fabric - Real Time Intelligence
+  - Microsoft Fabric Real-Time Intelligence
 contacts:                               # Required. Must match the number of authors
   - https://aka.ms/fabric-docs-rta
 duration_minutes: 180                    # Required. Estimated duration in minutes
@@ -16,18 +16,17 @@ tags: realtime, intelligence, streaming, azure, data, analytics, Kusto, bicep, a
 # Introduction
 Suppose you own an e-commerce website selling bike accessories.  
 You have millions of visitors a month, you want to analyze the website traffic, consumer patterns and predict sales.  
-This workshop will walk you through the process of building an end-to-end Real Time Intelligence Solution in MS Fabric, using the medallion architecture, for your e-commerce website.  
-
+This workshop will walk you through the process of building an end-to-end [Real-Time Intelligence](<https://blog.fabric.microsoft.com/en-us/blog/introducing-real-time-intelligence-in-microsoft-fabric>) Solution in MS Fabric, using the medallion architecture, for your e-commerce website.  
 
 You will learn how to:
-* Build a medallion architecture in MS Fabric Real Time Intelligence
-* Use Fabric data pipelines for copying data from an operational DB (SQL server with Adventure works sample data)
-* Stream events and ingest them into MS Fabric RTI (Real Time Intelligence) using EventStream
-* Create data transformations in Fabric RTI (Real Time Intelligence)
-* Create reports for real time visualizations using RTI (Real Time Intelligence) dashboards
+- Build a medallion architecture in MS Fabric Real-Time Intelligence
+- Use Fabric data pipelines for copying data from an operational DB (SQL server with Adventure works sample data)
+- Stream events and ingest them into MS Fabric RTI (Real-Time Intelligence) using EventStream
+- Create data transformations in Fabric RTI (Real-Time Intelligence)
+- Create reports for real-time visualizations using RTI (Real-Time Intelligence) dashboards
 
 All the code in this tutorial can be found here:   
-[Building a Medallion Architecture on Fabric Real Time Intelligence](<https://github.com/microsoft/FabricRTA-Retail/>)  
+[Building a Medallion Architecture on Fabric Real-Time Intelligence](<https://github.com/microsoft/FabricRTA-Retail/>)  
 
 Also, here's a detailed [article](<https://techcommunity.microsoft.com/t5/startups-at-microsoft/building-a-real-time-medallion-architecture-using-eventhouse-in/ba-p/4110686>) explaining this tutorial.
 
@@ -58,13 +57,13 @@ A medallion architecture (also coined by Databricks) is a data design pattern us
 
 Creating a multi-layer data platform allow companies to improve data quality across the layers and at the same time provide for their business needs. Unstructured and raw data are ingested using scalable pipelines to output the highest quality enriched data.
 
-Reference: https://dataengineering.wiki/Concepts/Medallion+Architecture
+Reference: [dataengineering.wiki/Concepts/Medallion+Architecture](<https://dataengineering.wiki/Concepts/Medallion+Architecture>)
 
-In summary, Microsoft Fabric Real-Time Intelligence (RTI) features benefit building a medallion architecture. They provide minimal latency for data in-motion, automatic light-weight transformations, dashboards, copilots to help you derive insights in a no-code experience, and allow you to take actions in real-time over your data. Additionally, all data is made avaiable via OneLake in delta-parquet format to Lakehouses using OneLake Availability as OneLogical copy for all your data. 
+In summary, Microsoft Fabric [Real-Time Intelligence (RTI)](<>) features benefit building a medallion architecture. They provide minimal latency for data in-motion, automatic light-weight transformations, dashboards, copilots to help you derive insights in a no-code experience, and allow you to take actions in real-time over your data. Additionally, all data is made avaiable via OneLake in delta-parquet format to Lakehouses using OneLake Availability as OneLogical copy for all your data. 
 
 ---
 
-# Fabric Real Time Intelligence features 
+# Fabric Real-Time Intelligence features 
 
 Let's cover the key-features and how we plan to use them for our architecture.
 
@@ -151,8 +150,8 @@ Photo by <a href="https://unsplash.com/@jxk?utm_content=creditCopyText&utm_mediu
 
 # Architecture
 
-## Components of Fabirc's Real Time Intelligence
-![RTIComponents](assets/RTIComponents.png "Components of Fabric's Real Time Intelligence")
+## Components of Fabirc's Real-Time Intelligence
+![RTIComponents](assets/RTIComponents.png "Components of Fabric's Real-Time Intelligence")
 Real-Time Intelligence allows organizations to ingest, process, analyze, transform and automatically act on data. With a central hub (Real-Time Hub) to easily access and visualize all internal and external, first- and third-party streaming data. We can achieve faster, more accurate decision-making and accelerated time to insight.
 
 ## Lab Architecture
@@ -221,7 +220,7 @@ If you need a new Trial Tenant, suggest to register a new Outlook.com email and 
 1. Proceed to [app.fabric.microsoft.com](<https://app.fabric.microsoft.com/>)
 2. Login with provided credentials, if a trial fabric tenant was previously setup (reference Pre-reqs). You may also choose to run the lab in your own Fabric Tenant if you already have one
 3. Click **Real-Time Intelligence**.
-![Fabric Home](assets/FabricHome.png "Real Time Intelligence")
+![Fabric Home](assets/FabricHome.png "Real-Time Intelligence")
 
 ## 2. Fabric Workspace 
 1. Click **Workspaces** on the left menu and open the Fabric Workspace **designated** to your login by the Fabric Trial Tenant.
@@ -302,7 +301,7 @@ Here's how to set this up:
 7. ![alt text](assets/fabrta65.png)
 8. Select Microsoft OneLake
 ![alt text](assets/fabrta66.png)
-9. Select the tables in our Eventhouse KQL DB and click "Next".
+9. Select the tables in our Eventhouse KQL DB and click "Next". Note, you may return to this step after running the createAll.kql database script which will create the additional tables. Otherwise, proceed by selecting just the "events" table for now.
 ![alt text](assets/fabrta67.png)
 10. Click "Create"
 ![alt text](assets/fabrta68.png)
@@ -328,73 +327,63 @@ In this section we will create all the tables, functions, materialized-views, an
 ![alt text](assets/fabrta28.png)
 
 
-## Data Factory pipeline
-In this section we will demonstrate how to use Fabric Data Factory pipeline to copy data from our SQL DB into our Eventhouse KQL DB via **batch** ingestion. This type of ingestion can be a one-time ingestion or can be scheduled to run periodically.
+## Data Pipeline
+In this section we will demonstrate how to use Fabric Data Factory pipeline to copy data from our SQL DB into our Eventhouse KQL DB via **batch** ingestion. This type of ingestion can be a one-time thing or scheduled to run periodically.
 ![alt text](assets/fabrta72.png)
 
-Create the Data Pipelines that you can run periodically to copy data to our Eventhouse DB.
+1. Create the Data Pipelines that you can run periodically to copy data to our Eventhouse DB.
 ![alt text](assets/fabrta31.png)
-Name it "Copy Address table".  
+2. Name it "Copy Address table".  
 ![alt text](assets/fabrta32.png)
-
-Select the Pipeline Activity - Copy data activity 
+3. Select the Pipeline Activity - **Copy data** activity 
 ![alt text](assets/fabrta33.png)
-
-Select Source - External and click "+" to create a new connection to the SQL DB
+4. Set the **Source** to External and click "+ New" to create a new connection
 ![alt text](assets/fabrta34.png)
-
-Fill in the details as follows:  
-```
-ServerName = adxdemo.database.windows.net
-DatabaseName = aworks
-UserName = sqlread
-Password = ChangeYourAdminPassword1
-
-```
+5. Choose **Azure SQL Database**, click Continue.
 ![alt text](assets/fabrta35.png)
+7. Enter the following Connection settings:  
+   - Server: `adxdemo.database.windows.net`
+   - Database: `aworks`
+   - Username: `sqlread`
+   - Password: `ChangeYourAdminPassword1`
 ![alt text](assets/fabrta36.png)
-
-After creating and testing the Data Connection to the SQL DB, select Database and Table "SalesLT.Address".  
+8. Click Create
+9. After creating and testing the External connection to the Azure SQL DB successfully, set the Database to `aworks` from the pick list.
+10. Set Table to `SalesLT.Address` from the pick list. Note, it may take a few seconds to display the list of tables.
 ![alt text](assets/fabrta37.png)
-
-Click on "Destination" tab, select "Workspace"- KQL DB - RTADemo - Address as target table.  
+11. Click on **Destination** tab, select "Workspace", set Workspace ddata store type to **KQL Database**, set KQL Database to **RTADemo**, and select Table **Address** from the pick list.
 ![alt text](assets/fabrta38.png)
-
-Click on "mapping" tab - Import schemas - and make sure all fields are mapped to the correct types with no warnings.  
-
-Click "run" to execute the pipeline.
+12. (Optionally) You can click on the Mapping tab to Import schemas & verify all fields are mapped to the correct data types without warnings. However, this addiitonal step is not required for this excercise.
+13. Click **Run** to execute the pipeline.
 ![alt text](assets/fabrta39.png)
-
-The pipeline will run until you see status "succeeded".
+14. The **Output** tab should appear in a few seconds to monitor the progress.
+15. The pipeline will run until you see Pipeline status ✅ **Succeeded**.
 ![alt text](assets/fabrta40.png)
-
-Run the pipeline again by clicking the "Run" button.
-We are running the data pipeline twice to show how we are deduping rows.  
-
-Let's check the data we copied.  
-Go to our KQL RTADemo Database in your Fabric Workspace.
-When running the query - we see 900 rows
+16. Click the **Run** button again to run it a second time. We are running the pipeline **twice** to show how we are deduplicating rows. 
+17. After the pipeline ran twice successfully, let's check the data we copied.
+18. (Optional) Open the "RTADemo" KQL Database in your Fabric Workspace and click "Explore your data" on the top right to write a query. Copy the following query and click **Run**:
 ```
 Address
 ```
+18. Open the KQL Queryset we saved previously in the workspace called "createAll" and click the + sign to open a new tab to write a query.
+20. Double click the Table name `Address` to auto-type it to the query pane and click Run. Otherwise, copy the following query and click **Run**:
+```
+Address
+```
+20. Notice 900 records are returned at the top right of the result grid. However, in the Azure SQL DB (source) we have 450 rows. This is because the pipeline was ran twice. ie. 450 x 2 = 900. 
 ![alt text](assets/fabrta42.png)  
-
-In the SQL DB (source) we have 450 rows
 ![alt text](assets/fabrta43.png)
-
-Now go to our KQL RTADemo Database in your Fabric Workspace.  
-Run the following query  
+22. Next, query the `SilverAddress` table instead. **Run** the following query:
 ```
 SilverAddress
 ```
-We see there are 900 rows and 1 additional column (IngestionDate) 
+23. Notice there are 900 rows and 1 additional column **IngestionDate** towards the right. 
 ![alt text](assets/fabrta44.png)
-
-Run the following query  
+24. Next, run the following query:
 ```
 GoldAddress
 ```
-We see there are 450 rows since the Gold layer contains materialized views using the maximum IngestionDate to show only the latest ingested rows.
+25. Notice there are 450 rows, since the Gold layer uses materialized views based on the maximum IngestionDate to show only the **latest** ingested rows.
 ```
 //GOLD LAYER
 // use materialized views to view the latest changes in the orders table
@@ -407,22 +396,23 @@ We see there are 450 rows since the Gold layer contains materialized views using
 ![alt text](assets/fabrta45.png)
 
 <div class="info" data-title="Note">  
-
-> Repeat all the steps in the Data pipeline creation for the Customer, SalesOrderHeader and SalesOrderDetail.
-> Pay attention that the SalesOrderDetail mapping requires you to map money type from SQL to the decimal data type in KQL.  
+> Repeat all the steps for the **Customer**, **SalesOrderHeader** and **SalesOrderDetail** tables.
+> Duplicate the Copy Data pipeline activity per table and change the Source & Destination accordingly. 
+> Notice how the Copy Activity Mapping for the **SalesOrderDetail** automatically maps sql data type `money` to `decimal` data type in KQL. You can see this by clicking Import schemas under the Mapping tab of the Copy Data activity. 
+> Also, you can right-click and deactivate the `Address` table Copy Data activity and **Run the pipeline twice** for the additional 3 Copy Data activities (one per table). They will run in parrallel. 
 </div>
 
 ![alt text](assets/fabrta46.png)
 
-# RTA Dashboard
-We will build a real time dashboard to visualize the streaming data.  
+# Real-Time Dashboard
+We will build a real-time dashboard to visualize the streaming data.  
 It will be refreshed every 30 seconds.
 ![alt text](assets/dashboard.png)
 
 Go to your Fabric Workspace and click on New - More options
 ![alt text](assets/fabrta47.png)
 
-Scroll down and choose Real Time Dashboard
+Scroll down and choose Real-Time Dashboard
 ![alt text](assets/fabrta48.png)
 Name it "RTA Dashboard"  
 ![alt text](assets/fabrta49.png)
