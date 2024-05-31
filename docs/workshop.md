@@ -395,14 +395,17 @@ GoldAddress
 ```
 ![alt text](assets/fabrta45.png)
 
-<div class="info" data-title="Note">  
-> Repeat all the steps for the **Customer**, **SalesOrderHeader** and **SalesOrderDetail** tables.
-> Duplicate the Copy Data pipeline activity per table and change the Source & Destination accordingly. 
+<div class="info" data-title="Note">
+  
+> Repeat the steps for the **Customer**, **SalesOrderHeader** and **SalesOrderDetail** tables.
+> Copy/Paste or duplicate the "Address" Copy Data activity onto the canvas three-times (3x). One for each additional table, then **change the Source & Destination** accordingly. 
 > Notice how the Copy Activity Mapping for the **SalesOrderDetail** automatically maps sql data type `money` to `decimal` data type in KQL. You can see this by clicking Import schemas under the Mapping tab of the Copy Data activity. 
-> Also, you can right-click and deactivate the `Address` table Copy Data activity and **Run the pipeline twice** for the additional 3 Copy Data activities (one per table). They will run in parrallel. 
+> Also, you can right-click and deactivate the "Address" Copy Data activity and then **Run** the pipeline **twice** to execute the additional three Copy Data activities. Note, they will run in parrallel. 
 </div>
 
-![alt text](assets/fabrta46.png)
+![AddressDeactivate](assets/AddressDeactivate.png "Deactivate Activity")
+![SalesOrderDetailMapping](assets/SalesOrderDetailMapping.png "SalesOrderDetail - Copy Data Mapping")
+
 
 # Real-Time Dashboard
 We will build a real-time dashboard to visualize the streaming data.  
@@ -498,10 +501,12 @@ If you'd like to contribute to this lab or report a bug-issue, please send a Pul
 
 ## Continue your learning
 
-- https://aka.ms/learn.kql
-- https://detective.kusto.io, https://detective.kusto.io/sans2023
-- https://aka.ms/fabric-learn
 - [Implement a Real-Time Intelligence Solution with Microsoft Fabric](<https://learn.microsoft.com/training/paths/explore-real-time-analytics-microsoft-fabric/>)
+- https://aka.ms/fabric-learn
+- https://aka.ms/learn.kql
+- https://detective.kusto.io
+- https://detective.kusto.io/sans2023
 - https://aka.ms/fabricblog
 - https://aka.ms/adx.blog
 - https://aka.ms/adx.youtube
+- https://aka.ms/fabric-rta-docs
