@@ -406,7 +406,7 @@ GoldAddress
 2. Notice how the Copy Activity Mapping for the **SalesOrderDetail** automatically maps sql data type `money` to `decimal` data type in KQL. You can see this by clicking Import schemas under the Mapping tab of the Copy Data activity. 
 3. Right-click and deactivate the "Address" Copy Data activity, then **Run** the pipeline **twice** to execute the same scenario for the additional three Copy Data activities. Note, they will run in parrallel. 
 
-![AddressDeactivate](assets/AddressDeactivateSmall.png "Deactivate Activity")
+![AddressDeactivate](assets/AddressDeactivateWide.png "Deactivate Activity")
 ![SalesOrderDetailMapping](assets/SalesOrderDetailMapping.png "SalesOrderDetail - Copy Data Mapping")
 
 
