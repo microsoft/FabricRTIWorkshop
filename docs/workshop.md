@@ -30,6 +30,11 @@ All the code in this tutorial can be found here:
 
 Also, here's a detailed [article](<https://techcommunity.microsoft.com/t5/startups-at-microsoft/building-a-real-time-medallion-architecture-using-eventhouse-in/ba-p/4110686>) explaining this tutorial.
 
+### Duration
+- Lab 1-2 hours
+- Theoretical context 30-45 minutes
+- Lab [pre-reqs](<https://moaw.dev/workshop/?src=gh%3Amicrosoft%2FFabricRTA-Retail%2Fmain%2Fdocs%2F&step=6>) 30-45 minutes (recommend provisioning trial tenan prior if necessary)
+
 ### Authors
 - [Denise Schlesinger](<https://github.com/denisa-ms>), Microsoft, Prin CSA
 - [Hiram Fleitas](<https://aka.ms/hiram>), Microsoft, Sr CSA
