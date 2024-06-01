@@ -4,7 +4,7 @@ type: workshop                          # Required.
 title: Building a Medallion Architecture using MS Fabric Real-Time Intelligence               # Required. Full title of the workshop
 short_title: Real-Time Intelligence Tutorial    # Optional. Short title displayed in the header
 description: In this technical workshop, you will build a complete analytics platform for streaming & batching data.   # Required.
-level: advanced                         # Required. Can be 'beginner', 'intermediate' or 'advanced'
+level: intermediate                         # Required. Can be 'beginner', 'intermediate' or 'advanced'
 authors:                                # Required. You can add as many authors as needed      
   - Microsoft Fabric Real-Time Intelligence
 contacts:                               # Required. Must match the number of authors
