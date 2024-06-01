@@ -162,11 +162,11 @@ Photo by <a href="https://unsplash.com/@jxk?utm_content=creditCopyText&utm_mediu
 
 # Architecture
 
-## Components of Fabirc's Real-Time Intelligence
+### Components of Fabirc's Real-Time Intelligence
 ![RTIComponents](assets/RTIComponents.png "Components of Fabric's Real-Time Intelligence")
 Real-Time Intelligence allows organizations to ingest, process, analyze, ask questions over your data using natural language, transform and automatically act on data. All with a central hub (Real-Time Hub) to easily access and visualize all internal and external, first- and third-party streaming data. We can achieve faster, more accurate decision-making and accelerated time to insight.
 
-## Lab Architecture
+### Lab Architecture
 ![Architectural Diagram](assets/architecture.png "Architecture Diagram")
 Now with Data Activator (Reflex), we can also set alerts on Real-time Dashboards to send a message in Teams with conditional threasholds or even more advanced actions. 
 
@@ -174,11 +174,11 @@ Now with Data Activator (Reflex), we can also set alerts on Real-time Dashboards
 
 # Data schema
 
-## Data flow
+### Data flow
 ![MRD](assets/mrd.png)  
 
 
-## Tables
+### Tables
 | Table| Origin     | Description|
 |------|------------|------------|
 | **events**|EventHouse table|Streaming events representing the product being seen or clicked by the customer. Will be streamed into Fabric Eventhouse from an eventstream. We'll use a Fabric Notebook to simulate and push synthetic data (fake data) into an endpoint.|
@@ -191,13 +191,13 @@ Now with Data Activator (Reflex), we can also set alerts on Real-time Dashboards
 | **SilverOrdersHeader**|EventHouse table|Table created based on an update policy with transformed data|
 | **SilverOrdersDetail**|EventHouse table|Table created based on an update policy with transformed data|
 
-## External Tables
+### External Tables
 | Table| Origin     | Description|
 |------|------------|------------|
 | **Product**|**Shortcut** to SQL DB|Products, including descriptions and prices|
 | **ProductCategory**|**Shortcut** to SQL DB|Product category|
 
-## Functions
+### Functions
 | Function| Description|
 |------------|------------|
 |**ParseAddress**|Adds watermark column based on `ingestion_time()`|
@@ -205,7 +205,7 @@ Now with Data Activator (Reflex), we can also set alerts on Real-time Dashboards
 |**ParseSalesOrderHeader**|Adds calculated column `DaysShipped` by measuring the number of days between `ShipDate` and `OrderDate`. Also, adds watermark column based on `ingestion_time()` |
 |**ParseSalesOrderDetail**|Adds watermark column based on `ingestion_time()`|
 
-## Materialized-Views
+### Materialized-Views
 | View | Origin     | Description|
 |------|------------|------------|
 | **GoldAddress**|EventHouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records|
@@ -584,7 +584,7 @@ If you'd like to contribute to this lab or report a bug-issue, please send a Pul
 
 ---
 
-## Continue your learning
+# Continue your learning
 
 - [Implement a Real-Time Intelligence Solution with Microsoft Fabric](<https://learn.microsoft.com/training/paths/explore-real-time-analytics-microsoft-fabric/>)
 - [Real-Time Intelligence documentation in Microsoft Fabric](<https://aka.ms/fabric-docs-rta>)
