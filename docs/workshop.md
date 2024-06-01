@@ -9,7 +9,9 @@ authors:                                # Required. You can add as many authors 
   - Microsoft Fabric Real-Time Intelligence
 contacts:                               # Required. Must match the number of authors
   - https://aka.ms/fabric-docs-rta
-duration_minutes: 180                    # Required. Estimated duration in minutes
+video_url: https://youtube.com/watch?v=hkChU3KMZaE             # Optional. Link to a video of the workshop
+duration_minutes: 120                    # Required. Estimated duration in minutes
+audience: students, pro devs, analysts            # Optional. Audience of the workshop (students, pro devs, etc.)
 tags: fabric, kql, realtime, intelligence, event, stream, sql, data, analytics, kusto, medallion, dashboard, reflex, activator         # Required. Tags for filtering and searching
 ---
 
@@ -590,6 +592,8 @@ If you'd like to contribute to this lab or report a bug-issue, please send a Pul
 - [Real-Time Intelligence documentation in Microsoft Fabric](<https://aka.ms/fabric-docs-rta>)
 - [Microsoft Fabric Updates Blog](<https://aka.ms/fabricblog>)
 - [Get started with Microsoft Fabric](<https://aka.ms/fabric-learn>)
+- [The mechanics of Real-Time Intelligence in Microsoft Fabric](<https://youtube.com/watch?v=4h6Wnc294gA>)
+- [Real-Time Intelligence in Microsoft Fabric](<https://youtube.com/watch?v=ugb_w3BTZGE>)
 
 
 ### Thank you!
