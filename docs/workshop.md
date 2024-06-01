@@ -588,12 +588,7 @@ If you'd like to contribute to this lab or report a bug-issue, please send a Pul
 
 - [Implement a Real-Time Intelligence Solution with Microsoft Fabric](<https://learn.microsoft.com/training/paths/explore-real-time-analytics-microsoft-fabric/>)
 - https://aka.ms/fabric-learn
-- https://aka.ms/learn.kql
-- https://detective.kusto.io
-- https://detective.kusto.io/sans2023
 - https://aka.ms/fabricblog
-- https://aka.ms/adx.blog
-- https://aka.ms/adx.youtube
 - https://aka.ms/fabric-rta-docs
 
 ### Thank you!
