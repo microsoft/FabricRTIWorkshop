@@ -332,7 +332,7 @@ In this section we will create all the tables, functions, materialized-views, an
 8. You can add additional tabs in the KQL Queryset to add new queries.
 9. Your tables, functions, shortcuts and materialized views should appear on the database pane on the left.
 ![alt text](assets/fabrta28.png)
-9. (Optional) While on the KQL Database details screen you may explore additional Real-Time Intelligence Samples by clicking the drop-drop chevron icon next to Get Data and selecting a desired sample. These samples will also give you the ability to learn more KQL queries for different workload datasets.
+9. (Optional) While on the KQL Database details screen you may explore additional **Real-Time Intelligence Samples** by clicking the **drop-drop next to Get data** and selecting a desired sample. These samples give you the ability to learn more. 
 ![EventhouseSamples](assets/EventhouseSamples.png "Real-Time Intelligence Samples")
 
 
