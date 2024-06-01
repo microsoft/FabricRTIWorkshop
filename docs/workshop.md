@@ -65,7 +65,7 @@ A medallion architecture (also coined by Databricks) is a data design pattern us
 
 Creating a multi-layer data platform allow companies to improve data quality across the layers and at the same time provide for their business needs. Unstructured and raw data are ingested using scalable pipelines to output the highest quality enriched data.
 
-Reference: [dataengineering.wiki/Concepts/Medallion+Architecture](<https://dataengineering.wiki/Concepts/Medallion+Architecture>)
+Reference: [Data Engineering Wiki](<https://dataengineering.wiki/Concepts/Medallion+Architecture>)
 
 In summary, Microsoft Fabric [Real-Time Intelligence (RTI)](<https://aka.ms/fabric-docs-rta>) features benefit building a medallion architecture. They provide minimal latency for data in-motion, automatic light-weight transformations, dashboards, copilots to help you derive insights in a no-code experience, and allow you to take actions in real-time over your data. Additionally, all data is made avaiable via OneLake in delta-parquet format to Lakehouses using OneLake Availability as OneLogical copy for all your data. 
 
@@ -164,7 +164,7 @@ Photo by <a href="https://unsplash.com/@jxk?utm_content=creditCopyText&utm_mediu
 
 ## Components of Fabirc's Real-Time Intelligence
 ![RTIComponents](assets/RTIComponents.png "Components of Fabric's Real-Time Intelligence")
-Real-Time Intelligence allows organizations to ingest, process, analyze, transform and automatically act on data. With a central hub (Real-Time Hub) to easily access and visualize all internal and external, first- and third-party streaming data. We can achieve faster, more accurate decision-making and accelerated time to insight.
+Real-Time Intelligence allows organizations to ingest, process, analyze, ask questions over your data using natural language, transform and automatically act on data. All with a central hub (Real-Time Hub) to easily access and visualize all internal and external, first- and third-party streaming data. We can achieve faster, more accurate decision-making and accelerated time to insight.
 
 ## Lab Architecture
 ![Architectural Diagram](assets/architecture.png "Architecture Diagram")
@@ -224,14 +224,12 @@ Now with Data Activator (Reflex), we can also set alerts on Real-time Dashboards
 ### Trial Tenant for the Lab
 If you need a new Trial Tenant to complete the lab, suggest to register a new Outlook.com email and follow these steps:
 1. [Provision Fabric Trial Tenant](<https://github.com/microsoft/FabricRTA-in-a-Day/tree/main/assets/trialtenant>) - see document and powershell script to setup a lab admin.
-   - 25 workspaces and 25 logins will be created automatically (one workspace per user).
-   - Participants can create items in their own workspace designated to their login.
-   - Participants can also share the lab credentials if necessary.
-   - Addtional Trial Tenants can be provisioned by repeating this process again, if more than 25 accounts are necessary.
+   - 25 workspaces with access to 25 logins will be created automatically (one workspace per user).
+   - Participants should create items in the workspace designated to their own login.
+   - If more than 25 accounts are necessary, addtional Trial Tenants can be provisioned by repeating this process again. Also, participants can share the lab credentials and use folders in their workspaces. 
 3. [Office 365 E5 Trial](<https://blog.fabric.microsoft.com/blog/accessing-microsoft-fabric-for-developers-startups-and-enterprises>). ⚠️ Make sure to disable recurring billing, otherwise your credit card will be charged for Office E5.
 4. The "LabAdmin" credential should be used by the lab proctor.
-5. The "LabAdmin" may want to have the pre-built lab items for Lab Users 01-24 to reference as a cheatsheet. Therefore, grant Users 01-24 viewer permission to the "LabAdmin" workspace.
-6. and adding Lab User 01-24 as Viewers. This way the LabAdmin workspace can 
+5. The "LabAdmin" can have the pre-built lab items for Lab Users 01-24 to reference as a cheatsheet. To do so, grant Users 01-24 viewer permission to the "LabAdmin" workspace.
 ![WorkspaceManageAccess](assets/WorkspaceManageAccess.png "Workspace Manage Access")
 
 ---
@@ -266,10 +264,9 @@ In this section we will be streaming events (impressions and clicks events) gene
 ![alt text](assets/fabrta3.png)
 ![alt text](assets/fabrta4.png)
 2. For this lab, you **do not** need to check the box to enable Preview Features. If you enable the preview features you may proceed just as well, but some prompts may differ in the Eventstream User-Interface.
-3. Add a "Custom app" or "Custom Endpoint" as a source. This will create an event hub connected to the Eventstream.
-4. Click on the Eventstream source - Custom App to get the event hub **name** and Connection string-primary key. We need these values to send the events from our Notebook.  
+3. Add a "Custom app" or "Custom Endpoint" as a source. This will create an event hub connected to the Eventstream. Name the new source "CustomApp" or as you prefer. 
 ![alt text](assets/fabrta5.png)
-![alt text](assets/fabrta6.png)  
+4. Click on the Eventstream source - Custom App to get the "Event hub name" and "Connection string-primary key". We need these values to send the events from our Notebook.  
 5. Click on "Keys"
 6. Click the copy icon next to the **Event hub name** to copy it to a notepad.
 ![alt text](assets/fabrta8.png)
