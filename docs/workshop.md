@@ -41,7 +41,10 @@ Also, here's a detailed [article](<https://techcommunity.microsoft.com/t5/startu
 - Guy Yehudy, Microsoft, Prin PM
 
 ### Feedback - Contributing
-- Rate this lab or give us feedback to improve using this short [Eval](<https://forms.office.com/r/xhW3GAtAhi>). 
+- Rate this lab or give us feedback to improve using this short [Eval](<https://forms.office.com/r/xhW3GAtAhi>). Scan this QR Code to open the Eval form on your phone.
+
+![QR Code](assets/QRCodeLabEval-Small.png "QR Code")
+
 - If you'd like to contribute to this lab, report a bug or issue, please feel free to submit a Pull-Request to the [GitHub repo](<https://github.com/microsoft/FabricRTA-Retail/>) for us to review or [submit Issues](<https://github.com/microsoft/FabricRTA-Retail/issues>) you encounter.
 
 
@@ -596,6 +599,6 @@ If you'd like to contribute to this lab or report a bug-issue, please send a Pul
 - https://aka.ms/adx.youtube
 - https://aka.ms/fabric-rta-docs
 
-Thank you! 
+### Thank you!
 
 ![logo](https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Mu3b?ver=5c31)
