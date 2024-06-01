@@ -273,12 +273,11 @@ In this section we will be streaming events (impressions and clicks events) gene
 ![alt text](assets/fabrta18.png)
 5. Create a new table in our KQL DB called `events`.
 ![alt text](assets/fabrta19.png)
-6. You will see a sample of the **streaming** data showing _click_ and _impression_ events, click Finish and Close.
+6. You will see a sample of the **streaming** data showing CLICK and IMPRESSION events, click Finish and Close.
 ![alt text](assets/fabrta20.png)
 ![alt text](assets/fabrta21.png)
 7. You should see the Eventstream destination is in mode "Ingesting" or "Streaming". You may need to click Publish prior and the Refresh button. 
 ![alt text](assets/fabrta22.png)
-![alt text](assets/fabrta23.png)
 
 
 ## 8. Accessing your Eventhouse data in a Lakehouse
@@ -288,7 +287,7 @@ This feature is also called "one logical copy" and it automatically allows KQL D
 - KQL Database offers a robust mechanism to batch the incoming streams of data into one or more Parquet files suitable for analysis. The Delta Lake representation is provided to keep the data open and reusable. This logical copy is managed once, is paid for once and users should consider it a single data set.
 ![alt text](assets/fabrta70.png)
 
-Here's how to set this up: 
+### Here's how to set this up
 1. Open your Eventhouse
 2. Select your KQL Database
 3. Click on the pencil icon next to OneLake availability in the Database details pane.
@@ -301,8 +300,14 @@ Here's how to set this up:
 7. ![alt text](assets/fabrta65.png)
 8. Select Microsoft OneLake
 ![alt text](assets/fabrta66.png)
-9. Select the tables in our Eventhouse KQL DB and click "Next". Note, you may return to this step after running the createAll.kql database script which will create the additional tables. Otherwise, proceed by selecting just the "events" table for now.
+9. Select the "events" table in our Eventhouse KQL DB and click "Next". 
+
+<div class="info" data-title="Note">
+  
+> You may return to this step after running the [createAll.kql](<https://github.com/microsoft/FabricRTA-Retail/blob/main/kql/createAll.kql>) database script which will create the additional tables. For now, you may proceed by selecting just the "events" table.
+</div>
 ![alt text](assets/fabrta67.png)
+
 10. Click "Create"
 ![alt text](assets/fabrta68.png)
 11. Now you will have the Eventhouse KQL Database tables available in your Lakehouse. This also works across workspaces. You can query them like any other Lakehouse table.
