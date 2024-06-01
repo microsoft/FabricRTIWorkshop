@@ -1,0 +1,100 @@
+/////////////
+// 1st tab //
+/////////////
+// createAll.kql
+
+
+
+/////////////
+// 2nd tab //
+/////////////
+// events
+events
+| take 10 //(shift + enter)
+
+external_table("products")
+| count
+
+external_table("productCategories")
+| take 10
+
+
+external_table("productCategories")
+| count
+
+explain
+select top(10) *  from events
+
+events
+| project eventType, eventID, eventDate, productId, userAgent, device, ip_address, referer, page_loading_seconds
+| take int(10)
+
+
+
+/////////////
+// 3rd tab //
+/////////////
+//Address
+Address
+| count
+
+Address
+| getschema 
+
+SilverAddress
+| take 1000 
+
+SilverAddress
+| summarize count() by IngestionDate
+
+Address
+| extend ingestion_time()
+| take 10
+
+GoldAddress
+| count
+
+GoldAddress
+| take 10
+
+.show materialized-view  GoldAddress
+
+SilverAddress
+    | summarize arg_max(IngestionDate, *) by AddressID
+
+
+
+/////////////
+// 4th tab //
+/////////////
+//Customer
+Customer
+| count 
+
+SilverCustomer
+| count 
+
+GoldCustomer
+| count 
+
+SilverCustomer
+| summarize count() by IngestionDate
+
+GoldCustomer
+| take 10 
+
+.show materialized-view GoldCustomer
+
+SilverCustomer
+    | summarize arg_max(IngestionDate, *) by CustomerID
+
+.show function ParseCustomer
+
+Customer
+| extend IngestionDate = ingestion_time()
+
+.show function ParseSalesOrderHeader
+
+SalesOrderHeader
+| extend DaysShipped = datetime_diff('day', ShipDate, OrderDate)
+| extend IngestionDate = ingestion_time()
