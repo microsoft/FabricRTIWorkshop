@@ -597,4 +597,5 @@ If you'd like to contribute to this lab or report a bug-issue, please send a Pul
 - https://aka.ms/fabric-rta-docs
 
 Thank you! 
+
 ![logo](https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Mu3b?ver=5c31)
