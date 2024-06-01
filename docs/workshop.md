@@ -587,9 +587,10 @@ If you'd like to contribute to this lab or report a bug-issue, please send a Pul
 ## Continue your learning
 
 - [Implement a Real-Time Intelligence Solution with Microsoft Fabric](<https://learn.microsoft.com/training/paths/explore-real-time-analytics-microsoft-fabric/>)
-- [Get started with Microsoft Fabric](<https://aka.ms/fabric-learn>)
-- [Microsoft Fabric Updates Blog](<https://aka.ms/fabricblog>)
 - [Real-Time Intelligence documentation in Microsoft Fabric](<https://aka.ms/fabric-docs-rta>)
+- [Microsoft Fabric Updates Blog](<https://aka.ms/fabricblog>)
+- [Get started with Microsoft Fabric](<https://aka.ms/fabric-learn>)
+
 
 ### Thank you!
 
