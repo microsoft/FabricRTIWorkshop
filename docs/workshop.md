@@ -8,7 +8,7 @@ level: intermediate                         # Required. Can be 'beginner', 'inte
 authors:                                # Required. You can add as many authors as needed      
   - Microsoft Fabric Real-Time Intelligence
 contacts:                               # Required. Must match the number of authors
-  - https://aka.ms/fabric-docs-rta
+  - https://aka.ms/fabricblog
 video_url: https://youtube.com/watch?v=hkChU3KMZaE             # Optional. Link to a video of the workshop
 duration_minutes: 120                    # Required. Estimated duration in minutes
 audience: students, pro devs, analysts            # Optional. Audience of the workshop (students, pro devs, etc.)
