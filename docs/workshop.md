@@ -10,7 +10,7 @@ authors:                                # Required. You can add as many authors 
 contacts:                               # Required. Must match the number of authors
   - https://aka.ms/fabric-docs-rta
 duration_minutes: 180                    # Required. Estimated duration in minutes
-tags: realtime, intelligence, streaming, azure, data, analytics, Kusto, bicep, azure data explorer, fabric         # Required. Tags for filtering and searching
+tags: fabric, kql, realtime, intelligence, event, stream, sql, data, analytics, kusto, medallion, dashboard, reflex, activator         # Required. Tags for filtering and searching
 ---
 
 # Introduction
