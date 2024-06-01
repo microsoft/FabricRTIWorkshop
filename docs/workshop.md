@@ -280,7 +280,8 @@ In this section we will be streaming events (impressions and clicks events) gene
 ![alt text](assets/fabrta21.png)
 7. You should see the Eventstream destination is in mode "Ingesting" or "Streaming". You may need to click Publish prior and the Refresh button. 
 ![alt text](assets/fabrta22.png)
-
+8. (Optional) The **Real-Time Hub** menu icon on the left, provides a simple way to **Get Events** from several sources and samples. 
+![RealTimeHubSources](assets/RealTimeHubSources.png "Real-Time Hub sources")
 
 ## 8. Accessing your Eventhouse data in a Lakehouse
 This feature is also called "one logical copy" and it automatically allows KQL Database tables to be accessed from a Lakehouse, Notebooks, etc in delta-parquet format via OneLake.
