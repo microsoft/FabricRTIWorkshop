@@ -323,7 +323,6 @@ In this section we will create all the tables, functions, materialized-views, an
 
 1. Open the RTADemo KQL Database in the Eventhouse of your Fabric Workspace.
 2. Click on "Explore your Data".  
-![alt text](assets/fabrta24.png)
 ![alt text](assets/fabrta25.png)
 3. Open the [createAll.kql](<https://github.com/microsoft/FabricRTA-Retail/blob/main/kql/createAll.kql>) file in GitHub and click copy icon at the top right to copy the entire file content.
 4. Replace all on the "Explore your data" by deleting lines 1-19 and paste the contents of the createAll.kql file.  
