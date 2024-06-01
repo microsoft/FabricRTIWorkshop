@@ -217,9 +217,8 @@ Now with Data Activator (Reflex), we can also set alerts on Real-time Dashboards
 If you need a new Trial Tenant to complete the lab, suggest to register a new Outlook.com email and follow these steps:
 1. [Provision Fabric Trial Tenant](<https://github.com/microsoft/FabricRTA-in-a-Day/tree/main/assets/trialtenant>) - see document and powershell script to setup a lab admin.
    - 25 workspaces and 25 logins will be created automatically (one workspace per user).
-   - 25 accounts in total.
-   - Attendies can create items in their own workspace designated to their login.
-   - Attendies can also share the lab credentials if necessary.
+   - Participants can create items in their own workspace designated to their login.
+   - Participants can also share the lab credentials if necessary.
    - Addtional Trial Tenants can be provisioned by repeating this process again, if more than 25 accounts are necessary.
 3. [Office 365 E5 Trial](<https://blog.fabric.microsoft.com/blog/accessing-microsoft-fabric-for-developers-startups-and-enterprises>). ⚠️ Make sure to disable recurring billing, otherwise your credit card will be charged for Office E5.
 4. The "LabAdmin" credential should be used by the lab proctor.
