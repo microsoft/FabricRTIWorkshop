@@ -213,9 +213,19 @@ Now with Data Activator (Reflex), we can also set alerts on Real-time Dashboards
   - [Real-Time Intelligence Tutorial](<https://learn.microsoft.com/fabric/real-time-intelligence/tutorial-introduction>)
 - To complete the lab you **must** have access to a [Microsoft Fabric](<https://www.microsoft.com/microsoft-fabric/getting-started>) workspace with at least Contributor permissions.
 
-If you need a new Trial Tenant, suggest to register a new Outlook.com email and follow these steps:
-1. [Provision Fabric Trial Tenant](<https://github.com/microsoft/FabricRTA-in-a-Day/tree/main/assets/trialtenant>) - see document and powershell script to setup a lab admin, 25 workspaces and 24 additional logins (one workspace per user will be automatically created). Attendies can create items specified in lab excercises in their own workspace.
-2. [Office 365 E5 Trial](<https://blog.fabric.microsoft.com/blog/accessing-microsoft-fabric-for-developers-startups-and-enterprises>). ⚠️ Make sure to disable recurring billing, otherwise your credit card will be charged for Office E5.
+### Trial Tenant for the Lab
+If you need a new Trial Tenant to complete the lab, suggest to register a new Outlook.com email and follow these steps:
+1. [Provision Fabric Trial Tenant](<https://github.com/microsoft/FabricRTA-in-a-Day/tree/main/assets/trialtenant>) - see document and powershell script to setup a lab admin.
+   - 25 workspaces and 25 logins will be created automatically (one workspace per user).
+   - 25 accounts in total.
+   - Attendies can create items in their own workspace designated to their login.
+   - Attendies can also share the lab credentials if necessary.
+   - Addtional Trial Tenants can be provisioned by repeating this process again, if more than 25 accounts are necessary.
+3. [Office 365 E5 Trial](<https://blog.fabric.microsoft.com/blog/accessing-microsoft-fabric-for-developers-startups-and-enterprises>). ⚠️ Make sure to disable recurring billing, otherwise your credit card will be charged for Office E5.
+4. The "LabAdmin" credential should be used by the lab proctor.
+5. The "LabAdmin" may want to have the pre-built lab items for Lab Users 01-24 to reference as a cheatsheet. Therefore, grant Users 01-24 viewer permission to the "LabAdmin" workspace.
+6. and adding Lab User 01-24 as Viewers. This way the LabAdmin workspace can 
+![WorkspaceManageAccess](assets/WorkspaceManageAccess.png "Workspace Manage Access")
 
 ---
 
