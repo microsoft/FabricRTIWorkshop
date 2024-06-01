@@ -476,8 +476,8 @@ events
 events 
 | where eventDate  between (_startTime.._endTime) and eventType == "IMPRESSION" 
 | join external_table('products') on $left.productId == $right.ProductID 
-| project lon = geo_info_from_ip_address(ip_address).longitude, lat = geo_info_from_ip_address(ip_address).latitude, Name 
-| render scatterchart with (kind = map)
+| project lon = toreal(geo_info_from_ip_address(ip_address).longitude), lat = toreal(geo_info_from_ip_address(ip_address).latitude), Name 
+| render scatterchart with (kind = map) //, xcolumn=lon, ycolumns=lat)
 ```
 ![alt text](assets/fabrta54.png)
 
