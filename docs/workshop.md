@@ -251,7 +251,9 @@ In this section we will be streaming events (impressions and clicks events) gene
 8. Then, click the copy icon at the end of **Connection string** to copy it to a notepad. It must be visible in order to copy it.
 
 ## 5. Import Data Generator Notebook
-1. Import the notebook file [Generate synthetic events.ipynb](<https://github.com/microsoft/FabricRTA-Retail/blob/main/notebooks/Generate%20synthetic%20events.ipynb>) to generate events using streaming. From Github, click the "Download raw file" icon on the top right. Then proceed to import the notebook file to your Fabric workspace.
+1. Import the notebook file [Generate synthetic events.ipynb](<https://github.com/microsoft/FabricRTA-Retail/blob/main/notebooks/Generate%20synthetic%20events.ipynb>) to generate events using streaming.
+2. From GitHub, click the "Download raw file" icon on the top right.
+3. Then proceed to import the notebook file to your Fabric workspace.
 ![alt text](assets/fabrta8.1.png)
 ![alt text](assets/fabrta8.2.png)
 
