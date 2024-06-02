@@ -35,7 +35,7 @@ Also, here's a detailed [article](<https://techcommunity.microsoft.com/t5/startu
 ### Duration
 - Lab 1-2 hours (section 8)
 - Theoretical context 30-45 minutes (sections 1-6)
-- Lab [pre-reqs](<https://moaw.dev/workshop/?src=gh%3Amicrosoft%2FFabricRTA-Retail%2Fmain%2Fdocs%2F&step=6>) 30-45 minutes (section 7, recommend provisioning trial tenan prior if necessary)
+- Lab [pre-reqs](<https://moaw.dev/workshop/?src=gh%3Amicrosoft%2FFabricRTA-Retail%2Fmain%2Fdocs%2F&step=6>) 30-45 minutes (section 7, recommend provisioning trial tenant prior if necessary)
 
 ### Authors
 - [Denise Schlesinger](<https://github.com/denisa-ms>), Microsoft, Prin CSA
