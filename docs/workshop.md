@@ -35,7 +35,6 @@ Also, here's a detailed [article](<https://techcommunity.microsoft.com/t5/startu
 ### Duration
 - Lab 1-2 hours (section 8)
 - Theoretical context 30-45 minutes (sections 1-6)
-- (Optional) [L200 - Presentation](https://livesend.microsoft.com/i/HApHPC4NaUUXPcWYRTG2HhOsJnKlEdQD0qcPfct3xFu4qkuNDNjhLd8aQO3e1TzjnpC27OdYtM4UqFlT5finq0Fs2knI4LjfTO8X8HEpdqyYGm3RvIjGkbJyNuUYhNyX)
 - Lab [pre-reqs](<https://moaw.dev/workshop/?src=gh%3Amicrosoft%2FFabricRTA-Retail%2Fmain%2Fdocs%2F&step=6>) 30-45 minutes (section 7, recommend provisioning trial tenan prior if necessary)
 
 ### Authors
@@ -85,6 +84,8 @@ Let's cover the key-features and how we plan to use them for our architecture.
 ### Copilot
 - Copilot for Real-Time Intelligence is an advanced AI tool designed to help you explore your data and extract valuable insights. You can input questions about your data, which are then automatically translated into Kusto Query Language (KQL) queries. Copilot streamlines the process of analyzing data for both experienced KQL users and citizen data scientists.
 - Feature [documentation](<https://learn.microsoft.com/fabric/get-started/copilot-real-time-intelligence>)
+![Copilot](assets/Copilot.png "Fabric Copilot in KQL Queryset")
+
 
 ### Data pipelines 
 - Bronze layer tables are populated by a Data Factory pipeline to copy data from our operational SQL DB.
