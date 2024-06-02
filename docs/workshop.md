@@ -27,7 +27,7 @@ You will learn how to:
 - Create data transformations in Fabric RTI (Real-Time Intelligence)
 - Create reports for real-time visualizations using RTI (Real-Time Intelligence) dashboards
 
-All the code in this tutorial can be found here:   
+All the **code** in this tutorial can be found here:   
 [Building a Medallion Architecture on Fabric Real-Time Intelligence](<https://github.com/microsoft/FabricRTA-Retail/>)  
 
 Also, here's a detailed [article](<https://techcommunity.microsoft.com/t5/startups-at-microsoft/building-a-real-time-medallion-architecture-using-eventhouse-in/ba-p/4110686>) explaining this tutorial.
@@ -35,6 +35,7 @@ Also, here's a detailed [article](<https://techcommunity.microsoft.com/t5/startu
 ### Duration
 - Lab 1-2 hours (section 8)
 - Theoretical context 30-45 minutes (sections 1-6)
+- (Optional) [L200 - Presentation](https://livesend.microsoft.com/i/HApHPC4NaUUXPcWYRTG2HhOsJnKlEdQD0qcPfct3xFu4qkuNDNjhLd8aQO3e1TzjnpC27OdYtM4UqFlT5finq0Fs2knI4LjfTO8X8HEpdqyYGm3RvIjGkbJyNuUYhNyX)
 - Lab [pre-reqs](<https://moaw.dev/workshop/?src=gh%3Amicrosoft%2FFabricRTA-Retail%2Fmain%2Fdocs%2F&step=6>) 30-45 minutes (section 7, recommend provisioning trial tenan prior if necessary)
 
 ### Authors
