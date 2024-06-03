@@ -131,7 +131,7 @@ Let's cover the key-features and how we plan to use them for our architecture.
 - Feature [documentation](<https://learn.microsoft.com/fabric/real-time-intelligence/dashboard-real-time-create>).
 
 ### Data Activator
-- We will to Set an Alert in our Real-time Dashboard to message me in Teams. Data Activator (code-name Reflex) is a no-code experience in Microsoft Fabric for automatically taking actions when patterns or conditions are detected in changing data. It monitors data in Power BI reports, Eventstreams items and Real-time Dashboards, for when the data hits certain thresholds or matches other patterns. It then automatically takes appropriate action such as alerting users or kicking off Power Automate workflows.
+- We will Set an Alert in our Real-time Dashboard to message me in Teams. Data Activator (code-name Reflex) is a no-code experience in Microsoft Fabric for automatically taking actions when patterns or conditions are detected in changing data. It monitors data in Power BI reports, Eventstreams items and Real-time Dashboards, for when the data hits certain thresholds or matches other patterns. It then automatically takes appropriate action such as alerting users or kicking off Power Automate workflows.
 - Some common use cases are:
   - Run Ads when same-store sales decline.
   - Alert store managers to move food from failing freezers before it spoils.
@@ -167,7 +167,7 @@ Photo by <a href="https://unsplash.com/@jxk?utm_content=creditCopyText&utm_mediu
 
 # Architecture
 
-### Components of Fabirc's Real-Time Intelligence
+### Components of Fabric's Real-Time Intelligence
 ![RTIComponents](assets/RTIComponents.png "Components of Fabric's Real-Time Intelligence")
 Real-Time Intelligence allows organizations to ingest, process, analyze, ask questions over your data using natural language, transform and automatically act on data. All with a central hub (Real-Time Hub) to easily access and visualize all internal and external, first- and third-party streaming data. We can achieve faster, more accurate decision-making and accelerated time to insight.
 
