@@ -1,6 +1,6 @@
 # Fabric - Real Time Intelligence 
 
-## Building a Medallion Architecture on Fabric Real time analytics
+## Building a medallion architecture using Fabric Real-Time Intelligence
 
 To get started proceed to the moaw. 
 
