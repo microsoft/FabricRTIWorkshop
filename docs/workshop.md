@@ -25,17 +25,17 @@ You will learn how to:
 - Use Fabric data pipelines for copying data from an operational DB (SQL server with Adventure works sample data)
 - Stream events and ingest them into MS Fabric RTI (Real-Time Intelligence) using EventStream
 - Create data transformations in Fabric RTI (Real-Time Intelligence)
-- Create reports for real-time visualizations using RTI (Real-Time Intelligence) dashboards
+- Create real-time visualizations using RTI (Real-Time Intelligence) dashboards and automate actions.
 
 All the **code** in this tutorial can be found here:   
-[Building a Medallion Architecture on Fabric Real-Time Intelligence](<https://github.com/microsoft/FabricRTA-Retail/>)  
+[Building a Medallion Architecture on Fabric Real-Time Intelligence](<https://github.com/microsoft/FabricRTIWorkshop/>)  
 
 Also, here's a detailed [article](<https://techcommunity.microsoft.com/t5/startups-at-microsoft/building-a-real-time-medallion-architecture-using-eventhouse-in/ba-p/4110686>) explaining this tutorial.
 
 ### Duration
 - Lab 1-2 hours (section 8)
 - Theoretical context 30-45 minutes (sections 1-6)
-- Lab [pre-reqs](<https://moaw.dev/workshop/?src=gh%3Amicrosoft%2FFabricRTA-Retail%2Fmain%2Fdocs%2F&step=6>) 30-45 minutes (section 7, recommend provisioning trial tenant prior if necessary)
+- Lab [pre-reqs](<https://moaw.dev/workshop/?src=gh%3Amicrosoft%2FFabricRTIWorkshop%2Fmain%2Fdocs%2F&step=6>) 30-45 minutes (section 7, recommend provisioning trial tenant prior if necessary)
 
 ### Authors
 - [Denise Schlesinger](<https://github.com/denisa-ms>), Microsoft, Prin CSA
@@ -47,7 +47,7 @@ Also, here's a detailed [article](<https://techcommunity.microsoft.com/t5/startu
 
 ![QR Code](assets/QRCodeLabEval-Small.png "QR Code")
 
-- If you'd like to contribute to this lab, report a bug or issue, please feel free to submit a Pull-Request to the [GitHub repo](<https://github.com/microsoft/FabricRTA-Retail/>) for us to review or [submit Issues](<https://github.com/microsoft/FabricRTA-Retail/issues>) you encounter.
+- If you'd like to contribute to this lab, report a bug or issue, please feel free to submit a Pull-Request to the [GitHub repo](<https://github.com/microsoft/FabricRTIWorkshop/>) for us to review or [submit Issues](<https://github.com/microsoft/FabricRTIWorkshop/issues>) you encounter.
 
 
 ---
@@ -279,7 +279,7 @@ In this section we will be streaming events (impressions and clicks events) gene
 8. Then, click the copy icon at the end of **Connection string** to copy it to a notepad. It must be visible in order to copy it.
 
 ## 5. Import Data Generator Notebook
-1. Import the notebook file [Generate synthetic events.ipynb](<https://github.com/microsoft/FabricRTA-Retail/blob/main/notebooks/Generate%20synthetic%20events.ipynb>) to generate events using streaming.
+1. Import the notebook file [Generate synthetic events.ipynb](<https://github.com/microsoft/FabricRTIWorkshop/blob/main/notebooks/Generate%20synthetic%20events.ipynb>) to generate events using streaming.
 2. From GitHub, click the "Download raw file" icon on the top right.
 3. Then proceed to import the notebook file to your Fabric workspace.
 ![alt text](assets/fabrta8.1.png)
@@ -335,7 +335,7 @@ This feature is also called "one logical copy" and it automatically allows KQL D
 
 <div class="info" data-title="Note">
   
-> You may return to this step to create additional shortcuts, after running the [createAll.kql](<https://github.com/microsoft/FabricRTA-Retail/blob/main/kql/createAll.kql>) database script which will create the additional tables. For now, you may proceed by selecting just the "events" table.
+> You may return to this step to create additional shortcuts, after running the [createAll.kql](<https://github.com/microsoft/FabricRTIWorkshop/blob/main/kql/createAll.kql>) database script which will create the additional tables. For now, you may proceed by selecting just the "events" table.
 </div>
 
 ![alt text](assets/fabrta67.png)
@@ -353,7 +353,7 @@ In this section we will create all the tables, functions, materialized-views, an
 1. Open the RTADemo KQL Database in the Eventhouse of your Fabric Workspace.
 2. Click on "Explore your Data".  
 ![alt text](assets/fabrta25.png)
-3. Open the [createAll.kql](<https://github.com/microsoft/FabricRTA-Retail/blob/main/kql/createAll.kql>) file in GitHub and click copy icon at the top right to copy the entire file content.
+3. Open the [createAll.kql](<https://github.com/microsoft/FabricRTIWorkshop/blob/main/kql/createAll.kql>) file in GitHub and click copy icon at the top right to copy the entire file content.
 4. Replace all on the "Explore your data" by deleting lines 1-19 and paste the contents of the createAll.kql file.  
 5. Click Run
 ![alt text](assets/fabrta27.png)
@@ -449,7 +449,7 @@ GoldAddress
 
 
 # 12. Real-Time Dashboard
-In this section, we will build a real-time dashboard to visualize the streaming data and set it to refresh every 30 seconds. (Optionally) A pre-built version of the dashobard is available to download [here](<https://github.com/microsoft/FabricRTA-Retail/blob/main/dashboards/RTA%20dashboard/dashboard-RTA Dashboard.json>), which can be imported and configured to your KQL DB data source. 
+In this section, we will build a real-time dashboard to visualize the streaming data and set it to refresh every 30 seconds. (Optionally) A pre-built version of the dashobard is available to download [here](<https://github.com/microsoft/FabricRTIWorkshop/blob/main/dashboards/RTA%20dashboard/dashboard-RTA Dashboard.json>), which can be imported and configured to your KQL DB data source. 
 ![Real-Time Dashboard](assets/RealTimeDashboard.png "Real-Time Dashboard")
 
 1. Click + Create (button is located at top left Menu undreath Home).
@@ -459,7 +459,7 @@ In this section, we will build a real-time dashboard to visualize the streaming 
 5. Click **+ Add tile**.
 6. Click **+ Data source**. 
 7. Set the **Database** to "RTADemo" & click Create. 
-8. Proceed to paste each query below, add a visual, and apply changes. (Optionally) All queries are avilable in this script file [dashboard-RTA.kql](<https://github.com/microsoft/FabricRTA-Retail/blob/main/dashboards/RTA%20dashboard/dashboard-RTA.kql>).
+8. Proceed to paste each query below, add a visual, and apply changes. (Optionally) All queries are avilable in this script file [dashboard-RTA.kql](<https://github.com/microsoft/FabricRTIWorkshop/blob/main/dashboards/RTA%20dashboard/dashboard-RTA.kql>).
 
 
 ### Clicks by hour
@@ -585,7 +585,7 @@ Did you like it, did you not like it? Let us know in this short [Eval](<https://
 
 ![QR Code](assets/QRCodeLabEval-Small.png "QR Code")  
 
-If you'd like to contribute to this lab or report a bug-issue, please send a Pull-request for us to review or submit the issue in our [GH repo](<https://github.com/microsoft/FabricRTA-Retail/>).
+If you'd like to contribute to this lab or report a bug-issue, please send a Pull-request for us to review or submit the issue in our [GH repo](<https://github.com/microsoft/FabricRTIWorkshop/>).
 
 ---
 
