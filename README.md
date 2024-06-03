@@ -6,7 +6,7 @@ To get started proceed to the moaw.
 
 - https://aka.ms/fabricrealtimeworkshop (moaw)
 - [moaw docs](docs/workshop.md)
-- Optional presentation ([PDF](docs/))
+- Optional presentation ([PDF](docs/_Real-Time%20Intelligence%20in%20Fabric%20L200%20pitch%20deck.PDF))
 
 ### Authors
 - [Denise Schlesinger](<https://github.com/denisa-ms>), Microsoft, Prin CSA
