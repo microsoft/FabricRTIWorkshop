@@ -16,8 +16,8 @@ tags: fabric, kql, realtime, intelligence, event, stream, sql, data, analytics, 
 ---
 
 # Introduction
-Suppose you own an e-commerce website selling bike accessories.  
-You have millions of visitors a month, you want to analyze the website traffic, consumer patterns and predict sales.  
+Suppose you own an e-commerce website selling bike accessories. You have millions of visitors a month, you want to analyze the website traffic, consumer patterns and predict sales.  
+
 This workshop will walk you through the process of building an end-to-end [Real-Time Intelligence](<https://blog.fabric.microsoft.com/en-us/blog/introducing-real-time-intelligence-in-microsoft-fabric>) Solution in MS Fabric, using the medallion architecture, for your e-commerce website.  
 
 You will learn how to:
@@ -26,6 +26,8 @@ You will learn how to:
 - Stream events and ingest them into MS Fabric RTI (Real-Time Intelligence) using EventStream
 - Create data transformations in Fabric RTI (Real-Time Intelligence)
 - Create real-time visualizations using RTI (Real-Time Intelligence) dashboards and automate actions.
+
+See what real customers like [Dener Motorsports](<https://customers.microsoft.com/en-us/story/1751743814947802722-dener-motorsport-producose-ltd-azure-service-fabric-other-en-brazil>), [Elcom](<https://customers.microsoft.com/en-us/story/1770346240728000716-elcome-microsoft-copilot-consumer-goods-en-united-arab-emirates>), [Seair Exim Solutions](<https://customers.microsoft.com/en-us/story/1751967961979695913-seair-power-bi-professional-services-en-india>) & [One NZ](<https://customers.microsoft.com/en-us/story/1736247733970863057-onenz-powerbi-telecommunications-en-new-zealand>) are saying.
 
 All the **code** in this tutorial can be found here:   
 [Building a Medallion Architecture on Fabric Real-Time Intelligence](<https://github.com/microsoft/FabricRTIWorkshop/>)  
