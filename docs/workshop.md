@@ -239,6 +239,11 @@ If you need a new Trial Tenant to complete the lab, suggest to register a new Ou
 5. The "LabAdmin" can have the pre-built lab items for Lab Users 01-24 to reference as a cheatsheet. To do so, grant Users 01-24 viewer permission to the "LabAdmin" workspace.
 ![WorkspaceManageAccess](assets/WorkspaceManageAccess.png "Workspace Manage Access")
 
+### Enable Real-Time Dashboard
+1. While logged in as Tenant Admin or Capacity Admin to Fabric, click the gear icon on the top right of the  page to open Admin Portal. Note, the "LabAdmin" account will have access to enable this for the Trial Tenant described above.
+2. In the Tenant Settings, search for "dashboards", click the toggle to **Enable**, click **Apply**.
+![EnableRTDashboards](assets/EnableRTDashboards.png "Enable Real-Time Dashboards")
+
 ---
 
 # Building the platform
