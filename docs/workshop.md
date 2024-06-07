@@ -36,7 +36,7 @@ Also, here's a detailed [article](<https://techcommunity.microsoft.com/t5/startu
 
 ### Duration
 - Lab 1-2 hours (section 8)
-- Theoretical context 30-45 minutes (sections 1-6) or optional [presentation](/_Real-Time%20Intelligence%20in%20Fabric%20L200%20pitch%20deck.PDF).
+- Theoretical context 30-45 minutes (sections 1-6) or optional [presentation](<https://github.com/microsoft/FabricRTIWorkshop/blob/main/presentation/_Real-Time%20Intelligence%20in%20Fabric%20L200%20pitch%20deck.PDF>).
 - Lab [pre-reqs](<https://moaw.dev/workshop/?src=gh%3Amicrosoft%2FFabricRTIWorkshop%2Fmain%2Fdocs%2F&step=6>) 30-45 minutes (section 7, recommend provisioning trial tenant prior if necessary)
 
 ### Authors
