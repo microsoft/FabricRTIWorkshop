@@ -36,7 +36,7 @@ Also, here's a detailed [article](<https://techcommunity.microsoft.com/t5/startu
 
 ### Duration
 - Lab 1-2 hours (section 8)
-- Theoretical context 30-45 minutes (sections 1-6) or optional [presentation](_Real-Time%20Intelligence%20in%20Fabric%20L200%20pitch%20deck.PDF).
+- Theoretical context 30-45 minutes (sections 1-6) or optional [presentation](/_Real-Time%20Intelligence%20in%20Fabric%20L200%20pitch%20deck.PDF).
 - Lab [pre-reqs](<https://moaw.dev/workshop/?src=gh%3Amicrosoft%2FFabricRTIWorkshop%2Fmain%2Fdocs%2F&step=6>) 30-45 minutes (section 7, recommend provisioning trial tenant prior if necessary)
 
 ### Authors
@@ -614,6 +614,9 @@ At this point you've completed the lab, so you may stop running the notebook.
 1. Open the notebook "Generate synthetic events" from your workspace and click **Stop** on the last code cell if its still running.
 2. (Optionally) You can click **Cancel All** on the top menu or click the stop red-sequare button to Stop session. These only appear when your session is active or the notebook is running.
 ![alt text](assets/fabrta60.png)
+3. (Optionally) "LabAdmin" can click **Monitor** on the left Menu, search for "generate", click the 3-dots (...) next to the notebook "In progress" status and click **Cancel**.
+![StopAllNotebooks](assets/StopAllNotebooks.png "Monitor - click 3-dots per item to Cancel")
+
 
 ## THAT's ALL FOLKS!!
 
