@@ -526,8 +526,10 @@ events
 //Average Page Load time
 events 
 | where eventDate   between (_startTime.._endTime) and eventType == "IMPRESSION" 
-| summarize average_loadtime = avg(page_loading_seconds) by bin(eventDate, 1h) 
-| render linechart 
+//| summarize average_loadtime = avg(page_loading_seconds) by bin(eventDate, 1h) 
+| make-series average_loadtime = avg(page_loading_seconds) on eventDate from _startTime to _endTime+4h step 1h
+| extend forecast = series_decompose_forecast(average_loadtime, 4)
+| render timechart
 ```
 ![alt text](assets/fabrta55.png)
 
@@ -540,6 +542,7 @@ events
 19. Click the 3-dots (...) at the top right of the tile you just created to **Duplicate** it two more times.
 20. Name the 2nd one **Clicks**, set the Data value column to `clicks`, then Apply changes.
 21. Name the 3rd **Click Through Rate**, set the Data value column to `CTR`, then Apply changes.
+22. (Optional) On the "Visual formatting" pange, scroll down and adjust the "Conditional formatting" as desired by clicking "+ Add rule".
 ```
 //Clicks, Impressions, CTR
 let imp =  events 
@@ -558,11 +561,39 @@ imp
 ![alt text](assets/fabrta57.png)
 ![alt text](assets/fabrta58.png)
 
+### Average Page Load Time Anomalies
+```
+//Avg Page Load Time Anomalies
+events
+| where eventDate   between (_startTime.._endTime) and eventType == "IMPRESSION" 
+| make-series average_loadtime = avg(page_loading_seconds) on eventDate from _startTime to _endTime+4h step 1h
+| extend anomalies = series_decompose_anomalies(average_loadtime)
+| render anomalychart
+```
+
+### Strong Anomalies
+```
+//Strong Anomalies
+events
+| where eventDate between (_startTime.._endTime) and eventType == "IMPRESSION" 
+| make-series average_loadtime = avg(page_loading_seconds) on eventDate from _startTime to _endTime+4h step 1h
+| extend anomalies = series_decompose_anomalies(average_loadtime,2.5)
+| mv-expand eventDate, average_loadtime, anomalies
+| where anomalies <> 0
+| project-away anomalies
+```
+
+### Logo (Markdown Text Tile)
+```
+//Logo (Markdown Text Tile)
+![AdventureWorks](https://vikasrajput.github.io/resources/PBIRptDev/AdventureWorksLogo.jpg "AdventureWorks")
+```
 
 ### Auto-refresh
 22. While editing the dashboard, click **Manage** > **Auto refresh**.
 23. Set it to **Enabled**, and **Default** refresh rate to **30 seconds**, click Apply.
 24. Click **Home** and then **Save**.
+
 
 ## 13. Reflex
 1. While editing the dashboard, click **Manage** > Set Alert.
