@@ -21,11 +21,11 @@ Suppose you own an e-commerce website selling bike accessories. You have million
 This workshop will walk you through the process of building an end-to-end [Real-Time Intelligence](<https://blog.fabric.microsoft.com/en-us/blog/introducing-real-time-intelligence-in-microsoft-fabric>) Solution in MS Fabric, using the medallion architecture, for your e-commerce website.  
 
 You will learn how to:
-- Build a medallion architecture in MS Fabric Real-Time Intelligence
-- Use Fabric data pipelines for copying data from an operational DB (SQL server with Adventure works sample data)
-- Stream events and ingest them into MS Fabric RTI (Real-Time Intelligence) using EventStream
-- Create data transformations in Fabric RTI (Real-Time Intelligence)
-- Create real-time visualizations using RTI (Real-Time Intelligence) dashboards and automate actions.
+- Build a medallion architecture in Fabric Real-Time Intelligence. 
+- Use Fabric shortcuts & Data Factory pipelines to get data from operational DBs like SQL Server (with AdventureWorksLT sample data).
+- Stream events into Fabric Eventhouse via Eventstream & leverage OneLake availability.
+- Create real-time data transformations in Fabric Eventhouse through the power of Kusto Query Language (KQL) & Fabric Copilot.
+- Create real-time visualizations using Real-Time Dashboards and automate actions.
 
 See what real customers like [McLaren](<https://www.linkedin.com/posts/shahdevang_if-you-missed-flavien-daussys-story-at-build-activity-7199013652681633792-3hdp>), [Dener Motorsports](<https://customers.microsoft.com/en-us/story/1751743814947802722-dener-motorsport-producose-ltd-azure-service-fabric-other-en-brazil>), [Elcom](<https://customers.microsoft.com/en-us/story/1770346240728000716-elcome-microsoft-copilot-consumer-goods-en-united-arab-emirates>), [Seair Exim Solutions](<https://customers.microsoft.com/en-us/story/1751967961979695913-seair-power-bi-professional-services-en-india>) & [One NZ](<https://customers.microsoft.com/en-us/story/1736247733970863057-onenz-powerbi-telecommunications-en-new-zealand>) are saying.
 
