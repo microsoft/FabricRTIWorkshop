@@ -430,15 +430,23 @@ Address
 SilverAddress
 ```
 23. Notice there are 900 rows and 1 additional column **IngestionDate** towards the right. This transformation occurred automatically in real-time by the KQL function `parseAddress()`. The function was defined in the [Update Policy](<https://learn.microsoft.com/fabric/real-time-intelligence/table-update-policy>) when we ran "createAll.kql" database script.
+
 ![alt text](assets/fabrta44.png)
-24. Next, run the following query:
+
+<div class="info" data-title="Note">
+
+> You can use `.show table SilverAddress policy update` to view the **Policy** settings. Also, `.show functions` will show the **Body** definition of all functions and `.show materialized-views` will show the **Query**, health and more. 
+
+</div>
+
+26. Next, run the following query:
 ```
 GoldAddress
 ```
 25. Notice there are 450 rows, since the Gold layer uses materialized views based on the maximum IngestionDate to show only the **latest** ingested rows. This transformation occured automatically in real-time by the [materialized-view](<https://learn.microsoft.com/azure/data-explorer/kusto/management/materialized-views/materialized-view-overview>). The view was defined in the "createAll.kql" database script. The `arg_max()` aggregate function is documented [here](<https://learn.microsoft.com/azure/data-explorer/kusto/query/arg-max-aggregation-function>). Materialized views always return an up-to-date result of the aggregation query (always fresh). Querying a materialized view is more performant than running the aggregation directly over the source table.
 ```
 //GOLD LAYER
-// use materialized views to view the latest changes in the orders table
+// use materialized views to view the latest changes in the SilverAddress table
 .create materialized-view with (backfill=true) GoldAddress on table SilverAddress
 {
     SilverAddress
