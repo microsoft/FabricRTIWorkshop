@@ -443,7 +443,7 @@ SilverAddress
 ```
 GoldAddress
 ```
-25. Notice there are 450 rows, since the Gold layer uses materialized views based on the maximum IngestionDate to show only the **latest** ingested rows. This transformation occured automatically in real-time by the [materialized-view](<https://learn.microsoft.com/azure/data-explorer/kusto/management/materialized-views/materialized-view-overview>). The view was defined in the "createAll.kql" database script. The `arg_max()` aggregate function is documented [here](<https://learn.microsoft.com/azure/data-explorer/kusto/query/arg-max-aggregation-function>). Materialized views always return an up-to-date result of the aggregation query (always fresh). Querying a materialized view is more performant than running the aggregation directly over the source table.
+25. Notice there are 450 rows, since the Gold layer uses materialized views based on the maximum IngestionDate to show only the **latest** ingested rows. This transformation occured automatically in real-time by the [materialized-view](<https://learn.microsoft.com/azure/data-explorer/kusto/management/materialized-views/materialized-view-overview>). The view was defined in the [createAll.kql](<https://github.com/microsoft/FabricRTIWorkshop/blob/main/kql/createAll.kql>) database script (see lines 64-68). The `arg_max()` aggregate function is documented [here](<https://learn.microsoft.com/azure/data-explorer/kusto/query/arg-max-aggregation-function>). Materialized views always return an up-to-date result of the aggregation query (always fresh). Querying a materialized view is more performant than running the aggregation directly over the source table.
 ```
 //GOLD LAYER
 // use materialized views to view the latest changes in the SilverAddress table
