@@ -429,7 +429,7 @@ Address
 ```
 SilverAddress
 ```
-23. Notice there are 900 rows and 1 additional column **IngestionDate** towards the right. This transformation occurred automatically in real-time by the KQL function `parseAddress()`. The function was defined in the [Update Policy](<https://learn.microsoft.com/fabric/real-time-intelligence/table-update-policy>) when we ran "createAll.kql" database script.
+23. Notice there are 900 rows and 1 additional column **IngestionDate** towards the right. This transformation occurred automatically in real-time by the KQL function `parseAddress()`. The function was defined in the [Update Policy](<https://learn.microsoft.com/fabric/real-time-intelligence/table-update-policy>) when we ran [createAll.kql](<https://github.com/microsoft/FabricRTIWorkshop/blob/main/kql/createAll.kql>) database script (see lines 41-45).
 
 ![alt text](assets/fabrta44.png)
 
