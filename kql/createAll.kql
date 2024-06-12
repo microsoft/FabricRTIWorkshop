@@ -38,49 +38,29 @@ with
 .create table [SilverSalesOrderHeader](SalesOrderID: int, OrderDate: datetime, DueDate: datetime, ShipDate: datetime, ShipToAddressID: int, BillToAddressID: int, SubTotal: decimal, TaxAmt: decimal, Freight: decimal, TotalDue: decimal, ModifiedDate: datetime, DaysShipped: long, IngestionDate: datetime)
 .create table [SilverSalesOrderDetail](SalesOrderID: int, SalesOrderDetailID: int, OrderQty: int, ProductID: int, UnitPrice: decimal, UnitPriceDiscount: decimal,LineTotal: decimal, ModifiedDate: datetime, IngestionDate: datetime)
 // use update policies to transform data during Ingestion
-.create function ifnotexists 
-with (docstring = 'Add ingestion time to raw data')
-ParseAddress ()
-{
+.create function ifnotexists with (docstring = 'Add ingestion time to raw data') ParseAddress (){
 Address
 | extend IngestionDate = ingestion_time() 
 }
-.alter table
-SilverAddress 
-policy update @'[{"Source": "Address", "Query": "ParseAddress", "IsEnabled" : true, "IsTransactional": true }]'
-.create function ifnotexists 
-with (docstring = 'Add ingestion time to raw data')
-ParseCustomer ()
-{
+.alter table SilverAddress policy update @'[{"Source": "Address", "Query": "ParseAddress", "IsEnabled" : true, "IsTransactional": true }]'
+.create function ifnotexists with (docstring = 'Add ingestion time to raw data') ParseCustomer (){
 Customer
 | extend IngestionDate = ingestion_time() 
 }
-.alter table
-SilverCustomer 
-policy update @'[{"Source": "Customer", "Query": "ParseCustomer", "IsEnabled" : true, "IsTransactional": true }]'
-.create function ifnotexists 
-with (docstring = 'Add ingestion time to raw data')
-ParseSalesOrderHeader ()
-{
+.alter table SilverCustomer policy update @'[{"Source": "Customer", "Query": "ParseCustomer", "IsEnabled" : true, "IsTransactional": true }]'
+.create function ifnotexists with (docstring = 'Add ingestion time to raw data') ParseSalesOrderHeader (){
 SalesOrderHeader
 | extend DaysShipped = datetime_diff('day', ShipDate, OrderDate)
 | extend IngestionDate = ingestion_time() 
 }
-.alter table
-SilverSalesOrderHeader 
-policy update @'[{"Source": "SalesOrderHeader", "Query": "ParseSalesOrderHeader", "IsEnabled" : true, "IsTransactional": true }]'
-.create function ifnotexists 
-with (docstring = 'Add ingestion time to raw data')
-ParseSalesOrderDetail ()
-{
+.alter table SilverSalesOrderHeader policy update @'[{"Source": "SalesOrderHeader", "Query": "ParseSalesOrderHeader", "IsEnabled" : true, "IsTransactional": true }]'
+.create function ifnotexists with (docstring = 'Add ingestion time to raw data') ParseSalesOrderDetail () {
 SalesOrderDetail
 | extend IngestionDate = ingestion_time() 
 }
-.alter table
-SilverSalesOrderDetail 
-policy update @'[{"Source": "SalesOrderDetail", "Query": "ParseSalesOrderDetail", "IsEnabled" : true, "IsTransactional": true }]'
+.alter table SilverSalesOrderDetail policy update @'[{"Source": "SalesOrderDetail", "Query": "ParseSalesOrderDetail", "IsEnabled" : true, "IsTransactional": true }]'
 //GOLD LAYER
-// use materialized views to view the latest changes in the orders table
+// use materialized views to view the latest changes in the SilverAddress table
 .create materialized-view with (backfill=true) GoldAddress on table SilverAddress
 {
     SilverAddress
