@@ -330,14 +330,14 @@ This feature is also called "one logical copy" and it automatically allows KQL D
 2. Select your KQL Database
 3. Click on the pencil icon next to OneLake availability in the Database details pane. Click the toggle to activate it and click Done.
 ![alt text](assets/fabrta61.png)
-4. Click the `events` table on the left and activate "OneLake Availability" for the table itself as well, because this table was created prior to enabling OneLake availablity.
+![alt text](assets/fabrta62.png)
+5. Click the `events` table on the left and activate "OneLake Availability" for the table itself as well, because this table was created prior to enabling OneLake availablity.
 
 <div class="info" data-title="Note">
   
 >   Newly created tables will automatically inherit the "OneLake availability" setting from the Database level. 
 </div>
 
-![alt text](assets/fabrta62.png)
 7. Create new Lakehouse called "RTADemoLakehouse" in your workspace.
 ![alt text](assets/fabrta64.png)
 8. Click on "Get data" drop down, choose **New shortcut**
