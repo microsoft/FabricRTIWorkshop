@@ -328,17 +328,23 @@ This feature is also called "one logical copy" and it automatically allows KQL D
 ### Here's how to set this up
 1. Open your Eventhouse
 2. Select your KQL Database
-3. Click on the pencil icon next to OneLake availability in the Database details pane.
+3. Click on the pencil icon next to OneLake availability in the Database details pane. Click the toggle to activate it and click Done.
 ![alt text](assets/fabrta61.png)
-4. Click the toggle to activate it and click Done. Before you proceed, check that "OneLake Availability" appears **Active** for the `events` table; otherwise, pls activate it for the `events` table itself. **Note:** Newly created tables will automatically inherit the setting from the Database level. 
+4. Click the `events` table on the left and activate "OneLake Availability" for the table itself as well, because this table was created prior to enabling OneLake availablity.
+
+<div class="info" data-title="Note">
+  
+>   Newly created tables will automatically inherit the "OneLake availability" setting from the Database level. 
+</div>
+
 ![alt text](assets/fabrta62.png)
-5. Create new Lakehouse called "RTADemoLakehouse" in your workspace.
+7. Create new Lakehouse called "RTADemoLakehouse" in your workspace.
 ![alt text](assets/fabrta64.png)
-6. Click on "Get data" drop down, choose **New shortcut**
-7. ![alt text](assets/fabrta65.png)
-8. Select Microsoft OneLake
+8. Click on "Get data" drop down, choose **New shortcut**
+9. ![alt text](assets/fabrta65.png)
+10. Select Microsoft OneLake
 ![alt text](assets/fabrta66.png)
-9. Select the "events" table in our Eventhouse KQL DB and click "Next". 
+11. Select the "events" table in our Eventhouse KQL DB and click "Next". 
 
 <div class="info" data-title="Note">
   
