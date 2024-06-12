@@ -531,7 +531,7 @@ events
 | extend forecast = series_decompose_forecast(average_loadtime, 4)
 | render timechart
 ```
-![alt text](assets/fabrta55.png)
+![alt text](assets/AvgPageLoadTime.png)
 
 ### Impressions, Clicks & CTR
 14. Add a tile & paste the query below once. Note, this is a multi-statement query that uses multiple let statements & a query combined by semicolons. 
