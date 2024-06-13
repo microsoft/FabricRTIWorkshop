@@ -4,7 +4,7 @@
 
 To get started proceed to the moaw. 
 
-- https://aka.ms/fabricrealtimeworkshop (moaw)
+- https://aka.ms/fabricrtiworkshop (moaw)
 - [moaw docs](docs/workshop.md)
 - Optional presentation ([PDF](docs/_Real-Time%20Intelligence%20in%20Fabric%20L200%20pitch%20deck.PDF))
 
