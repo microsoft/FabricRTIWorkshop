@@ -230,7 +230,7 @@ Now with Data Activator (Reflex), we can also set alerts on Real-time Dashboards
 
 ### Trial Tenant for the Lab
 If you need a new Trial Tenant to complete the lab, suggest to register a new Outlook.com email and follow these steps:
-1. [Provision Fabric Trial Tenant](<https://github.com/microsoft/FabricRTA-in-a-Day/tree/main/assets/trialtenant>) - see document and powershell script to setup a lab admin.
+1. [Provision Fabric Trial Tenant](https://github.com/microsoft/FabricRTA-in-a-Day/tree/main/assets/trialtenant) - see document and powershell script to setup a lab admin.
    - 25 workspaces with access to 25 logins will be created automatically (one workspace per user).
    - Participants should create items in the workspace designated to their own login.
    - If more than 25 accounts are necessary, addtional Trial Tenants can be provisioned by repeating this process again. Also, participants can share the lab credentials and use folders in their workspaces. 
