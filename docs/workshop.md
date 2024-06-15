@@ -81,7 +81,7 @@ In summary, Microsoft Fabric [Real-Time Intelligence (RTI)](<https://aka.ms/fabr
 Let's cover the key-features and how we plan to use them for our architecture.
 
 ### Event streams
-- Clicks and Impressions events are ingested from an Eventstream into the `events` table. This feature allows us to bring real-time events into Fabric, transform them, and then route them to various destinations wihtout writing any code (no-code). Enhanced capabilities allows us to source data into Eventstreams from Azure Event Hubs, IoT Hubs, Azure SQL Database (CDC), PostgreSQL Database (CDC), MySQL Database (CDC), Azure Cosmos DB (CDC), Google Cloud Pub/Sub, Amazon Kinesis Data Streams, Confluent Cloud Kafka, Azure Blog Storage events, Fabric Workspace Item events, Sample data or Custom endpoint (Custom App).
+- Clicks and Impressions events are ingested from an Eventstream into the `events` table. This feature allows us to bring real-time events (including Kakfa endpoints) into Fabric, transform them, and then route them to various destinations wihtout writing any code (no-code). Enhanced capabilities allows us to source data into Eventstreams from Azure Event Hubs, IoT Hubs, Azure SQL Database (CDC), PostgreSQL Database (CDC), MySQL Database (CDC), Azure Cosmos DB (CDC), Google Cloud Pub/Sub, Amazon Kinesis Data Streams, Confluent Cloud Kafka, Azure Blog Storage events, Fabric Workspace Item events, Sample data or Custom endpoint (Custom App).
 - Feature [documentation](<https://learn.microsoft.com/fabric/real-time-analytics/event-streams/overview>).
 
 ### Copilot
@@ -284,6 +284,13 @@ In this section we will be streaming events (impressions and clicks events) gene
 ![alt text](assets/fabrta8.png)
 7. Click the view icon at the end of the **Connection string** (primary or secondary) to see it.
 8. Then, click the copy icon at the end of **Connection string** to copy it to a notepad. It must be visible in order to copy it.
+
+<div class="info" data-title="Note">
+  
+>   Eventsream custom-endpoint/custom-app sources support **Kafka** endpoints. 
+</div>
+
+![KafkaEndpoint](assets/KafkaEndpoint.png)
 
 ## 5. Import Data Generator Notebook
 1. Import the notebook file [Generate synthetic events.ipynb](<https://github.com/microsoft/FabricRTIWorkshop/blob/main/notebooks/Generate%20synthetic%20events.ipynb>) to generate events using streaming.
