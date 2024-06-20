@@ -71,8 +71,8 @@ Creating a multi-layer data platform allow companies to improve data quality acr
 
 Reference: [Data Engineering Wiki](<https://dataengineering.wiki/Concepts/Medallion+Architecture>)
 
-In summary, Microsoft Fabric [Real-Time Intelligence (RTI)](<https://aka.ms/fabric-docs-rta>) features benefit building a medallion architecture. They provide minimal latency for data in-motion, automatic light-weight transformations, dashboards, copilots to help you derive insights in a no-code experience, and allow you to take actions in real-time over your data. Additionally, all data is made avaiable via OneLake in delta-parquet format to Lakehouses using OneLake Availability as OneLogical copy for all your data. 
-![Industries](assets/Industries.png "Opportunity accross industries")
+In summary, Microsoft Fabric [Real-Time Intelligence (RTI)](<https://aka.ms/fabric-docs-rta>) features benefit building a medallion architecture. They provide minimal latency for data in-motion, automatic light-weight transformations, dashboards, copilots to help you derive insights in a no-code experience, and allow you to take actions in real-time over your data. Additionally, all data is made available via OneLake in delta-parquet format to Lakehouse(s) using OneLake Availability as OneLogical copy for all your data. 
+![Industries](assets/Industries.png "Opportunity across industries")
 
 ---
 
@@ -81,7 +81,7 @@ In summary, Microsoft Fabric [Real-Time Intelligence (RTI)](<https://aka.ms/fabr
 Let's cover the key-features and how we plan to use them for our architecture.
 
 ### Event streams
-- Clicks and Impressions events are ingested from an Eventstream into the `events` table. This feature allows us to bring real-time events (including Kakfa endpoints) into Fabric, transform them, and then route them to various destinations wihtout writing any code (no-code). Enhanced capabilities allows us to source data into Eventstreams from Azure Event Hubs, IoT Hubs, Azure SQL Database (CDC), PostgreSQL Database (CDC), MySQL Database (CDC), Azure Cosmos DB (CDC), Google Cloud Pub/Sub, Amazon Kinesis Data Streams, Confluent Cloud Kafka, Azure Blog Storage events, Fabric Workspace Item events, Sample data or Custom endpoint (Custom App).
+- Clicks and Impressions events are ingested from an Eventstream into the `events` table. This feature allows us to bring real-time events (including Kafka endpoints) into Fabric, transform them, and then route them to various destinations without writing any code (no-code). Enhanced capabilities allows us to source data into Eventstreams from Azure Event Hubs, IoT Hubs, Azure SQL Database (CDC), PostgreSQL Database (CDC), MySQL Database (CDC), Azure Cosmos DB (CDC), Google Cloud Pub/Sub, Amazon Kinesis Data Streams, Confluent Cloud Kafka, Azure Blog Storage events, Fabric Workspace Item events, Sample data or Custom endpoint (Custom App).
 - Feature [documentation](<https://learn.microsoft.com/fabric/real-time-analytics/event-streams/overview>).
 
 ### Copilot
@@ -97,13 +97,13 @@ Let's cover the key-features and how we plan to use them for our architecture.
 ### Shortcuts
 - `Product` and `ProductCategory` SQL tables are defined as external tables (Fabric shortcuts). Meaning the data is not copied but served from the SQL DB itself. Shortcuts allow data to remain stored in outside of Fabric like in our operational SQL DB, yet presented in Fabric as a central location.
 - Shortcuts enable us to create live connections between OneLake and existing target data sources, whether internal or external to Azure. This allows us to retrieve data from these locations as if they were seamlessly integrated into Microsoft Fabric.
-- A shortcut is a schema entity that references data stored external to a KQL database in your cluster. In Lakehouses, Eventhouses, or KQL Databases it's possible to create shortcuts referencing Internal locations within Microsoft Fabric, ADLS Gen2, Spark Notebooks, AWS S3 storage accounts, or Microsoft Dataverse.
+- A shortcut is a schema entity that references data stored external to a KQL database in your cluster. In Lakehouse(s), Eventhouse(s), or KQL Databases it's possible to create shortcuts referencing Internal locations within Microsoft Fabric, ADLS Gen2, Spark Notebooks, AWS S3 storage accounts, or Microsoft Dataverse.
 - From my perspective, I value the fact that all data is aligned under a unified namespace, allowing seamless access through the same ADLS Gen2 APIs, even when sourced from AWS S3. By enabling us to reference different storage locations, OneLake's Shortcuts provides a unified source of truth for all our data within the Microsoft Fabric environment and ensures clarity regarding the origin of our data.
 - Feature [documentation](<https://learn.microsoft.com/fabric/real-time-analytics/onelake-shortcuts?tabs=onelake-shortcut>).
 
 ### Eventhouse
-- The Eventhouse can host multiple KQL Databases for easier management. It will store relational data from an operational SQL DB, levergage shortcuts and automate transformations in real-time.
-- The Eventhouse is the best place to store streaming data in Fabric. It provides a highly-scalable analytics system with built-in Machine Learning capabilities for discrete analytics over high-granular data. It's useful for any scenario that includes event-based data, for example, telemetry and log data, time series and IoT data, security and compliance logs, or financial records. The Eventhouse supports Kusto Query Languanguage (KQL) queries, T-SQL queries and Python. The data is automatically made available in delta-parquet format and can be easily accessed from Notebooks for mroe advanced transformaitons. The Eventhouse is **specifically tailored** to time-based, streaming or batch events with structured, semistructured, and unstructured data.
+- The Eventhouse can host multiple KQL Databases for easier management. It will store relational data from an operational SQL DB, leverage shortcuts and automate transformations in real-time.
+- The Eventhouse is the best place to store streaming data in Fabric. It provides a highly-scalable analytics system with built-in Machine Learning capabilities for discrete analytics over high-granular data. It's useful for any scenario that includes event-based data, for example, telemetry and log data, time series and IoT data, security and compliance logs, or financial records. The Eventhouse supports Kusto Query Language (KQL) queries, T-SQL queries and Python. The data is automatically made available in delta-parquet format and can be easily accessed from Notebooks for more advanced transformations. The Eventhouse is **specifically tailored** to time-based, streaming or batch events with structured, semi-structured, and unstructured data.
 - Feature [documentation](<https://learn.microsoft.com/fabric/real-time-intelligence/eventhouse>).
 
 ### KQL Update policies
@@ -111,7 +111,7 @@ Let's cover the key-features and how we plan to use them for our architecture.
 - Feature [documentation](<https://learn.microsoft.com/azure/data-explorer/kusto/management/update-policy>).
 
 ### KQL Materialized Views
-- Materialized views expose an aggregation query over a source table, or over another materialized view. We will use materialized views to create the Gold Layer in our medallion architecture. Most common materialized views provide the current reading of a metric or statistics of metrics over time. They can also be backfilled with historial data; however, by default they are automatically populated by newly ingested data.
+- Materialized views expose an aggregation query over a source table, or over another materialized view. We will use materialized views to create the Gold Layer in our medallion architecture. Most common materialized views provide the current reading of a metric or statistics of metrics over time. They can also be backfilled with historical data; however, by default they are automatically populated by newly ingested data.
 - Feature [documentation](<https://learn.microsoft.com/azure/data-explorer/kusto/management/materialized-views/materialized-view-overview>).
 
 ### One Logical Copy
@@ -124,12 +124,12 @@ Let's cover the key-features and how we plan to use them for our architecture.
 
 ### Kusto Query Language (KQL)
 - KQL commands will be automatically written by the Get Data UI wizard when configuring the Eventhouse KQL Database destination in Eventstream. The commands will create the `events` table and JSON mapping. Secondly, the control commands will be issued in a database script that automate creation of additional schema items such as Tables, Shortcuts, Functions, Policies and Materialized-Views.
-- KQL is also known as the language of the cloud. It's available in many other servies such as Microsoft Sentinel, Azure Monitor, Azure Resource Graph and Microsoft Defender. The code-name **Kusto** engine was invented by 4 engineers from the Power BI team over 10 years ago and has been implemented across all Microsoft services including Github Copilot, LinkedIn, Azure, Office 365, and XBOX.
-- KQL queries are easy to write, read and edit. The language is most commonly used to analyze logs, sign-on events, application traces, diagnostics, signals, metrics and much more. Supports multi-statement queries, relational operators such as filters (where clauses), union, joins aggregations to produce a tabular output. It allows the ability to simply pipe (|) additional commands for ad-hoc analytics without needing to re-write entire queries. It has similaries to PowerShell, Excel functions, LINQ, function SQL, and OS Shell (Bash). It supports DML statements, DDL statements (referred to as Control Commands), built-in machine learning operators for forecasting & anomaly dectection, plus more... including in-line Python & R-Lang.
+- KQL is also known as the language of the cloud. It's available in many other services such as Microsoft Sentinel, Azure Monitor, Azure Resource Graph and Microsoft Defender. The code-name **Kusto** engine was invented by 4 engineers from the Power BI team over 10 years ago and has been implemented across all Microsoft services including Github Copilot, LinkedIn, Azure, Office 365, and XBOX.
+- KQL queries are easy to write, read and edit. The language is most commonly used to analyze logs, sign-on events, application traces, diagnostics, signals, metrics and much more. Supports multi-statement queries, relational operators such as filters (where clauses), union, joins aggregations to produce a tabular output. It allows the ability to simply pipe (|) additional commands for ad-hoc analytics without needing to re-write entire queries. It has similarities to PowerShell, Excel functions, LINQ, function SQL, and OS Shell (Bash). It supports DML statements, DDL statements (referred to as Control Commands), built-in machine learning operators for forecasting & anomaly detection, plus more... including in-line Python & R-Lang.
 - Feature [documentation](<https://learn.microsoft.com/azure/data-explorer/kusto/query/>).
 
 ### Real-time Dashboards
-- Will contain a collection of visual tiles _Click Through Rate_ stat KPIs, _Impressions_ area chart, _Clicks_ area chart, _Impressions by Location_ map for geo-spatial analytics and _Average Page Load Time_ in a line chart. This feature support filter parameters, additional pages, markdown tiles, inlcuding Plotly, multiple KQL datasources, base queries, embedding. Supports sharing with permissions controls, setting an Alert by leveraging Data Activator for actions, and automatic refresh with a minimum frequency of 30 seconds. These dashboards are commonly used for Operations and Power BI is commonly used for Business Intelligence. Power BI supports more advanced visualizations and rich data-story capabilities. Real-time Dashboards refresh very fast and allow with ease to togle between visual analytist to pro-developer that can explore queries or edit without needing to download a desktop tool. They make the experience simpler for analysts to visualize over high-granular data.
+- Will contain a collection of visual tiles _Click Through Rate_ stat KPIs, _Impressions_ area chart, _Clicks_ area chart, _Impressions by Location_ map for geo-spatial analytics and _Average Page Load Time_ in a line chart. This feature support filter parameters, additional pages, markdown tiles, including Plotly, multiple KQL datasources, base queries, embedding. Supports sharing with permissions controls, setting an Alert by leveraging Data Activator for actions, and automatic refresh with a minimum frequency of 30 seconds. These dashboards are commonly used for Operations and Power BI is commonly used for Business Intelligence. Power BI supports more advanced visualizations and rich data-story capabilities. Real-time Dashboards refresh very fast and allow with ease to toggle between visual analysts to pro-developer that can explore queries or edit without needing to download a desktop tool. They make the experience simpler for analysts to visualize over high-granular data.
 - Feature [documentation](<https://learn.microsoft.com/fabric/real-time-intelligence/dashboard-real-time-create>).
 
 ### Data Activator
@@ -139,7 +139,7 @@ Let's cover the key-features and how we plan to use them for our architecture.
   - Alert store managers to move food from failing freezers before it spoils.
   - Retain customers who had a bad experience by tracking their journey through apps, websites etc.
   - Help logistics companies find lost shipments proactively by starting an investigation when package status isn't updated for a certain length of time.
-  - Alert account teams when customers fall behind with conditional threasholds.
+  - Alert account teams when customers fall behind with conditional thresholds.
   - Track data pipeline quality, to either re-run jobs, alert for detected failures or anomalies.
 - Feature [documentation](<https://learn.microsoft.com/fabric/data-activator/data-activator-introduction>).
 
@@ -175,7 +175,7 @@ Real-Time Intelligence allows organizations to ingest, process, analyze, ask que
 
 ### Lab Architecture
 ![Architectural Diagram](assets/architecture.png "Architecture Diagram")
-Now with Data Activator (Reflex), we can also set alerts on Real-time Dashboards to send a message in Teams with conditional threasholds or even more advanced actions. 
+Now with Data Activator (Reflex), we can also set alerts on Real-time Dashboards to send a message in Teams with conditional thresholds or even more advanced actions. 
 
 ---
 
@@ -233,10 +233,10 @@ If you need a new Trial Tenant to complete the lab, suggest to register a new Ou
 1. [Provision Fabric Trial Tenant](<https://github.com/microsoft/FabricRTIWorkshop/tree/main/trialtenant>) - see document and powershell script to setup a lab admin.
    - 25 workspaces with access to 25 logins will be created automatically (one workspace per user).
    - Participants should create items in the workspace designated to their own login.
-   - If more than 25 accounts are necessary, addtional Trial Tenants can be provisioned by repeating this process again. Also, participants can share the lab credentials and use folders in their workspaces. 
+   - If more than 25 accounts are necessary, additional Trial Tenants can be provisioned by repeating this process again. Also, participants can share the lab credentials and use folders in their workspaces. 
 3. [Office 365 E5 Trial](<https://blog.fabric.microsoft.com/blog/accessing-microsoft-fabric-for-developers-startups-and-enterprises>). ⚠️ Make sure to disable recurring billing, otherwise your credit card will be charged for Office E5.
 4. The "LabAdmin" credential should be used by the lab proctor.
-5. The "LabAdmin" can have the pre-built lab items for Lab Users 01-24 to reference as a cheatsheet. To do so, grant Users 01-24 viewer permission to the "LabAdmin" workspace.
+5. The "LabAdmin" can have the pre-built lab items for Lab Users 01-24 to reference as a cheat-sheet. To do so, grant Users 01-24 viewer permission to the "LabAdmin" workspace.
 ![WorkspaceManageAccess](assets/WorkspaceManageAccess.png "Workspace Manage Access")
 
 ### Enable Real-Time Dashboards (preview)
@@ -265,7 +265,7 @@ If you need a new Trial Tenant to complete the lab, suggest to register a new Ou
 
 <div class="info" data-title="Note">
   
-> The [Eventhouse](<https://learn.microsoft.com/en-us/fabric/real-time-intelligence/eventhouse>) is designed to handle real-time data streams efficiently, which lets organizations ingest, process, and analyze data in near real-time. Event houses are particularly useful for scenarios where **timely insights are crucial**. Event houses provide a scalable infrastructure that allows organizations to handle growing volumes of data, ensuring optimal performance and resource use. Event houses are the **preferred** engine for semistructured and free text analysis . An event house is a workspace of databases, which might be shared across a certain project. It allows you to manage multiple databases at once, sharing capacity and resources to optimize performance and cost. Event houses provide unified monitoring and management across all databases and per database. Event houses are **specifically tailored** to time-based, streaming events with structured, semistructured, and unstructured data. You can get data from multiple sources or pipelines (For example, Eventstream, SDKs, Kafka, Logstash, data flows, and more) and multiple data formats. This data is automatically indexed and partitioned based on ingestion time.
+> The [Eventhouse](<https://learn.microsoft.com/en-us/fabric/real-time-intelligence/eventhouse>) is designed to handle real-time data streams efficiently, which lets organizations ingest, process, and analyze data in near real-time. Event houses are particularly useful for scenarios where **timely insights are crucial**. Event houses provide a scalable infrastructure that allows organizations to handle growing volumes of data, ensuring optimal performance and resource use. Event houses are the **preferred** engine for semi-structured and free text analysis . An event house is a workspace of databases, which might be shared across a certain project. It allows you to manage multiple databases at once, sharing capacity and resources to optimize performance and cost. Event houses provide unified monitoring and management across all databases and per database. Event houses are **specifically tailored** to time-based, streaming events with structured, semi-structured, and unstructured data. You can get data from multiple sources or pipelines (For example, Eventstream, SDKs, Kafka, Logstash, data flows, and more) and multiple data formats. This data is automatically indexed and partitioned based on ingestion time.
 </div>
 
 ## 4. Create a new Eventstream 
@@ -306,7 +306,7 @@ In this section we will be streaming events (impressions and clicks events) gene
 ![alt text](assets/fabrta9.png)
 4. Click **Run all** at the top left to start generating streaming events. 
 5. Wait a few minutes for the first code cell to finish and it will proceed to next code cells automatically.
-6. Scroll down to the last code cell and it should begin to print the generated syntetic events in JSON format.
+6. Scroll down to the last code cell and it should begin to print the generated synthetic events in JSON format.
 
 
 ## 7. Define destination in the Eventstream
@@ -339,7 +339,7 @@ This feature is also called "one logical copy" and it automatically allows KQL D
 ![alt text](assets/fabrta61.png)
 
 ![alt text](assets/fabrta62.png)
-5. Click the `events` table on the left and activate "OneLake Availability" for the table itself as well, because this table was created prior to enabling OneLake availablity for the database.
+5. Click the `events` table on the left and activate "OneLake Availability" for the table itself as well, because this table was created prior to enabling OneLake availability for the database.
 
 <div class="info" data-title="Note">
   
@@ -410,9 +410,9 @@ In this section we will demonstrate how to use Fabric Data Factory pipeline to c
 9. After creating and testing the External connection to the Azure SQL DB successfully, set the Database to `aworks` from the pick list.
 10. Set Table to `SalesLT.Address` from the pick list. Note, it may take a few seconds to display the list of tables.
 ![alt text](assets/fabrta37.png)
-11. Click on **Destination** tab, select "Workspace", set Workspace ddata store type to **KQL Database**, set KQL Database to **RTADemo**, and select Table **Address** from the pick list.
+11. Click on **Destination** tab, select "Workspace", set Workspace data store type to **KQL Database**, set KQL Database to **RTADemo**, and select Table **Address** from the pick list.
 ![alt text](assets/fabrta38.png)
-12. (Optionally) You can click on the Mapping tab to Import schemas & verify all fields are mapped to the correct data types without warnings. However, this addiitonal step is not required for this excercise.
+12. (Optionally) You can click on the Mapping tab to Import schemas & verify all fields are mapped to the correct data types without warnings. However, this additional step is not required for this exercise.
 13. Click **Run** to execute the pipeline.
 ![alt text](assets/fabrta39.png)
 14. The **Output** tab should appear in a few seconds to monitor the progress.
@@ -450,7 +450,7 @@ SilverAddress
 ```
 GoldAddress
 ```
-25. Notice there are 450 rows, since the Gold layer uses materialized views based on the maximum IngestionDate to show only the **latest** ingested rows. This transformation occured automatically in real-time by the [materialized-view](<https://learn.microsoft.com/azure/data-explorer/kusto/management/materialized-views/materialized-view-overview>). The view was defined in the [createAll.kql](<https://github.com/microsoft/FabricRTIWorkshop/blob/main/kql/createAll.kql>) database script (see lines 64-68). The `arg_max()` aggregate function is documented [here](<https://learn.microsoft.com/azure/data-explorer/kusto/query/arg-max-aggregation-function>). Materialized views always return an up-to-date result of the aggregation query (always fresh). Querying a materialized view is more performant than running the aggregation directly over the source table.
+25. Notice there are 450 rows, since the Gold layer uses materialized views based on the maximum IngestionDate to show only the **latest** ingested rows. This transformation occurred automatically in real-time by the [materialized-view](<https://learn.microsoft.com/azure/data-explorer/kusto/management/materialized-views/materialized-view-overview>). The view was defined in the [createAll.kql](<https://github.com/microsoft/FabricRTIWorkshop/blob/main/kql/createAll.kql>) database script (see lines 64-68). The `arg_max()` aggregate function is documented [here](<https://learn.microsoft.com/azure/data-explorer/kusto/query/arg-max-aggregation-function>). Materialized views always return an up-to-date result of the aggregation query (always fresh). Querying a materialized view is more performant than running the aggregation directly over the source table.
 ```
 //GOLD LAYER
 // use materialized views to view the latest changes in the SilverAddress table
@@ -471,24 +471,24 @@ GoldAddress
 
 1. Copy/Paste or duplicate the "Address" Copy Data activity onto the canvas three-times (3x). One for each additional table, then **change the Source & Destination** accordingly.
 2. Notice how the Copy Activity Mapping for the **SalesOrderDetail** automatically maps sql data type `money` to `decimal` data type in KQL. You can see this by clicking Import schemas under the Mapping tab of the Copy Data activity. 
-3. Right-click and deactivate the "Address" Copy Data activity, then **Run** the pipeline **twice** to execute the same scenario for the additional three Copy Data activities. Note, they will run in parrallel. 
+3. Right-click and deactivate the "Address" Copy Data activity, then **Run** the pipeline **twice** to execute the same scenario for the additional three Copy Data activities. Note, they will run in parallel. 
 
 ![AddressDeactivate](assets/AddressDeactivateWide.png "Deactivate Activity")
 ![SalesOrderDetailMapping](assets/SalesOrderDetailMapping.png "SalesOrderDetail - Copy Data Mapping")
 
 
 # 12. Real-Time Dashboard
-In this section, we will build a real-time dashboard to visualize the streaming data and set it to refresh every 30 seconds. (Optionally) A pre-built version of the dashobard is available to download [here](<https://github.com/microsoft/FabricRTIWorkshop/blob/main/dashboards/RTA%20dashboard/dashboard-RTA Dashboard.json>), which can be imported and configured to your KQL DB data source. 
+In this section, we will build a real-time dashboard to visualize the streaming data and set it to refresh every 30 seconds. (Optionally) A pre-built version of the dashboard is available to download [here](<https://github.com/microsoft/FabricRTIWorkshop/blob/main/dashboards/RTA%20dashboard/dashboard-RTA Dashboard.json>), which can be imported and configured to your KQL DB data source. 
 ![Real-Time Dashboard](assets/RealTimeDashboard.png "Real-Time Dashboard")
 
-1. Click + Create (button is located at top left Menu undreath Home).
+1. Click + Create (button is located at top left Menu underneath Home).
 2. Current workspace should be the same one.
 3. Scroll down and choose **Real-Time Dashboard**
 4. Name it "RTA Dashboard"
 5. Click **+ Add tile**.
 6. Click **+ Data source**. 
 7. Set the **Database** to "RTADemo" & click Create. 
-8. Proceed to paste each query below, add a visual, and apply changes. (Optionally) All queries are avilable in this script file [dashboard-RTA.kql](<https://github.com/microsoft/FabricRTIWorkshop/blob/main/dashboards/RTA%20dashboard/dashboard-RTA.kql>).
+8. Proceed to paste each query below, add a visual, and apply changes. (Optionally) All queries are available in this script file [dashboard-RTA.kql](<https://github.com/microsoft/FabricRTIWorkshop/blob/main/dashboards/RTA%20dashboard/dashboard-RTA.kql>).
 
 
 ### Clicks by hour
@@ -501,7 +501,7 @@ events
 | top 30 by date_count
 ```
 
-1. Set Time rage parameter at the top left to **Last 7 days**. This paramater is referenced by the query in the `where` clause by using fields `_startTime` and `_endTime`.
+1. Set Time rage parameter at the top left to **Last 7 days**. This parameter is referenced by the query in the `where` clause by using fields `_startTime` and `_endTime`.
 2. Click **Run**.
 3. Click **+ Add visual**.
 4. Format the visual.
@@ -564,7 +564,7 @@ events
 19. Click the 3-dots (...) at the top right of the tile you just created to **Duplicate** it two more times.
 20. Name the 2nd one **Clicks**, set the Data value column to `clicks`, then Apply changes.
 21. Name the 3rd **Click Through Rate**, set the Data value column to `CTR`, then Apply changes.
-22. (Optional) On the "Visual formatting" pange, scroll down and adjust the "Conditional formatting" as desired by clicking "+ Add rule".
+22. (Optional) On the "Visual formatting" pane, scroll down and adjust the "Conditional formatting" as desired by clicking "+ Add rule".
 ```
 //Clicks, Impressions, CTR
 let imp =  events 
@@ -634,7 +634,7 @@ events
 ## 13. Stop the notebook
 At this point you've completed the lab, so you may stop running the notebook. 
 1. Open the notebook "Generate synthetic events" from your workspace and click **Stop** on the last code cell if its still running.
-2. (Optionally) You can click **Cancel All** on the top menu or click the stop red-sequare button to Stop session. These only appear when your session is active or the notebook is running.
+2. (Optionally) You can click **Cancel All** on the top menu or click the stop red-square button to Stop session. These only appear when your session is active or the notebook is running.
 ![alt text](assets/fabrta60.png)
 3. (Optionally) "LabAdmin" can click **Monitor** on the left Menu, search for "generate", click the 3-dots (...) next to the notebook "In progress" status and click **Cancel**.
 ![StopAllNotebooks](assets/StopAllNotebooks.png "Monitor - click 3-dots per item to Cancel")
