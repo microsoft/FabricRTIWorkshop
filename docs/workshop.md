@@ -339,7 +339,7 @@ This feature is also called "one logical copy" and it automatically allows KQL D
 ![alt text](assets/fabrta61.png)
 
 ![alt text](assets/fabrta62.png)
-5. Click the `events` table on the left and activate "OneLake Availability" for the table itself as well, because this table was created prior to enabling OneLake availablity.
+5. Click the `events` table on the left and activate "OneLake Availability" for the table itself as well, because this table was created prior to enabling OneLake availablity for the database.
 
 <div class="info" data-title="Note">
   
