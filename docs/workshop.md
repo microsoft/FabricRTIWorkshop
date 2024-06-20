@@ -287,7 +287,7 @@ In this section we will be streaming events (impressions and clicks events) gene
 
 <div class="info" data-title="Note">
   
->   Eventsream custom-endpoint/custom-app sources support **Kafka** endpoints. 
+>   Eventstreams Custom-Endpoint/Custom-App sources also provide Kafka endpoints where data can be pushed to.
 </div>
 
 ![KafkaEndpoint](assets/KafkaEndpoint.png)
