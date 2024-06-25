@@ -35,9 +35,9 @@ All the **code** in this tutorial can be found here:
 Also, here's a detailed [article](<https://techcommunity.microsoft.com/t5/startups-at-microsoft/building-a-real-time-medallion-architecture-using-eventhouse-in/ba-p/4110686>) explaining this tutorial.
 
 ### Duration
-- Lab 1-2 hours (section 8)
+- Lab 1-2 hours (section 8).
 - Theoretical context 30-45 minutes (sections 1-6) or optional [presentation](<https://github.com/microsoft/FabricRTIWorkshop/blob/main/presentation/_Real-Time%20Intelligence%20in%20Fabric%20L200%20pitch%20deck.PDF>).
-- Lab [pre-reqs](<https://moaw.dev/workshop/?src=gh%3Amicrosoft%2FFabricRTIWorkshop%2Fmain%2Fdocs%2F&step=6>) 30-45 minutes (section 7, recommend provisioning trial tenant prior if necessary)
+- Lab [pre-reqs](<https://moaw.dev/workshop/?src=gh%3Amicrosoft%2FFabricRTIWorkshop%2Fmain%2Fdocs%2F&step=6>) 30-45 minutes (section 7, recommend provisioning trial tenant prior if necessary).
 
 ### Authors
 - [Denise Schlesinger](<https://github.com/denisa-ms>), Microsoft, Prin CSA
@@ -86,7 +86,7 @@ Let's cover the key-features and how we plan to use them for our architecture.
 
 ### Copilot
 - Copilot for Real-Time Intelligence is an advanced AI tool designed to help you explore your data and extract valuable insights. You can input questions about your data, which are then automatically translated into Kusto Query Language (KQL) queries. Copilot streamlines the process of analyzing data for both experienced KQL users and citizen data scientists.
-- Feature [documentation](<https://learn.microsoft.com/fabric/get-started/copilot-real-time-intelligence>)
+- Feature [documentation](<https://learn.microsoft.com/fabric/get-started/copilot-real-time-intelligence>).
 ![Copilot](assets/Copilot.png "Fabric Copilot in KQL Queryset")
 
 
@@ -189,36 +189,36 @@ Now with Data Activator (Reflex), we can also set alerts on Real-time Dashboards
 | Table| Origin     | Description|
 |------|------------|------------|
 | **events**|EventHouse table|Streaming events representing the product being seen or clicked by the customer. Will be streamed into Fabric Eventhouse from an eventstream. We'll use a Fabric Notebook to simulate and push synthetic data (fake data) into an endpoint.|
-| **Customer**| Copied using Pipeline| Describes customers and their geographic location|
-| **Address**| Copied using Pipeline|Customers addresses|
-| **SalesOrderHeader**| Copied using Pipeline|Information about sales orders|
-| **SalesOrderDetail**| Copied using Pipeline|Detailed information about sales orders, including product IDs and quantities sold|
-| **SilverCustomer**|EventHouse table|Table created based on an update policy with **transformed data**|
-| **SilverAddress**|EventHouse table|Table created based on an update policy with **transformed data**|
-| **SilverOrdersHeader**|EventHouse table|Table created based on an update policy with transformed data|
-| **SilverOrdersDetail**|EventHouse table|Table created based on an update policy with transformed data|
+| **Customer**| Copied using Pipeline| Describes customers and their geographic location.|
+| **Address**| Copied using Pipeline|Customers addresses.|
+| **SalesOrderHeader**| Copied using Pipeline|Information about sales orders.|
+| **SalesOrderDetail**| Copied using Pipeline|Detailed information about sales orders, including product IDs and quantities sold.|
+| **SilverCustomer**|EventHouse table|Table created based on an update policy with **transformed data**.|
+| **SilverAddress**|EventHouse table|Table created based on an update policy with **transformed data**.|
+| **SilverOrdersHeader**|EventHouse table|Table created based on an update policy with **transformed data**.|
+| **SilverOrdersDetail**|EventHouse table|Table created based on an update policy with **transformed data**.|
 
 ### External Tables
 | Table| Origin     | Description|
 |------|------------|------------|
-| **Product**|**Shortcut** to SQL DB|Products, including descriptions and prices|
-| **ProductCategory**|**Shortcut** to SQL DB|Product category|
+| **Product**|**Shortcut** to SQL DB|Products, including descriptions and prices.|
+| **ProductCategory**|**Shortcut** to SQL DB|Product category.|
 
 ### Functions
 | Function| Description|
 |------------|------------|
-|**ParseAddress**|Adds watermark column based on `ingestion_time()`|
-|**ParseCustomer**|Adds watermark column based on `ingestion_time()`|
-|**ParseSalesOrderHeader**|Adds calculated column `DaysShipped` by measuring the number of days between `ShipDate` and `OrderDate`. Also, adds watermark column based on `ingestion_time()` |
-|**ParseSalesOrderDetail**|Adds watermark column based on `ingestion_time()`|
+|**ParseAddress**|Adds watermark column based on `ingestion_time()`.|
+|**ParseCustomer**|Adds watermark column based on `ingestion_time()`.|
+|**ParseSalesOrderHeader**|Adds calculated column `DaysShipped` by measuring the number of days between `ShipDate` and `OrderDate`. Also, adds watermark column based on `ingestion_time()`.|
+|**ParseSalesOrderDetail**|Adds watermark column based on `ingestion_time()`.|
 
 ### Materialized-Views
 | View | Origin     | Description|
 |------|------------|------------|
-| **GoldAddress**|EventHouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records|
-| **GoldCustomer**|EventHouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records|
-| **GoldSalesOrderHeader**|EventHouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records|
-| **GoldSalesOrderDetail**|EventHouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records|
+| **GoldAddress**|EventHouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records.|
+| **GoldCustomer**|EventHouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records.|
+| **GoldSalesOrderHeader**|EventHouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records.|
+| **GoldSalesOrderDetail**|EventHouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records.|
 
 ---
 
@@ -248,8 +248,8 @@ If you need a new Trial Tenant to complete the lab, suggest to register a new Ou
 
 # Building the platform
 ## 1. Login to Lab Enviroment
-1. Proceed to [app.fabric.microsoft.com](<https://app.fabric.microsoft.com/>)
-2. Login with provided credentials, if a trial fabric tenant was previously setup (reference Pre-reqs). You may also choose to run the lab in your own Fabric Tenant if you already have one
+1. Proceed to [app.fabric.microsoft.com](<https://app.fabric.microsoft.com/>).
+2. Login with provided credentials, if a trial fabric tenant was previously setup (reference Pre-reqs). You may also choose to run the lab in your own Fabric Tenant if you already have one.
 3. Click **Real-Time Intelligence**.
 ![Fabric Home](assets/FabricHome.png "Real-Time Intelligence")
 
@@ -259,27 +259,27 @@ If you need a new Trial Tenant to complete the lab, suggest to register a new Ou
 ![alt text](assets/fabrta0.png)
 
 ## 3. Create a new Eventhouse  
-1. Create an Eventhouse called "RTAdemo"  
+1. Create an Eventhouse called "RTAdemo".  
 ![alt text](assets/fabrta1.png)
 ![alt text](assets/fabrta2.png)
 
 <div class="info" data-title="Note">
   
-> The [Eventhouse](<https://learn.microsoft.com/en-us/fabric/real-time-intelligence/eventhouse>) is designed to handle real-time data streams efficiently, which lets organizations ingest, process, and analyze data in near real-time. Event houses are particularly useful for scenarios where **timely insights are crucial**. Event houses provide a scalable infrastructure that allows organizations to handle growing volumes of data, ensuring optimal performance and resource use. Event houses are the **preferred** engine for semi-structured and free text analysis . An event house is a workspace of databases, which might be shared across a certain project. It allows you to manage multiple databases at once, sharing capacity and resources to optimize performance and cost. Event houses provide unified monitoring and management across all databases and per database. Event houses are **specifically tailored** to time-based, streaming events with structured, semi-structured, and unstructured data. You can get data from multiple sources or pipelines (For example, Eventstream, SDKs, Kafka, Logstash, data flows, and more) and multiple data formats. This data is automatically indexed and partitioned based on ingestion time.
+> The [Eventhouse](<https://learn.microsoft.com/en-us/fabric/real-time-intelligence/eventhouse>) is designed to handle real-time data streams efficiently, which lets organizations ingest, process, and analyze data in near real-time. Eventhouses are particularly useful for scenarios where **timely insights are crucial**. Eventhouses provide a scalable infrastructure that allows organizations to handle growing volumes of data, ensuring optimal performance and resource use. Eventhouses are the **preferred** engine for semi-structured and free text analysis. An event house is a workspace of databases, which might be shared across a certain project. It allows you to manage multiple databases at once, sharing capacity and resources to optimize performance and cost. Eventhouses provide unified monitoring and management across all databases and per database. Eventhouses are **specifically tailored** to time-based, streaming events with structured, semi-structured, and unstructured data. You can get data from multiple sources or pipelines (For example, Eventstream, SDKs, Kafka, Logstash, data flows, and more) and multiple data formats. This data is automatically indexed and partitioned based on ingestion time.
 </div>
 
 ## 4. Create a new Eventstream 
 In this section we will be streaming events (impressions and clicks events) generated by a notebook. The events will be streamed into an eventstream and consumed by our Eventhouse KQL DB.
 ![alt text](assets/fabrta73.png)
 
-1. Create an Eventstream called "RTADemoEventStream"  
+1. Create an Eventstream called "RTADemoEventStream".  
 ![alt text](assets/fabrta3.png)
 ![alt text](assets/fabrta4.png)
 2. For this lab, you **do not** need to check the box to enable Preview Features. If you enable the preview features you may proceed just as well, but some prompts may differ in the Eventstream User-Interface.
 3. Add a "Custom app" or "Custom Endpoint" as a source. This will create an event hub connected to the Eventstream. Name the new source "CustomApp" or as you prefer. 
 ![alt text](assets/fabrta5.png)
 4. Click on the Eventstream source - Custom App to get the "Event hub name" and "Connection string-primary key". We need these values to send the events from our Notebook.  
-5. Click on "Keys"
+5. Click on "Keys".
 6. Click the copy icon next to the **Event hub name** to copy it to a notepad.
 ![alt text](assets/fabrta8.png)
 7. Click the view icon at the end of the **Connection string** (primary or secondary) to see it.
@@ -333,8 +333,8 @@ This feature is also called "one logical copy" and it automatically allows KQL D
 ![alt text](assets/fabrta70.png)
 
 ### Here's how to set this up
-1. Open your Eventhouse
-2. Select your KQL Database
+1. Open your Eventhouse.
+2. Select your KQL Database.
 3. Click on the pencil icon next to OneLake availability in the Database details pane. Click the toggle to activate it and click Done.
 ![alt text](assets/fabrta61.png)
 
@@ -348,9 +348,9 @@ This feature is also called "one logical copy" and it automatically allows KQL D
 
 7. Create new Lakehouse called "RTADemoLakehouse" in your workspace.
 ![alt text](assets/fabrta64.png)
-8. Click on "Get data" drop down, choose **New shortcut**
+8. Click on "Get data" drop down, choose **New shortcut**.
 9. ![alt text](assets/fabrta65.png)
-10. Select Microsoft OneLake
+10. Select Microsoft OneLake.
 ![alt text](assets/fabrta66.png)
 11. Select the "events" table in our Eventhouse KQL DB and click "Next". 
 
@@ -361,7 +361,7 @@ This feature is also called "one logical copy" and it automatically allows KQL D
 
 ![alt text](assets/fabrta67.png)
 
-10. Click "Create"
+10. Click "Create".
 ![alt text](assets/fabrta68.png)
 11. Now you will have the Eventhouse KQL Database tables available in your Lakehouse. This also works across workspaces. You can query them like any other Lakehouse table.
 ![alt text](assets/fabrta69.png)
@@ -394,9 +394,9 @@ In this section we will demonstrate how to use Fabric Data Factory pipeline to c
 ![alt text](assets/fabrta31.png)
 2. Name it "Copy Address table".  
 ![alt text](assets/fabrta32.png)
-3. Select the Pipeline Activity - **Copy data** activity 
+3. Select the Pipeline Activity - **Copy data** activity. 
 ![alt text](assets/fabrta33.png)
-4. Set the **Source** to External and click "+ New" to create a new connection
+4. Set the **Source** to External and click "+ New" to create a new connection.
 ![alt text](assets/fabrta34.png)
 5. Choose **Azure SQL Database**, click Continue.
 ![alt text](assets/fabrta35.png)
@@ -406,7 +406,7 @@ In this section we will demonstrate how to use Fabric Data Factory pipeline to c
    - Username: `sqlread`
    - Password: `ChangeYourAdminPassword1`
 ![alt text](assets/fabrta36.png)
-8. Click Create
+8. Click Create.
 9. After creating and testing the External connection to the Azure SQL DB successfully, set the Database to `aworks` from the pick list.
 10. Set Table to `SalesLT.Address` from the pick list. Note, it may take a few seconds to display the list of tables.
 ![alt text](assets/fabrta37.png)
@@ -483,8 +483,8 @@ In this section, we will build a real-time dashboard to visualize the streaming 
 
 1. Click + Create (button is located at top left Menu underneath Home).
 2. Current workspace should be the same one.
-3. Scroll down and choose **Real-Time Dashboard**
-4. Name it "RTA Dashboard"
+3. Scroll down and choose **Real-Time Dashboard**.
+4. Name it "RTA Dashboard".
 5. Click **+ Add tile**.
 6. Click **+ Data source**. 
 7. Set the **Database** to "RTADemo" & click Create. 
@@ -519,7 +519,7 @@ events
 11. Click **+ Add tile** again to proceed with the next visuals.
 
 ### Impressions by hour
-12. Visual type: **Area chart**
+12. Visual type: **Area chart**.
 ```
 //Impressions by hour
 events 
@@ -531,7 +531,7 @@ events
 ![alt text](assets/fabrta53.png)
 
 ### Impressions by location
-12. Visual type: **Map**
+12. Visual type: **Map**.
 ```
 //Impressions by location
 events 
@@ -543,7 +543,7 @@ events
 ![alt text](assets/fabrta54.png)
 
 ### Average Page Load time
-13. Visual type: **Timechart**
+13. Visual type: **Timechart**.
 ```
 //Average Page Load time
 events 
@@ -557,8 +557,8 @@ events
 
 ### Impressions, Clicks & CTR
 14. Add a tile & paste the query below once. Note, this is a multi-statement query that uses multiple let statements & a query combined by semicolons. 
-15. Set Tile name: **Impressions**
-16. Visual type: **Stat**
+15. Set Tile name: **Impressions**.
+16. Visual type: **Stat**.
 17. Data Value column to `impressions`.
 18. Click **Apply changes**.
 19. Click the 3-dots (...) at the top right of the tile you just created to **Duplicate** it two more times.
@@ -619,8 +619,8 @@ events
 
 ## 13. Reflex
 1. While editing the dashboard, click **Manage** > Set Alert.
-2. Choose "Clicks by hour"
-3. Select Condition "Becomes greater than"
+2. Choose "Clicks by hour".
+3. Select Condition "Becomes greater than".
 4. Set Value to 250.
 5. Action choose **Message me in Teams**.
 6. Click Create.
