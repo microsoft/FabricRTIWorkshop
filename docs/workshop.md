@@ -45,7 +45,7 @@ Also, here's a detailed [article](<https://techcommunity.microsoft.com/t5/startu
 - Guy Yehudy, Microsoft, Prin PM
 
 ### Feedback - Contributing
-- Rate this lab or give us feedback to improve using this short [Eval](<https://forms.office.com/r/xhW3GAtAhi>). Scan this QR Code to open the Eval form on your phone.
+- Rate this lab or give us feedback to improve using this short [Eval](<https://forms.office.com/r/xhW3GAtAhi>). Scan this QR Code to open the evaluation form on your phone.
 
 ![QR Code](assets/QRCodeLabEval-Small.png "QR Code")
 
@@ -80,7 +80,7 @@ In summary, Microsoft Fabric [Real-Time Intelligence (RTI)](<https://aka.ms/fabr
 
 Let's cover the key-features and how we plan to use them for our architecture.
 
-### Event streams
+### Eventstreams
 - Clicks and Impressions events are ingested from an Eventstream into the `events` table. This feature allows us to bring real-time events (including Kafka endpoints) into Fabric, transform them, and then route them to various destinations without writing any code (no-code). Enhanced capabilities allows us to source data into Eventstreams from Azure Event Hubs, IoT Hubs, Azure SQL Database (CDC), PostgreSQL Database (CDC), MySQL Database (CDC), Azure Cosmos DB (CDC), Google Cloud Pub/Sub, Amazon Kinesis Data Streams, Confluent Cloud Kafka, Azure Blog Storage events, Fabric Workspace Item events, Sample data or Custom endpoint (Custom App).
 - Feature [documentation](<https://learn.microsoft.com/fabric/real-time-analytics/event-streams/overview>).
 
@@ -102,12 +102,17 @@ Let's cover the key-features and how we plan to use them for our architecture.
 - Feature [documentation](<https://learn.microsoft.com/fabric/real-time-analytics/onelake-shortcuts?tabs=onelake-shortcut>).
 
 ### Eventhouse
-- The Eventhouse can host multiple KQL Databases for easier management. It will store relational data from an operational SQL DB, leverage shortcuts and automate transformations in real-time.
-- The Eventhouse is the best place to store streaming data in Fabric. It provides a highly-scalable analytics system with built-in Machine Learning capabilities for discrete analytics over high-granular data. It's useful for any scenario that includes event-based data, for example, telemetry and log data, time series and IoT data, security and compliance logs, or financial records. The Eventhouse supports Kusto Query Language (KQL) queries, T-SQL queries and Python. The data is automatically made available in delta-parquet format and can be easily accessed from Notebooks for more advanced transformations. The Eventhouse is **specifically tailored** to time-based, streaming or batch events with structured, semi-structured, and unstructured data.
+- An Eventhouse can host multiple KQL Databases for easier management. It will store relational data from an operational SQL DB, leverage shortcuts and automate transformations in real-time.
+- An Eventhouse is the best place to store streaming data in Fabric. It provides a highly-scalable analytics system with built-in Machine Learning capabilities for discrete analytics over highly-granular data. It's useful for any scenario that includes event-based data, for example, telemetry and log data, time series and IoT data, security and compliance logs, or financial records. Eventhouses are **specifically tailored** to time-based, streaming or batch events with structured, semi-structured, and unstructured data.
+- Eventhouse's support Kusto Query Language (KQL) queries, T-SQL queries and Python. The data is automatically made available in delta-parquet format and can be easily accessed from Notebooks for more advanced transformations. 
 - Feature [documentation](<https://learn.microsoft.com/fabric/real-time-intelligence/eventhouse>).
 
 ### KQL Update policies
-- This feature is also known as a mini-ETL. Update policies are automation mechanisms triggered when new data is written to a table. They eliminate the need for special orchestration by running a query to transform the ingested data and save the result to a destination table. Multiple update policies can be defined on a single table, allowing for different transformations and saving data to multiple tables simultaneously. **Target** tables can have a different schema, retention policy, and other policies than the **Source** table. The data in derived silver layer tables (targets) of our medallion architecture is inserted upon ingestion to bronze tables (sources). Based on Kusto's update policy feature, this allows to append transformed rows in real-time to a target table as data is landing in a source table and can also be set to run in a transaction. Meaning if the data from bronze fails to be transformed to silver, it will not be loaded to bronze either, by default this is set to off allowing maximum throughput.
+- This feature is also known as a mini-ETL. Update policies are automation mechanisms, triggered when new data is written to a table. They eliminate the need for external orchestration by automatically running a query to transform the ingested data and save the result to a destination table.
+-  Multiple update policies can be defined on a single table, allowing for different transformations and saving data to multiple tables simultaneously. **Target** tables can have a different schema, retention policy, and other policies than the **Source** table.
+-  The data in derived silver layer tables (targets) of our medallion architecture is inserted upon ingestion into bronze tables (sources). Using Kusto's update policy feature, this appends transformed rows in real-time into the target table, as data is landing in a source table. This can also be set to run in as a transaction, meaning if the data from bronze fails to be transformed to silver, it will not be loaded to bronze either.
+>[!NOTE]
+> by default this is set to off allowing maximum throughput.
 - Feature [documentation](<https://learn.microsoft.com/azure/data-explorer/kusto/management/update-policy>).
 
 ### KQL Materialized Views
