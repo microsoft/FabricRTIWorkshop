@@ -286,15 +286,17 @@ In this section we will be streaming events (impressions and clicks events) gene
 1. Create an Eventstream called "RTADemoEventStream".  
 ![alt text](assets/fabrta3.png)
 ![alt text](assets/fabrta4.png)
-2. For this lab, you **do not** need to check the box to enable Preview Features. If you enable the preview features you may proceed just as well, but some prompts may differ in the Eventstream User-Interface.
-3. Add a "Custom app" or "Custom Endpoint" as a source. This will create an event hub connected to the Eventstream. Name the new source "CustomApp" or as you prefer. 
+>[!NOTE]
+> For this lab, you **do not** need to check the box to enable Preview Features. If you enable the preview features you may proceed just as well, but some prompts may differ in the Eventstream User-Interface.
+
+2. Add a "Custom app" or "Custom Endpoint" as a source. This will create an event hub connected to the Eventstream. Name the new source "CustomApp" or as you prefer. 
 ![alt text](assets/fabrta5.png)
-4. Click on the Eventstream source - Custom App to get the "Event hub name" and "Connection string-primary key". We need these values to send the events from our Notebook.  
-5. Click on "Keys".
-6. Click the copy icon next to the **Event hub name** to copy it to a notepad.
+3. Click on the Eventstream source - Custom App to get the "Event hub name" and "Connection string-primary key". We need these values to send the events from our Notebook.  
+4. Click on "Keys".
+5. Click the copy icon next to the **Event hub name** to copy it to a notepad.
 ![alt text](assets/fabrta8.png)
-7. Click the view icon at the end of the **Connection string** (primary or secondary) to see it.
-8. Then, click the copy icon at the end of **Connection string** to copy it to a notepad. It must be visible in order to copy it.
+6. Click the view icon at the end of the **Connection string** (primary or secondary) to see it.
+7. Then, click the copy icon at the end of **Connection string** to copy it to a notepad. It must be visible in order to copy it.
 
 <div class="info" data-title="Note">
   
