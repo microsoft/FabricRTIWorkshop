@@ -199,7 +199,7 @@ Now with Data Activator (Reflex), we can also set alerts on Real-time Dashboards
 ### Tables
 | Table| Origin     | Description|
 |------|------------|------------|
-| **events**|EventHouse table|Streaming events representing the product being seen or clicked by the customer. Will be streamed into Fabric Eventhouse from an eventstream. We'll use a Fabric Notebook to simulate and push synthetic data (fake data) into an endpoint.|
+| **events**|Eventhouse table|Streaming events representing the product being seen or clicked by the customer. Will be streamed into Fabric Eventhouse from an eventstream. We'll use a Fabric Notebook to simulate and push synthetic data (fake data) into an endpoint.|
 | **Customer**| Copied using Pipeline| Describes customers and their geographic location.|
 | **Address**| Copied using Pipeline|Customers addresses.|
 | **SalesOrderHeader**| Copied using Pipeline|Information about sales orders.|
@@ -226,16 +226,16 @@ Now with Data Activator (Reflex), we can also set alerts on Real-time Dashboards
 ### Materialized-Views
 | View | Origin     | Description|
 |------|------------|------------|
-| **GoldAddress**|EventHouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records.|
-| **GoldCustomer**|EventHouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records.|
-| **GoldSalesOrderHeader**|EventHouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records.|
-| **GoldSalesOrderDetail**|EventHouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records.|
+| **GoldAddress**|Eventhouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records.|
+| **GoldCustomer**|Eventhouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records.|
+| **GoldSalesOrderHeader**|Eventhouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records.|
+| **GoldSalesOrderDetail**|Eventhouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records.|
 
 ---
 
 # Pre-requisites
 - Recommended material to review (at least one) prior to this lab, however it's not required:
-  - https://aka.ms/learn.kql
+  - [Write your first query with Kusto](https://aka.ms/learn.kql)
   - [Real-Time Intelligence Tutorial](<https://learn.microsoft.com/fabric/real-time-intelligence/tutorial-introduction>)
 - To complete the lab you **must** have access to a [Microsoft Fabric](<https://www.microsoft.com/microsoft-fabric/getting-started>) workspace with at least Contributor permissions.
 
