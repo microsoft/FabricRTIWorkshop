@@ -180,7 +180,9 @@ Photo by <a href="https://unsplash.com/@jxk?utm_content=creditCopyText&utm_mediu
 
 ### Components of Fabric's Real-Time Intelligence
 ![RTIComponents](assets/RTIComponents.png "Components of Fabric's Real-Time Intelligence")
-Real-Time Intelligence allows organizations to ingest, process, analyze, ask questions over your data using natural language, transform and automatically act on data. All with a central hub (Real-Time Hub) to easily access and visualize all internal and external, first- and third-party streaming data. We can achieve faster, more accurate decision-making and accelerated time to insight.
+Real-Time Intelligence allows organizations to ingest, process, analyze, ask questions over your data using natural language, transform and automatically act on data. All with a central hub (Real-Time Hub) to easily access and visualize all internal and external, first- and third-party streaming data. 
+
+Using Real-Time Intelligence enables faster, more accurate decision-making and accelerated time to insight.
 
 ### Lab Architecture
 ![Architectural Diagram](assets/architecture.png "Architecture Diagram")
