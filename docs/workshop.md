@@ -85,7 +85,7 @@ Let's cover the key-features and how we plan to use them for our architecture.
 ### Eventstreams
 - Eventstreams allows us to bring real-time events (including Kafka endpoints) into Fabric, transform them, and then route them to various destinations without writing any code (no-code).
 - In this solution, Clicks and Impressions events are ingested from an Eventstream into the `events` table.
-- Enhanced capabilities allows us to source data into Eventstreams from Azure Event Hubs, IoT Hubs, Azure SQL Database (CDC), PostgreSQL Database (CDC), MySQL Database (CDC), Azure Cosmos DB (CDC), Google Cloud Pub/Sub, Amazon Kinesis Data Streams, Confluent Cloud Kafka, Azure Blog Storage events, Fabric Workspace Item events, Sample data or Custom endpoint (Custom App).
+- Enhanced capabilities allows us to source data into Eventstreams from Azure Event Hubs, IoT Hubs, Azure SQL Database (CDC), PostgreSQL Database (CDC), MySQL Database (CDC), Azure Cosmos Database (CDC), Google Cloud Pub/Sub, Amazon Kinesis Data Streams, Confluent Cloud Kafka, Azure Blog Storage events, Fabric Workspace Item events, Sample data or Custom endpoint (Custom App).
 - Feature [documentation](<https://learn.microsoft.com/fabric/real-time-analytics/event-streams/overview>).
 
 ### Copilot
@@ -95,18 +95,18 @@ Let's cover the key-features and how we plan to use them for our architecture.
 
 
 ### Data pipelines 
-- In this solution, the Bronze layer tables are populated by a Data Factory pipeline to copy data from our operational SQL DB.
+- In this solution, the Bronze layer tables are populated by a Data Factory pipeline to copy data from our operational SQL database.
 - Feature [documentation](<https://learn.microsoft.com/fabric/data-factory/tutorial-end-to-end-pipeline>).
 
 ### Shortcuts
-- Shortcuts enable the creation of a live connections between OneLake and target data sources, whether internal or external to Azure. This allows us to retrieve data from these locations as if they were seamlessly integrated into Microsoft Fabric.
-- A shortcut is a schema entity that references data stored external to a KQL database in your cluster. In Lakehouse(s), Eventhouse(s), or KQL Databases it's possible to create shortcuts referencing Internal locations within Microsoft Fabric, ADLS Gen2, Spark Notebooks, AWS S3 storage accounts, or Microsoft Dataverse.
+- Shortcuts enable the creation of a live connections between OneLake and data sources, whether internal or external to Azure. This allows us to retrieve data from these locations as if they were seamlessly integrated into Microsoft Fabric.
+- A shortcut is a schema entity that references data stored external to a KQL database in your cluster. In Lakehouse(s), Eventhouse(s), or KQL Databases it's possible to create shortcuts referencing internal locations within Microsoft Fabric, ADLS Gen2, Spark Notebooks, AWS S3 storage accounts, or Microsoft Dataverse.
 - By enabling us to reference different storage locations, OneLake's Shortcuts provides a unified source of truth for all our data, within the Microsoft Fabric environment and ensures clarity regarding the origin of our data.
-- In this solution, the `Product` and `ProductCategory` SQL tables are defined as external tables (Fabric shortcuts). Meaning the data is not copied but served from the SQL DB itself. Shortcuts allow data to remain stored in outside of Fabric like in our operational SQL DB, yet presented in Fabric as a central location.
+- In this solution, the `Product` and `ProductCategory` SQL tables are defined as external tables using shortcuts. Meaning the data is not copied but served from the SQL database itself. Shortcuts allow data to remain stored in outside of Fabric, yet presented via Fabric as a central location.
 - Feature [documentation](<https://learn.microsoft.com/fabric/real-time-analytics/onelake-shortcuts?tabs=onelake-shortcut>).
 
 ### Eventhouse
-- An Eventhouse can host multiple KQL Databases for easier management. It will store relational data from an operational SQL DB, leverage shortcuts and automate transformations in real-time. Eventhouses are **specifically tailored** to time-based, streaming or batch events with structured, semi-structured, and unstructured data.
+- An Eventhouse can host multiple KQL Databases for easier management. It will store relational data from an operational SQL database, leverage shortcuts and automate transformations in real-time. Eventhouses are **specifically tailored** to time-based, streaming or batch events with structured, semi-structured, and unstructured data.
 - An Eventhouse is the best place to store streaming data in Fabric. It provides a highly-scalable analytics system with built-in Machine Learning capabilities for discrete analytics over highly-granular data. It's useful for any scenario that includes event-based data, for example, telemetry and log data, time series and IoT data, security and compliance logs, or financial records. 
 - Eventhouse's support Kusto Query Language (KQL) queries, T-SQL queries and Python. The data is automatically made available in delta-parquet format and can be easily accessed from Notebooks for more advanced transformations. 
 - Feature [documentation](<https://learn.microsoft.com/fabric/real-time-intelligence/eventhouse>).
@@ -126,7 +126,7 @@ Let's cover the key-features and how we plan to use them for our architecture.
 - Feature [documentation](<https://learn.microsoft.com/fabric/real-time-analytics/one-logical-copy>).
 
 ### KQL Dynamic fields
-- Dynamic fields are a powerful feature of Eventhouse / KQL Database that support evolving schema changes and object polymorphism, allowing the storage/querying of different event types that have a common denominator of base fields.
+- Dynamic fields are a powerful feature of KQL database's that support evolving schema changes and object polymorphism, allowing the storage/querying of different event types that have a common denominator of base fields.
 - Feature [documentation](<https://learn.microsoft.com/azure/data-explorer/kusto/query/scalar-data-types/dynamic>).
 
 ### Kusto Query Language (KQL)
@@ -136,8 +136,10 @@ Let's cover the key-features and how we plan to use them for our architecture.
 - Feature [documentation](<https://learn.microsoft.com/azure/data-explorer/kusto/query/>).
 
 ### Real-time Dashboards
-- Dashboards are commonly used for Operations and Power BI is commonly used for Business Intelligence. Power BI supports more advanced visualizations and rich data-story capabilities. Real-time Dashboards refresh very fast and allow with ease to toggle between visual analysts to pro-developer that can explore queries or edit without needing to download a desktop tool. They make the experience simpler for analysts to visualize over high-granular data.
-- In this solution, the dashboard will contain a collection of visual tiles _Click Through Rate_ stat KPIs, _Impressions_ area chart, _Clicks_ area chart, _Impressions by Location_ map for geo-spatial analytics and _Average Page Load Time_ in a line chart. This feature support filter parameters, additional pages, markdown tiles, including Plotly, multiple KQL datasources, base queries, embedding. Supports sharing with permissions controls, setting an Alert by leveraging Data Activator for actions, and automatic refresh with a minimum frequency of 30 seconds. 
+</div>
+<img src=assets/RTAMenu.png alt="RTA Menu" width="850" height="175">
+- Dashboards are commonly used for Operations, and Power BI is commonly used for Business Intelligence. Power BI supports more advanced visualizations and rich data-story capabilities. Real-time Dashboards refresh very fast and allow with ease to toggle between visual analysts to pro-developer that can explore queries or edit without needing to download a desktop tool. They make the experience simpler for analysts to visualize over high-granular data.
+- In this solution, the Real-Time dashboard will contain a collection of visual tiles _Click Through Rate_ stat KPIs, _Impressions_ area chart, _Clicks_ area chart, _Impressions by Location_ map for geo-spatial analytics and _Average Page Load Time_ in a line chart. This feature support filter parameters, additional pages, markdown tiles, including Plotly, multiple KQL datasources, base queries, embedding. Supports sharing with permissions controls, setting an Alert by leveraging Data Activator for actions, and automatic refresh with a minimum frequency of 30 seconds. 
 - Feature [documentation](<https://learn.microsoft.com/fabric/real-time-intelligence/dashboard-real-time-create>).
 
 ### Data Activator
@@ -286,7 +288,7 @@ In this section we will be streaming events (impressions and clicks events) gene
 1. Create an Eventstream called "RTADemoEventStream".  
 ![alt text](assets/fabrta3.png)
 ![alt text](assets/fabrta4.png)
->[!NOTE]
+
 > For this lab, you **do not** need to check the box to enable Preview Features. If you enable the preview features you may proceed just as well, but some prompts may differ in the Eventstream User-Interface.
 
 2. Add a "Custom app" or "Custom Endpoint" as a source. This will create an event hub connected to the Eventstream. Name the new source "CustomApp" or as you prefer. 
