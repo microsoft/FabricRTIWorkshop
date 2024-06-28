@@ -375,11 +375,12 @@ This feature is also called "one logical copy" and it automatically allows KQL D
 > You may return to this step to create additional shortcuts, after running the [createAll.kql](<https://github.com/microsoft/FabricRTIWorkshop/blob/main/kql/createAll.kql>) database script which will create the additional tables. For now, you may proceed by selecting just the "events" table.
 </div>
 
-![alt text](assets/fabrta67.png)
+![alt text](assets/LakeShortcut1.png)
 
 10. Click "Create".
-![alt text](assets/fabrta68.png)
-11. Now you will have the Eventhouse KQL Database tables available in your Lakehouse. This also works across workspaces. You can query them like any other Lakehouse table.
+![alt text](assets/LakeShortcut2.png)
+
+12. Now you will have the Eventhouse KQL Database tables available in your Lakehouse. This also works across workspaces. You can query them like any other Lakehouse table.
 ![alt text](assets/fabrta69.png)
 
 
