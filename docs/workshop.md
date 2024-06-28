@@ -415,8 +415,8 @@ In this section we will demonstrate how to use Fabric Data Factory pipeline to c
 ![alt text](assets/fabrta32.png)
 3. Select the Pipeline Activity - **Copy data** activity. 
 ![alt text](assets/fabrta33.png)
-4. Set the **Source** to External and click "+ New" to create a new connection.
-![alt text](assets/fabrta34.png)
+4. From the **Source** tab, select the Connection dropbox and select the "More" option.
+![alt text](assets/pipeline_con.png)
 5. Choose **Azure SQL Database**, click Continue.
 ![alt text](assets/fabrta35.png)
 7. Enter the following Connection settings:  
@@ -429,14 +429,14 @@ In this section we will demonstrate how to use Fabric Data Factory pipeline to c
 9. After creating and testing the External connection to the Azure SQL DB successfully, set the Database to `aworks` from the pick list.
 10. Set Table to `SalesLT.Address` from the pick list. Note, it may take a few seconds to display the list of tables.
 ![alt text](assets/fabrta37.png)
-11. Click on **Destination** tab, select "Workspace", set Workspace data store type to **KQL Database**, set KQL Database to **RTADemo**, and select Table **Address** from the pick list.
-![alt text](assets/fabrta38.png)
+11. Click on **Destination** tab, set Connection to **RTA Demo**, and select Table **Address** from the pick list.
+![alt text](assets/pipeline_des.png)
 12. (Optionally) You can click on the Mapping tab to Import schemas & verify all fields are mapped to the correct data types without warnings. However, this additional step is not required for this exercise.
 13. Click **Run** to execute the pipeline.
 ![alt text](assets/fabrta39.png)
 14. The **Output** tab should appear in a few seconds to monitor the progress.
 15. The pipeline will run until you see Pipeline status ✅ **Succeeded**.
-![alt text](assets/fabrta40.png)
+![alt text](assets/pipeline_success.png)
 16. Click the **Run** button again to run it a second time. We are running the pipeline **twice** to show how we are deduplicating rows. 
 17. After the pipeline ran twice successfully, let's check the data we copied.
 18. (Optional) Open the "RTADemo" KQL Database in your Fabric Workspace and click "Explore your data" on the top right to write a query. Copy the following query and click **Run**:
@@ -488,12 +488,22 @@ GoldAddress
 
 ## 11. Edit the Data Pipeline
 
-1. Copy/Paste or duplicate the "Address" Copy Data activity onto the canvas three-times (3x). One for each additional table, then **change the Source & Destination** accordingly.
-2. Notice how the Copy Activity Mapping for the **SalesOrderDetail** automatically maps sql data type `money` to `decimal` data type in KQL. You can see this by clicking Import schemas under the Mapping tab of the Copy Data activity. 
-3. Right-click and deactivate the "Address" Copy Data activity, then **Run** the pipeline **twice** to execute the same scenario for the additional three Copy Data activities. Note, they will run in parallel. 
+1. From the **General** tab, rename the activity to "Address".
+2. Copy/Paste or duplicate the "Address" Copy Data activity onto the canvas three-times (3x). One for each additional targeted tables, then **change the Name, Source, & Destination** accordingly.
+   - Customer
+   - Sales Order Header
+   - Sales Orde Detail
+![alt text](assets/pipeline_upd.png)
 
-![AddressDeactivate](assets/AddressDeactivateWide.png "Deactivate Activity")
+4. Notice how the Copy Activity Mapping for the **SalesOrderDetail** automatically maps sql data type `money` to `decimal` data type in KQL. You can see this by clicking Import schemas under the Mapping tab of the Copy Data activity.
 ![SalesOrderDetailMapping](assets/SalesOrderDetailMapping.png "SalesOrderDetail - Copy Data Mapping")
+ 
+6. Right-click and deactivate the "Address" Copy Data activity,
+![AddressDeactivate](assets/AddressDeactivateWide.png "Deactivate Activity")
+
+8. then **Run** the pipeline **twice** to execute the same scenario for the additional three Copy Data activities. Note, they will run in parallel. 
+![alt text](assets/pipeline_full_run.png)
+
 
 
 # 12. Real-Time Dashboard
