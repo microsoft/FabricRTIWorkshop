@@ -107,14 +107,14 @@ Let's cover the key-features and how we plan to use them for our architecture.
 
 ### Eventhouse
 - An Eventhouse can host multiple KQL Databases for easier management. It will store relational data from an operational SQL database, leverage shortcuts and automate transformations in real-time. Eventhouses are **specifically tailored** to time-based, streaming or batch events with structured, semi-structured, and unstructured data.
-- An Eventhouse is the best place to store streaming data in Fabric. It provides a highly-scalable analytics system with built-in Machine Learning capabilities for discrete analytics over highly-granular data. It's useful for any scenario that includes event-based data, for example, telemetry and log data, time series and IoT data, security and compliance logs, or financial records. 
+- An Eventhouse is the best place to store streaming data in Fabric. It provides a highly scalable analytics system with built-in Machine Learning capabilities for discrete analytics over highly-granular data. It's useful for any scenario that includes event-based data, for example, telemetry and log data, time series and IoT data, security and compliance logs, or financial records. 
 - Eventhouse's support Kusto Query Language (KQL) queries, T-SQL queries and Python. The data is automatically made available in delta-parquet format and can be easily accessed from Notebooks for more advanced transformations. 
 - Feature [documentation](<https://learn.microsoft.com/fabric/real-time-intelligence/eventhouse>).
 
 ### KQL Update policies
 - This feature is also known as a mini-ETL. Update policies are automation mechanisms, triggered when new data is written to a table. They eliminate the need for external orchestration by automatically running a query to transform the ingested data and save the result to a destination table.
 -  Multiple update policies can be defined on a single table, allowing for different transformations and saving data to multiple tables simultaneously. **Target** tables can have a different schema, retention policy, and other policies than the **Source** table.
--  In this solution, the data in derived silver layer tables (targets) of our medallion architecture is inserted upon ingestion into bronze tables (sources). Using Kusto's update policy feature, this appends transformed rows in real-time into the target table, as data is landing in a source table. This can also be set to run in as a transaction, meaning if the data from bronze fails to be transformed to silver, it will not be loaded to bronze either. By default this is set to off allowing maximum throughput.
+-  In this solution, the data in derived silver layer tables (targets) of our medallion architecture is inserted upon ingestion into bronze tables (sources). Using Kusto's update policy feature, this appends transformed rows in real-time into the target table, as data is landing in a source table. This can also be set to run in as a transaction, meaning if the data from bronze fails to be transformed to silver, it will not be loaded to bronze either. By default, this is set to off allowing maximum throughput.
 - Feature [documentation](<https://learn.microsoft.com/azure/data-explorer/kusto/management/update-policy>).
 
 ### KQL Materialized Views
@@ -139,7 +139,7 @@ Let's cover the key-features and how we plan to use them for our architecture.
 </div>
 <img src=assets/RTAMenu.png alt="RTA Menu" width="850" height="175">
 
-- While similar to the Power BI dashaboard functionality, Real-time Dashboards have a different use case. Real-time Dashboards are commonly used for opertaional decision making, rather than the business intelligence use cases Power BI targets. Power BI supports more advanced visualizations and provides a rich data-story capabilities. Real-time Dashboards refresh very fast and allow with ease to toggle between visuals, analysts to pro-developer can explore/edit queries without needing to download a desktop tool. This makes the experience simpler for analysts to understand and visualize large volumes of highly-granular data.
+- While similar to Power BI's dashboard functionality, Real-time Dashboards have a different use case. Real-time Dashboards are commonly used for operational decision making, rather than the business intelligence use cases Power BI targets. Power BI supports more advanced visualizations and provides a rich data-story capabilities. Real-time Dashboards refresh very fast and allow with ease to toggle between visuals, and analysts to pro-developer can explore/edit queries without needing to download a desktop tool. This makes the experience simpler for analysts to understand and visualize large volumes of highly-granular data.
 - In this solution, the Real-time dashboard will contain a collection of visual tiles _Click Through Rate_ stat KPIs, _Impressions_ area chart, _Clicks_ area chart, _Impressions by Location_ map for geo-spatial analytics and _Average Page Load Time_ in a line chart. This feature supports filter parameters, additional pages, markdown tiles, including Plotly, multiple KQL datasources, base queries, embedding.
 - Real-time Dashboard's also support sharing while retaining permission controls, setting of alerts via Data Activator, and automatic refresh with a minimum frequency of 30 seconds. 
 - Feature [documentation](<https://learn.microsoft.com/fabric/real-time-intelligence/dashboard-real-time-create>).
@@ -161,7 +161,7 @@ Let's cover the key-features and how we plan to use them for our architecture.
 # The e-commerce store   
 
 The e-commerce store database entities are:  
-- **Product:** the product catalog. 
+- **Product:** the product catalogue. 
 - **ProductCategory:** the product categories.  
 - **Customer:** the customers that purchased items in the store.
 - **Address:** the addresses of the customers.
@@ -262,7 +262,7 @@ If you need a new Trial Tenant to complete the lab, suggest to register a new Ou
 ---
 
 # Building the platform
-## 1. Login to Lab Enviroment
+## 1. Login to Lab Environment
 1. Proceed to [app.fabric.microsoft.com](<https://app.fabric.microsoft.com/>).
 2. Login with provided credentials, if a trial fabric tenant was previously setup (reference Pre-reqs). You may also choose to run the lab in your own Fabric Tenant if you already have one.
 3. Click **Real-Time Intelligence**.
