@@ -35,4 +35,36 @@ Important Links - Readiness
 3. [Building a Real-Time medallion architecture using Eventhouse in Microsoft Fabric](https://techcommunity.microsoft.com/t5/startups-at-microsoft/building-a-real-time-medallion-architecture-using-eventhouse-in/ba-p/4110686)
 4. (MS internal-only) Evaluation form collaborator [link](https://forms.office.com/Pages/DesignPageV2.aspx?subpage=design&FormId=v4j5cvGGr0GRqy180BHbR0PMD-G9mq1Kry22u32eGOtUMjU2Q1BFR1BSUDJNSTJVUzBMWUdLTjVWVC4u&Token=dbbb3dba98ad45938c79397fd4dff25c) to edit & view responses. 
 5. (MS internal-only) Recording of [RTI talking points](<https://microsoft.sharepoint.com/teams/PBICATs/Shared%20Documents/General/Recordings/View%20Only/General-20240508_110322-Meeting%20Recording.mp4?web=1&referrer=Teams.TEAMS-ELECTRON&referrerScenario=MeetingChicletGetLink.view.view>)
-6. Public recordings available in "section 9 - Continue your learning" of the MOAW. 
+6. Public recordings available in "section 9 - Continue your learning" of the MOAW.
+
+## Uploading the Real-time Dashboard from the JSON file
+
+1. Download the [JSON](<https://github.com/microsoft/FabricRTIWorkshop/blob/main/dashboards/RTA%20dashboard/dashboard-RTA Dashboard.json>) file of the pre-built dashboard.
+2. From the Real-Time Intelligence menu, select the Real-Time Dashboard option.
+   
+![Real-Time Dashboard](docs/assets/RTAMenu.png)
+
+4. Name it "RTA Dashboard" and Create.
+   
+5. From the Manage tab, select "Replace with file" option. Find the downloaded JSON file and select Open.
+   
+![Dashboard JSON](docs/assets/DashboardJSON.png)
+
+6. The Dasboard should repaint with the Adventure Works logo displayed, but the other dashboard titles showing error text.
+7. From the Home tab, select the "New data source" option.
+![Dashboard Update](docs/assets/DashboardUpd1.png)
+
+8. The Data Sources side bar will appear. There will be one source listed, select the pencil icon beside the "RTAdemo" title.
+![Data Sources Update](docs/assets/DashboardUpd2.png)
+
+10. The Edit Data Sources side bar will appear. Confirm the "Data Source Name" and "Database" have "RTAdemo" selected. Then select Apply.
+![Edit Data Sources Update](docs/assets/DashboardUpd3.png)
+    
+12. This will quickly repaint the Dasboard and will visuals will appear. 
+![Dashboard Update](docs/assets/RealTimeDashboard.png)
+
+
+## Trouble Shooting
+
+1. Notebook Doesnt Run
+2. Notebook Has Package Errors
