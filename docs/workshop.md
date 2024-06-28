@@ -385,7 +385,7 @@ This feature is also called "one logical copy" and it automatically allows KQL D
 
 
 ## 9. Build the KQL DB schema
-In this section we will create all the tables, functions, materialized-views, and enable update policies and in our Eventhouse KQL Database. Two of the tables (product and productCategory) are shortcuts to our SQL DB and the data is NOT being copied into our KQL DB.
+In this section we will create all the tables, functions, materialized-views, and enable update policies and in our Eventhouse KQL Database. Two of the tables (product and productCategory) are shortcuts to our SQL Database and the data is NOT being copied into our KQL Database.
 ![alt text](assets/fabrta71.png)
 
 1. Open the RTADemo KQL Database in the Eventhouse of your Fabric Workspace.
@@ -406,6 +406,8 @@ In this section we will create all the tables, functions, materialized-views, an
 ## 10. Data Pipeline
 In this section we will demonstrate how to use Fabric Data Factory pipeline to copy data from our SQL DB into our Eventhouse KQL DB via **batch** ingestion. This type of ingestion can be a one-time thing or scheduled to run periodically.
 ![alt text](assets/fabrta72.png)
+
+> for simplicity, the source SQL database used here is hosted by Microsoft
 
 1. Create the Data Pipelines that you can run periodically to copy data to our Eventhouse DB.
 ![alt text](assets/fabrta31.png)
