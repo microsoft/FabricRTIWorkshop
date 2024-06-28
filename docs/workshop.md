@@ -507,7 +507,8 @@ GoldAddress
 
 
 # 12. Real-Time Dashboard
-In this section, we will build a real-time dashboard to visualize the streaming data and set it to refresh every 30 seconds. (Optionally) A pre-built version of the dashboard is available to download [here](<https://github.com/microsoft/FabricRTIWorkshop/blob/main/dashboards/RTA%20dashboard/dashboard-RTA Dashboard.json>), which can be imported and configured to your KQL DB data source. 
+In this section, we will build a real-time dashboard to visualize the streaming data and set it to refresh every 30 seconds. (Optionally) A pre-built version of the dashboard is available to download [here](<https://github.com/microsoft/FabricRTIWorkshop/blob/main/dashboards/RTA%20dashboard/dashboard-RTA Dashboard.json>), which can be imported and configured to your KQL Database data source.
+- The Proctor Guide covers this process.
 ![Real-Time Dashboard](assets/RealTimeDashboard.png "Real-Time Dashboard")
 
 1. Click + Create (button is located at top left Menu underneath Home).
@@ -639,6 +640,7 @@ events
 //Logo (Markdown Text Tile)
 ![AdventureWorks](https://vikasrajput.github.io/resources/PBIRptDev/AdventureWorksLogo.jpg "AdventureWorks")
 ```
+> The title can be resized on the dashboard canvas directly, rather than writing code. 
 
 ### Auto-refresh
 22. While editing the dashboard, click **Manage** > **Auto refresh**.
@@ -673,7 +675,7 @@ At this point you've completed the lab, so you may stop running the notebook.
 
 🎉 Congratulations on completing this lab! 
 
-Did you like it, did you not like it? Let us know in this short [Eval](<https://forms.office.com/r/xhW3GAtAhi>). Scan this QR Code to open the Eval form on your phone.
+Did you like it, did you not like it? Let us know in this short [Eval](<https://forms.office.com/r/xhW3GAtAhi>). Scan this QR Code to open the evaluation form on your phone.
 
 ![QR Code](assets/QRCodeLabEval-Small.png "QR Code")  
 
