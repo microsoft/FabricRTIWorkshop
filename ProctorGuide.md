@@ -44,23 +44,23 @@ Important Links - Readiness
    
 ![Real-Time Dashboard](docs/assets/RTAMenu.png)
 
-4. Name it "RTA Dashboard" and Create.
+4. Name it "RTA Dashboard" and select **Create**.
    
-5. From the Manage tab, select "Replace with file" option. Find the downloaded JSON file and select Open.
+5. From the Manage tab, select "Replace with file" option. Find the downloaded JSON file and select **Open**.
    
 ![Dashboard JSON](docs/assets/DashboardJSON.png)
 
-6. The Dasboard should repaint with the Adventure Works logo displayed, but the other dashboard titles showing error text.
-7. From the Home tab, select the "New data source" option.
+6. The Dashboard should repaint with the Adventure Works logo displayed, but the other dashboard titles showing error text.
+7. From the Home tab, select **New data source**.
 ![Dashboard Update](docs/assets/DashboardUpd1.png)
 
 8. The Data Sources side bar will appear. There will be one source listed, select the pencil icon beside the "RTAdemo" title.
 ![Data Sources Update](docs/assets/DashboardUpd2.png)
 
-10. The Edit Data Sources side bar will appear. Confirm the "Data Source Name" and "Database" have "RTAdemo" selected. Then select Apply.
+10. The Edit Data Sources side bar will appear. Confirm the "Data Source Name" and "Database" have "RTAdemo" selected. Then select **Apply**.
 ![Edit Data Sources Update](docs/assets/DashboardUpd3.png)
     
-12. The dashboard will quickly repaint and the visuals will appear. 
+12. The dashboard will quickly repaint, and the visuals will appear. 
 ![Dashboard Update](docs/assets/RealTimeDashboard.png)
 
 
@@ -75,18 +75,18 @@ Important Links - Readiness
 **Steps**
 From "8. Building the platform" > "Step 6. Run the notebook";
 
-1. On the Notebook top menu, toggle the "Workspace default" dropbox and select the "New Environment" option.
+1. On the Notebook top menu, toggle the "Workspace default" drop box and select the **New Environment** option.
 ![Notebook Environment](docs/assets/NotebookEnv.png)
 
-2. Enter a name for the environment and select **create**.
+2. Enter a name for the environment and select **Create**.
 ![Notebook Create](docs/assets/NotebookEnvCreate.png)
 
 3. This will present the environment configuration screen, which requires no change. Navigate back to the "Generate synthetic events" notebook.
    
-4. The new environment will now appear in the "Workspace default" dropbox and select it. This will attach the notebook to that environment and you will see a notification for **Updated environment** in the notification tab.
+4. The new environment will now appear in the "Workspace default" drop box, select it. This will attach the notebook to that environment and you will see a callout for **Updated environment** in the notification tab.
 ![Notebook Attach](docs/assets/NotebookEnvAttach.png)
    
-6. Click Run all at the top left to re-run the notebook.
+6. Click **Run all** at the top left to re-run the notebook.
    
 7. Verify that the last code cell is printing out the generated synthetic events in JSON format.
 ![Notebook Success](docs/assets/NotebookSuccess.png)
