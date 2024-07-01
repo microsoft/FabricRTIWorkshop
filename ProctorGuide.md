@@ -60,7 +60,7 @@ Important Links - Readiness
 10. The Edit Data Sources side bar will appear. Confirm the "Data Source Name" and "Database" have "RTAdemo" selected. Then select Apply.
 ![Edit Data Sources Update](docs/assets/DashboardUpd3.png)
     
-12. This will quickly repaint the Dasboard and will visuals will appear. 
+12. The dashboard will quickly repaint and the visuals will appear. 
 ![Dashboard Update](docs/assets/RealTimeDashboard.png)
 
 
