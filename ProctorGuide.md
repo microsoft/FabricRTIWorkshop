@@ -17,7 +17,7 @@ MS-INTERNAL ONLY: To access "RTA Field Demos" workpace which is an F64 to demo C
 
 See [Introduction](<https://aka.ms/fabricrtiworkshop>) section for more info. Proctors may contact: fabricvbdtechleads[at]microsoft[dot]com or rtacat[at]microsoft[dot]com if you need help preparing for your delivery or have additional questions.
 
-## Delivery Guide
+## The Delivery Guide
 
 This asset can be proctor completely by using the [MOAW page](<https://aka.ms/fabricrtiworkshop>).
 
@@ -66,5 +66,45 @@ Important Links - Readiness
 
 ## Trouble Shooting
 
-1. Notebook Doesnt Run
-2. Notebook Has Package Errors
+### The Notebook Doesnt Run
+
+**Symptom** - The "Generate synthetic events" notebook doesnt run or just seems to hang once the **Run all** button has been selected.  
+
+**Resolution** - Stand up a compute environment and run the notebook using that. 
+
+**Steps**
+From "8. Building the platform" > "Step 6. Run the notebook";
+
+1. On the Notebook top menu, toggle the "Workspace default" dropbox and select the "New Environment" option.
+![Notebook Environment](docs/assets/NotebookEnv.png)
+
+2. Enter a name for the environment and select **create**.
+![Notebook Create](docs/assets/NotebookEnvCreate.png)
+
+3. This will present the environment configuration screen, which requires no change. Navigate back to the "Generate synthetic events" notebook.
+   
+4. The new environment will now appear in the "Workspace default" dropbox and select it. This will attach the notebook to that environment and you will see a notification for **Updated environment** in the notification tab.
+![Notebook Attach](docs/assets/NotebookEnvAttach.png)
+   
+6. Click Run all at the top left to re-run the notebook.
+   
+7. Verify that the last code cell is printing out the generated synthetic events in JSON format.
+![Notebook Success](docs/assets/NotebookSuccess.png)
+
+   
+### The Notebook Presents Package Errors
+
+**Symptom** - The "Generate synthetic events" notebook runs, but doesnt progress past the first cell raising a number of python packaging errors.  
+
+**Resolution** - Restart the process from the next cell.  
+
+**Steps**
+From "8. Building the platform" > "Step 6. Run the notebook";
+
+1. Go to the second cell in the notebook and select the drop-down arrow beside the **Run Cell** button.
+     
+2. Select **Run this cell and all below** and the notebook should run as expected.
+![Notebook Errors](docs/assets/NotebookPackages.png)
+
+3. Verify that the last code cell is printing out the generated synthetic events in JSON format.
+  ![Notebook Success](docs/assets/NotebookSuccess.png)
