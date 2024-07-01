@@ -324,6 +324,7 @@ In this section we will be streaming events (impressions and clicks events) gene
 4. Click **Run all** at the top left to start generating streaming events. 
 5. Wait a few minutes for the first code cell to finish and it will proceed to next code cells automatically.
 6. Scroll down to the last code cell and it should begin to print the generated synthetic events in JSON format.
+![Notebook Success](assets/NotebookSuccess.png)
 
 
 ## 7. Define destination in the Eventstream
