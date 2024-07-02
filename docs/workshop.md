@@ -238,7 +238,7 @@ Now with Data Activator (Reflex), we can also set alerts on Real-time Dashboards
 # Pre-requisites
 - Recommended material to review (at least one) prior to this lab, however it's not required:
   - [Write your first query with Kusto](<https://aka.ms/learn.kql>)
-  - [Implement a Real-Time Intelligence Solution Tutorial](<https://aka.ms/realtimeskill>)
+  - [Implement a Real-Time Intelligence Solution Tutorial](<https://learn.microsoft.com/fabric/real-time-intelligence/tutorial-introduction>)
 - To complete the lab you **must** have access to a [Microsoft Fabric](<https://www.microsoft.com/microsoft-fabric/getting-started>) workspace with at least Contributor permissions.
 
 ### Trial Tenant for the Lab
@@ -684,7 +684,7 @@ If you'd like to contribute to this lab or report a bug-issue, please send a Pul
 
 # Continue your learning
 
-- [Implement a Real-Time Intelligence Solution with Microsoft Fabric](<https://learn.microsoft.com/training/paths/explore-real-time-analytics-microsoft-fabric/>)
+- [Implement a Real-Time Intelligence Solution with Microsoft Fabric](<https://aka.ms/realtimeskill/>)
 - [Real-Time Intelligence documentation in Microsoft Fabric](<https://aka.ms/fabric-docs-rta>)
 - [Microsoft Fabric Updates Blog](<https://aka.ms/fabricblog>)
 - [Get started with Microsoft Fabric](<https://aka.ms/fabric-learn>)
