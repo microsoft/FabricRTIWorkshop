@@ -79,8 +79,6 @@ In summary, Microsoft Fabric [Real-Time Intelligence (RTI)](<https://aka.ms/fabr
 # Fabric Real-Time Intelligence features 
 
 Let's cover the key-features and how we plan to use them for our architecture.
-</div>
-<img src=assets/FabricMenu.png alt="Fabric Menu" width="250" height="400">
 
 ### Eventstreams
 - Eventstreams allows us to bring real-time events (including Kafka endpoints) into Fabric, transform them, and then route them to various destinations without writing any code (no-code).
