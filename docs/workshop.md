@@ -35,9 +35,9 @@ All the **code** in this tutorial can be found here:
 Also, here's a detailed [article](<https://techcommunity.microsoft.com/t5/startups-at-microsoft/building-a-real-time-medallion-architecture-using-eventhouse-in/ba-p/4110686>) explaining this tutorial.
 
 ### Duration
-- Lab 1-2 hours (section 8)
+- Lab 1-2 hours (section 8).
 - Theoretical context 30-45 minutes (sections 1-6) or optional [presentation](<https://github.com/microsoft/FabricRTIWorkshop/blob/main/presentation/_Real-Time%20Intelligence%20in%20Fabric%20L200%20pitch%20deck.PDF>).
-- Lab [pre-reqs](<https://moaw.dev/workshop/?src=gh%3Amicrosoft%2FFabricRTIWorkshop%2Fmain%2Fdocs%2F&step=6>) 30-45 minutes (section 7, recommend provisioning trial tenant prior if necessary)
+- Lab [pre-reqs](<https://moaw.dev/workshop/?src=gh%3Amicrosoft%2FFabricRTIWorkshop%2Fmain%2Fdocs%2F&step=6>) 30-45 minutes (section 7, recommend provisioning trial tenant prior if necessary).
 
 ### Authors
 - [Denise Schlesinger](<https://github.com/denisa-ms>), Microsoft, Prin CSA
@@ -45,7 +45,7 @@ Also, here's a detailed [article](<https://techcommunity.microsoft.com/t5/startu
 - Guy Yehudy, Microsoft, Prin PM
 
 ### Feedback - Contributing
-- Rate this lab or give us feedback to improve using this short [Eval](<https://forms.office.com/r/xhW3GAtAhi>). Scan this QR Code to open the Eval form on your phone.
+- Rate this lab or give us feedback to improve using this short [Eval](<https://forms.office.com/r/xhW3GAtAhi>). Scan this QR Code to open the evaluation form on your phone.
 
 ![QR Code](assets/QRCodeLabEval-Small.png "QR Code")
 
@@ -65,7 +65,7 @@ The Medallion architecture is a data design pattern with 3 layers:
 
 🥇 The Gold Layer: aggregated data for reporting and BI, this can be achieved with Eventhouse's **materialized views**.  
 
-A medallion architecture (also coined by Databricks) is a data design pattern used to logically organize data. The goal is to **incrementally** improve the structure and quality of data as it flows through each layer of the architecture. Medallion architectures are sometimes also referred to as "multi-hop" architectures.
+The Medallion architecture (also coined by Databricks) is a data design pattern used to logically organize data. The goal is to **incrementally** improve the structure and quality of data as it flows through each layer of the architecture, performantly at enterprise scale. Medallion architectures are sometimes also referred to as "multi-hop" architectures.
 
 Creating a multi-layer data platform allow companies to improve data quality across the layers and at the same time provide for their business needs. Unstructured and raw data are ingested using scalable pipelines to output the highest quality enriched data.
 
@@ -79,35 +79,42 @@ In summary, Microsoft Fabric [Real-Time Intelligence (RTI)](<https://aka.ms/fabr
 # Fabric Real-Time Intelligence features 
 
 Let's cover the key-features and how we plan to use them for our architecture.
+</div>
+<img src=assets/FabricMenu.png alt="Fabric Menu" width="250" height="400">
 
-### Event streams
-- Clicks and Impressions events are ingested from an Eventstream into the `events` table. This feature allows us to bring real-time events (including Kafka endpoints) into Fabric, transform them, and then route them to various destinations without writing any code (no-code). Enhanced capabilities allows us to source data into Eventstreams from Azure Event Hubs, IoT Hubs, Azure SQL Database (CDC), PostgreSQL Database (CDC), MySQL Database (CDC), Azure Cosmos DB (CDC), Google Cloud Pub/Sub, Amazon Kinesis Data Streams, Confluent Cloud Kafka, Azure Blog Storage events, Fabric Workspace Item events, Sample data or Custom endpoint (Custom App).
+### Eventstreams
+- Eventstreams allows us to bring real-time events (including Kafka endpoints) into Fabric, transform them, and then route them to various destinations without writing any code (no-code).
+- In this solution, Clicks and Impressions events are ingested from an Eventstream into the `events` table.
+- Enhanced capabilities allows us to source data into Eventstreams from Azure Event Hubs, IoT Hubs, Azure SQL Database (CDC), PostgreSQL Database (CDC), MySQL Database (CDC), Azure Cosmos Database (CDC), Google Cloud Pub/Sub, Amazon Kinesis Data Streams, Confluent Cloud Kafka, Azure Blog Storage events, Fabric Workspace Item events, Sample data or Custom endpoint (Custom App).
 - Feature [documentation](<https://learn.microsoft.com/fabric/real-time-analytics/event-streams/overview>).
 
 ### Copilot
 - Copilot for Real-Time Intelligence is an advanced AI tool designed to help you explore your data and extract valuable insights. You can input questions about your data, which are then automatically translated into Kusto Query Language (KQL) queries. Copilot streamlines the process of analyzing data for both experienced KQL users and citizen data scientists.
-- Feature [documentation](<https://learn.microsoft.com/fabric/get-started/copilot-real-time-intelligence>)
+- Feature [documentation](<https://learn.microsoft.com/fabric/get-started/copilot-real-time-intelligence>).
 ![Copilot](assets/Copilot.png "Fabric Copilot in KQL Queryset")
 
 
 ### Data pipelines 
-- Bronze layer tables are populated by a Data Factory pipeline to copy data from our operational SQL DB.
+- In this solution, the Bronze layer tables are populated by a Data Factory pipeline to copy data from our operational SQL database.
 - Feature [documentation](<https://learn.microsoft.com/fabric/data-factory/tutorial-end-to-end-pipeline>).
 
 ### Shortcuts
-- `Product` and `ProductCategory` SQL tables are defined as external tables (Fabric shortcuts). Meaning the data is not copied but served from the SQL DB itself. Shortcuts allow data to remain stored in outside of Fabric like in our operational SQL DB, yet presented in Fabric as a central location.
-- Shortcuts enable us to create live connections between OneLake and existing target data sources, whether internal or external to Azure. This allows us to retrieve data from these locations as if they were seamlessly integrated into Microsoft Fabric.
-- A shortcut is a schema entity that references data stored external to a KQL database in your cluster. In Lakehouse(s), Eventhouse(s), or KQL Databases it's possible to create shortcuts referencing Internal locations within Microsoft Fabric, ADLS Gen2, Spark Notebooks, AWS S3 storage accounts, or Microsoft Dataverse.
-- From my perspective, I value the fact that all data is aligned under a unified namespace, allowing seamless access through the same ADLS Gen2 APIs, even when sourced from AWS S3. By enabling us to reference different storage locations, OneLake's Shortcuts provides a unified source of truth for all our data within the Microsoft Fabric environment and ensures clarity regarding the origin of our data.
+- Shortcuts enable the creation of a live connections between OneLake and data sources, whether internal or external to Azure. This allows us to retrieve data from these locations as if they were seamlessly integrated into Microsoft Fabric.
+- A shortcut is a schema entity that references data stored external to a KQL database in your cluster. In Lakehouse(s), Eventhouse(s), or KQL Databases it's possible to create shortcuts referencing internal locations within Microsoft Fabric, ADLS Gen2, Spark Notebooks, AWS S3 storage accounts, or Microsoft Dataverse.
+- By enabling us to reference different storage locations, OneLake's Shortcuts provides a unified source of truth for all our data, within the Microsoft Fabric environment and ensures clarity regarding the origin of our data.
+- In this solution, the `Product` and `ProductCategory` SQL tables are defined as external tables using shortcuts. Meaning the data is not copied but served from the SQL database itself. Shortcuts allow data to remain stored in outside of Fabric, yet presented via Fabric as a central location.
 - Feature [documentation](<https://learn.microsoft.com/fabric/real-time-analytics/onelake-shortcuts?tabs=onelake-shortcut>).
 
 ### Eventhouse
-- The Eventhouse can host multiple KQL Databases for easier management. It will store relational data from an operational SQL DB, leverage shortcuts and automate transformations in real-time.
-- The Eventhouse is the best place to store streaming data in Fabric. It provides a highly-scalable analytics system with built-in Machine Learning capabilities for discrete analytics over high-granular data. It's useful for any scenario that includes event-based data, for example, telemetry and log data, time series and IoT data, security and compliance logs, or financial records. The Eventhouse supports Kusto Query Language (KQL) queries, T-SQL queries and Python. The data is automatically made available in delta-parquet format and can be easily accessed from Notebooks for more advanced transformations. The Eventhouse is **specifically tailored** to time-based, streaming or batch events with structured, semi-structured, and unstructured data.
+- An Eventhouse can host multiple KQL Databases for easier management. It will store relational data from an operational SQL database, leverage shortcuts and automate transformations in real-time. Eventhouses are **specifically tailored** to time-based, streaming or batch events with structured, semi-structured, and unstructured data.
+- An Eventhouse is the best place to store streaming data in Fabric. It provides a highly scalable analytics system with built-in Machine Learning capabilities for discrete analytics over highly-granular data. It's useful for any scenario that includes event-based data, for example, telemetry and log data, time series and IoT data, security and compliance logs, or financial records. 
+- Eventhouse's support Kusto Query Language (KQL) queries, T-SQL queries and Python. The data is automatically made available in delta-parquet format and can be easily accessed from Notebooks for more advanced transformations. 
 - Feature [documentation](<https://learn.microsoft.com/fabric/real-time-intelligence/eventhouse>).
 
 ### KQL Update policies
-- This feature is also known as a mini-ETL. Update policies are automation mechanisms triggered when new data is written to a table. They eliminate the need for special orchestration by running a query to transform the ingested data and save the result to a destination table. Multiple update policies can be defined on a single table, allowing for different transformations and saving data to multiple tables simultaneously. **Target** tables can have a different schema, retention policy, and other policies than the **Source** table. The data in derived silver layer tables (targets) of our medallion architecture is inserted upon ingestion to bronze tables (sources). Based on Kusto's update policy feature, this allows to append transformed rows in real-time to a target table as data is landing in a source table and can also be set to run in a transaction. Meaning if the data from bronze fails to be transformed to silver, it will not be loaded to bronze either, by default this is set to off allowing maximum throughput.
+- This feature is also known as a mini-ETL. Update policies are automation mechanisms, triggered when new data is written to a table. They eliminate the need for external orchestration by automatically running a query to transform the ingested data and save the result to a destination table.
+-  Multiple update policies can be defined on a single table, allowing for different transformations and saving data to multiple tables simultaneously. **Target** tables can have a different schema, retention policy, and other policies than the **Source** table.
+-  In this solution, the data in derived silver layer tables (targets) of our medallion architecture is inserted upon ingestion into bronze tables (sources). Using Kusto's update policy feature, this appends transformed rows in real-time into the target table, as data is landing in a source table. This can also be set to run in as a transaction, meaning if the data from bronze fails to be transformed to silver, it will not be loaded to bronze either. By default, this is set to off allowing maximum throughput.
 - Feature [documentation](<https://learn.microsoft.com/azure/data-explorer/kusto/management/update-policy>).
 
 ### KQL Materialized Views
@@ -115,25 +122,30 @@ Let's cover the key-features and how we plan to use them for our architecture.
 - Feature [documentation](<https://learn.microsoft.com/azure/data-explorer/kusto/management/materialized-views/materialized-view-overview>).
 
 ### One Logical Copy
-- Creates a one logical copy of KQL Database data by turning on OneLake availability. Turning on OneLake availability for your KQL tables, database or Eventhouse means that you can query the data in your KQL database in Delta Lake format via other Fabric engines such as Direct Lake mode in Power BI, Warehouse, Lakehouse, Notebooks, and more. When activated, it will copy via mirroring the KQL data to your Fabric Datalake in delta-parquet format. Allowing you to shortcut tables from your KQL Database via OneLake to your Fabric Lakehouse, Data Warehouse, and also query the data in delta-parquet format using Spark Notebooks or the SQL-endpoint of the Lakehouse.
+- This feature creates a one logical copy of KQL Database data by turning on OneLake availability. Turning on OneLake availability for your KQL tables, database or Eventhouse means that you can query the data in your KQL database in Delta Lake format via other Fabric engines such as Direct Lake mode in Power BI, Warehouse, Lakehouse, Notebooks, and more. When activated, it will copy via mirroring the KQL data to your Fabric Datalake in delta-parquet format. Allowing you to shortcut tables from your KQL Database via OneLake to your Fabric Lakehouse, Data Warehouse, and also query the data in delta-parquet format using Spark Notebooks or the SQL-endpoint of the Lakehouse.
 - Feature [documentation](<https://learn.microsoft.com/fabric/real-time-analytics/one-logical-copy>).
 
 ### KQL Dynamic fields
-- Dynamic fields are a powerful feature of Eventhouse / KQL DB that support evolving schema changes and object polymorphism, allowing to store different event types that have a common denominator of base fields.
+- Dynamic fields are a powerful feature of KQL database's that support evolving schema changes and object polymorphism, allowing the storage/querying of different event types that have a common denominator of base fields.
 - Feature [documentation](<https://learn.microsoft.com/azure/data-explorer/kusto/query/scalar-data-types/dynamic>).
 
 ### Kusto Query Language (KQL)
-- KQL commands will be automatically written by the Get Data UI wizard when configuring the Eventhouse KQL Database destination in Eventstream. The commands will create the `events` table and JSON mapping. Secondly, the control commands will be issued in a database script that automate creation of additional schema items such as Tables, Shortcuts, Functions, Policies and Materialized-Views.
 - KQL is also known as the language of the cloud. It's available in many other services such as Microsoft Sentinel, Azure Monitor, Azure Resource Graph and Microsoft Defender. The code-name **Kusto** engine was invented by 4 engineers from the Power BI team over 10 years ago and has been implemented across all Microsoft services including Github Copilot, LinkedIn, Azure, Office 365, and XBOX.
 - KQL queries are easy to write, read and edit. The language is most commonly used to analyze logs, sign-on events, application traces, diagnostics, signals, metrics and much more. Supports multi-statement queries, relational operators such as filters (where clauses), union, joins aggregations to produce a tabular output. It allows the ability to simply pipe (|) additional commands for ad-hoc analytics without needing to re-write entire queries. It has similarities to PowerShell, Excel functions, LINQ, function SQL, and OS Shell (Bash). It supports DML statements, DDL statements (referred to as Control Commands), built-in machine learning operators for forecasting & anomaly detection, plus more... including in-line Python & R-Lang.
+- In this solution, KQL commands will be automatically written by the Get Data UI wizard when configuring the Eventhouse KQL Database destination in the Eventstream. These commands will create the `events` table and JSON mapping. Secondly, the control commands will be issued in a database script that automate creation of additional schema items such as Tables, Shortcuts, Functions, Policies and Materialized-Views.
 - Feature [documentation](<https://learn.microsoft.com/azure/data-explorer/kusto/query/>).
 
 ### Real-time Dashboards
-- Will contain a collection of visual tiles _Click Through Rate_ stat KPIs, _Impressions_ area chart, _Clicks_ area chart, _Impressions by Location_ map for geo-spatial analytics and _Average Page Load Time_ in a line chart. This feature support filter parameters, additional pages, markdown tiles, including Plotly, multiple KQL datasources, base queries, embedding. Supports sharing with permissions controls, setting an Alert by leveraging Data Activator for actions, and automatic refresh with a minimum frequency of 30 seconds. These dashboards are commonly used for Operations and Power BI is commonly used for Business Intelligence. Power BI supports more advanced visualizations and rich data-story capabilities. Real-time Dashboards refresh very fast and allow with ease to toggle between visual analysts to pro-developer that can explore queries or edit without needing to download a desktop tool. They make the experience simpler for analysts to visualize over high-granular data.
+</div>
+<img src=assets/RTAMenu.png alt="RTA Menu" width="850" height="175">
+
+- While similar to Power BI's dashboard functionality, Real-time Dashboards have a different use case. Real-time Dashboards are commonly used for operational decision making, rather than the business intelligence use cases Power BI targets. Power BI supports more advanced visualizations and provides a rich data-story capabilities. Real-time Dashboards refresh very fast and allow with ease to toggle between visuals, and analysts to pro-developer can explore/edit queries without needing to download a desktop tool. This makes the experience simpler for analysts to understand and visualize large volumes of highly-granular data.
+- In this solution, the Real-time dashboard will contain a collection of visual tiles _Click Through Rate_ stat KPIs, _Impressions_ area chart, _Clicks_ area chart, _Impressions by Location_ map for geo-spatial analytics and _Average Page Load Time_ in a line chart. This feature supports filter parameters, additional pages, markdown tiles, including Plotly, multiple KQL datasources, base queries, embedding.
+- Real-time Dashboard's also support sharing while retaining permission controls, setting of alerts via Data Activator, and automatic refresh with a minimum frequency of 30 seconds. 
 - Feature [documentation](<https://learn.microsoft.com/fabric/real-time-intelligence/dashboard-real-time-create>).
 
 ### Data Activator
-- We will Set an Alert in our Real-time Dashboard to message me in Teams. Data Activator (code-name Reflex) is a no-code experience in Microsoft Fabric for automatically taking actions when patterns or conditions are detected in changing data. It monitors data in Power BI reports, Eventstreams items and Real-time Dashboards, for when the data hits certain thresholds or matches other patterns. It then automatically takes appropriate action such as alerting users or kicking off Power Automate workflows.
+- Data Activator (code-name Reflex) is a no-code experience in Microsoft Fabric for automatically taking actions when patterns or conditions are detected in changing data. It monitors data in Power BI reports, Eventstreams items and Real-time Dashboards, for when the data hits certain thresholds or matches other patterns. It then triggers the appropriate action, such as alerting users or kicking off Power Automate workflows.
 - Some common use cases are:
   - Run Ads when same-store sales decline.
   - Alert store managers to move food from failing freezers before it spoils.
@@ -141,6 +153,7 @@ Let's cover the key-features and how we plan to use them for our architecture.
   - Help logistics companies find lost shipments proactively by starting an investigation when package status isn't updated for a certain length of time.
   - Alert account teams when customers fall behind with conditional thresholds.
   - Track data pipeline quality, to either re-run jobs, alert for detected failures or anomalies.
+- In this solution, we will set an alert in our Real-time Dashboard to **Message me in Teams** functionality.
 - Feature [documentation](<https://learn.microsoft.com/fabric/data-activator/data-activator-introduction>).
 
 ---
@@ -148,7 +161,7 @@ Let's cover the key-features and how we plan to use them for our architecture.
 # The e-commerce store   
 
 The e-commerce store database entities are:  
-- **Product:** the product catalog. 
+- **Product:** the product catalogue. 
 - **ProductCategory:** the product categories.  
 - **Customer:** the customers that purchased items in the store.
 - **Address:** the addresses of the customers.
@@ -160,9 +173,9 @@ The e-commerce store database entities are:
   - A **click event** is logged when the product is clicked and the customer has viewed the details.  
 ![Clicks](assets/store2.png)  
 
-Photo by <a href="https://unsplash.com/@himiwaybikes?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Himiway Bikes</a> on <a href="https://unsplash.com/photos/black-and-gray-motorcycle-parked-beside-brown-wall-Gj5PXw1kM6U?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>  
-Photo by <a href="https://unsplash.com/@headaccessories?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">HEAD Accessories</a> on <a href="https://unsplash.com/photos/silver-and-orange-head-lamp-9uISZprJdXU?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>  
-Photo by <a href="https://unsplash.com/@jxk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Jan Kopřiva</a> on <a href="https://unsplash.com/photos/a-close-up-of-a-helmet-with-sunglasses-on-it-CT6AScSsQQM?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+Photo by <a href="https://unsplash.com/@himiwaybikes?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Himiway Bikes</a> on <a href="https://unsplash.com/photos/black-and-gray-motorcycle-parked-beside-brown-wall-Gj5PXw1kM6U?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>.  
+Photo by <a href="https://unsplash.com/@headaccessories?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">HEAD Accessories</a> on <a href="https://unsplash.com/photos/silver-and-orange-head-lamp-9uISZprJdXU?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>.  
+Photo by <a href="https://unsplash.com/@jxk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Jan Kopřiva</a> on <a href="https://unsplash.com/photos/a-close-up-of-a-helmet-with-sunglasses-on-it-CT6AScSsQQM?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>.
   
 
 ---
@@ -171,7 +184,9 @@ Photo by <a href="https://unsplash.com/@jxk?utm_content=creditCopyText&utm_mediu
 
 ### Components of Fabric's Real-Time Intelligence
 ![RTIComponents](assets/RTIComponents.png "Components of Fabric's Real-Time Intelligence")
-Real-Time Intelligence allows organizations to ingest, process, analyze, ask questions over your data using natural language, transform and automatically act on data. All with a central hub (Real-Time Hub) to easily access and visualize all internal and external, first- and third-party streaming data. We can achieve faster, more accurate decision-making and accelerated time to insight.
+Real-Time Intelligence allows organizations to ingest, process, analyze, ask questions over your data using natural language, transform and automatically act on data. All with a central hub (Real-Time Hub) to easily access and visualize all internal and external, first- and third-party streaming data. 
+
+Using Real-Time Intelligence enables faster, more accurate decision-making and accelerated time to insight.
 
 ### Lab Architecture
 ![Architectural Diagram](assets/architecture.png "Architecture Diagram")
@@ -188,44 +203,44 @@ Now with Data Activator (Reflex), we can also set alerts on Real-time Dashboards
 ### Tables
 | Table| Origin     | Description|
 |------|------------|------------|
-| **events**|EventHouse table|Streaming events representing the product being seen or clicked by the customer. Will be streamed into Fabric Eventhouse from an eventstream. We'll use a Fabric Notebook to simulate and push synthetic data (fake data) into an endpoint.|
-| **Customer**| Copied using Pipeline| Describes customers and their geographic location|
-| **Address**| Copied using Pipeline|Customers addresses|
-| **SalesOrderHeader**| Copied using Pipeline|Information about sales orders|
-| **SalesOrderDetail**| Copied using Pipeline|Detailed information about sales orders, including product IDs and quantities sold|
-| **SilverCustomer**|EventHouse table|Table created based on an update policy with **transformed data**|
-| **SilverAddress**|EventHouse table|Table created based on an update policy with **transformed data**|
-| **SilverOrdersHeader**|EventHouse table|Table created based on an update policy with transformed data|
-| **SilverOrdersDetail**|EventHouse table|Table created based on an update policy with transformed data|
+| **events**|Eventhouse table|Streaming events representing the product being seen or clicked by the customer. Will be streamed into Fabric Eventhouse from an eventstream. We'll use a Fabric Notebook to simulate and push synthetic data (fake data) into an endpoint.|
+| **Customer**| Copied using Pipeline| Describes customers and their geographic location.|
+| **Address**| Copied using Pipeline|Customers addresses.|
+| **SalesOrderHeader**| Copied using Pipeline|Information about sales orders.|
+| **SalesOrderDetail**| Copied using Pipeline|Detailed information about sales orders, including product IDs and quantities sold.|
+| **SilverCustomer**|EventHouse table|Table created based on an update policy with **transformed data**.|
+| **SilverAddress**|EventHouse table|Table created based on an update policy with **transformed data**.|
+| **SilverOrdersHeader**|EventHouse table|Table created based on an update policy with **transformed data**.|
+| **SilverOrdersDetail**|EventHouse table|Table created based on an update policy with **transformed data**.|
 
 ### External Tables
 | Table| Origin     | Description|
 |------|------------|------------|
-| **Product**|**Shortcut** to SQL DB|Products, including descriptions and prices|
-| **ProductCategory**|**Shortcut** to SQL DB|Product category|
+| **Product**|**Shortcut** to SQL DB|Products, including descriptions and prices.|
+| **ProductCategory**|**Shortcut** to SQL DB|Product category.|
 
 ### Functions
 | Function| Description|
 |------------|------------|
-|**ParseAddress**|Adds watermark column based on `ingestion_time()`|
-|**ParseCustomer**|Adds watermark column based on `ingestion_time()`|
-|**ParseSalesOrderHeader**|Adds calculated column `DaysShipped` by measuring the number of days between `ShipDate` and `OrderDate`. Also, adds watermark column based on `ingestion_time()` |
-|**ParseSalesOrderDetail**|Adds watermark column based on `ingestion_time()`|
+|**ParseAddress**|Adds watermark column based on `ingestion_time()`.|
+|**ParseCustomer**|Adds watermark column based on `ingestion_time()`.|
+|**ParseSalesOrderHeader**|Adds calculated column `DaysShipped` by measuring the number of days between `ShipDate` and `OrderDate`. Also, adds watermark column based on `ingestion_time()`.|
+|**ParseSalesOrderDetail**|Adds watermark column based on `ingestion_time()`.|
 
 ### Materialized-Views
 | View | Origin     | Description|
 |------|------------|------------|
-| **GoldAddress**|EventHouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records|
-| **GoldCustomer**|EventHouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records|
-| **GoldSalesOrderHeader**|EventHouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records|
-| **GoldSalesOrderDetail**|EventHouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records|
+| **GoldAddress**|Eventhouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records.|
+| **GoldCustomer**|Eventhouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records.|
+| **GoldSalesOrderHeader**|Eventhouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records.|
+| **GoldSalesOrderDetail**|Eventhouse silver table|Materialized view showing only the **latest** changes in the source table showing how to handle duplicate or updated records.|
 
 ---
 
 # Pre-requisites
 - Recommended material to review (at least one) prior to this lab, however it's not required:
-  - https://aka.ms/learn.kql
-  - [Real-Time Intelligence Tutorial](<https://learn.microsoft.com/fabric/real-time-intelligence/tutorial-introduction>)
+  - [Write your first query with Kusto](<https://aka.ms/learn.kql>)
+  - [Implement a Real-Time Intelligence Solution Tutorial](<https://aka.ms/realtimeskill>)
 - To complete the lab you **must** have access to a [Microsoft Fabric](<https://www.microsoft.com/microsoft-fabric/getting-started>) workspace with at least Contributor permissions.
 
 ### Trial Tenant for the Lab
@@ -247,9 +262,9 @@ If you need a new Trial Tenant to complete the lab, suggest to register a new Ou
 ---
 
 # Building the platform
-## 1. Login to Lab Enviroment
-1. Proceed to [app.fabric.microsoft.com](<https://app.fabric.microsoft.com/>)
-2. Login with provided credentials, if a trial fabric tenant was previously setup (reference Pre-reqs). You may also choose to run the lab in your own Fabric Tenant if you already have one
+## 1. Login to Lab Environment
+1. Proceed to [app.fabric.microsoft.com](<https://app.fabric.microsoft.com/>).
+2. Login with provided credentials, if a trial fabric tenant was previously setup (reference Pre-reqs). You may also choose to run the lab in your own Fabric Tenant if you already have one.
 3. Click **Real-Time Intelligence**.
 ![Fabric Home](assets/FabricHome.png "Real-Time Intelligence")
 
@@ -259,31 +274,33 @@ If you need a new Trial Tenant to complete the lab, suggest to register a new Ou
 ![alt text](assets/fabrta0.png)
 
 ## 3. Create a new Eventhouse  
-1. Create an Eventhouse called "RTAdemo"  
+1. Create an Eventhouse called "RTAdemo".  
 ![alt text](assets/fabrta1.png)
 ![alt text](assets/fabrta2.png)
 
 <div class="info" data-title="Note">
   
-> The [Eventhouse](<https://learn.microsoft.com/en-us/fabric/real-time-intelligence/eventhouse>) is designed to handle real-time data streams efficiently, which lets organizations ingest, process, and analyze data in near real-time. Event houses are particularly useful for scenarios where **timely insights are crucial**. Event houses provide a scalable infrastructure that allows organizations to handle growing volumes of data, ensuring optimal performance and resource use. Event houses are the **preferred** engine for semi-structured and free text analysis . An event house is a workspace of databases, which might be shared across a certain project. It allows you to manage multiple databases at once, sharing capacity and resources to optimize performance and cost. Event houses provide unified monitoring and management across all databases and per database. Event houses are **specifically tailored** to time-based, streaming events with structured, semi-structured, and unstructured data. You can get data from multiple sources or pipelines (For example, Eventstream, SDKs, Kafka, Logstash, data flows, and more) and multiple data formats. This data is automatically indexed and partitioned based on ingestion time.
+> The [Eventhouse](<https://learn.microsoft.com/en-us/fabric/real-time-intelligence/eventhouse>) is designed to handle real-time data streams efficiently, which lets organizations ingest, process, and analyze data in near real-time. Eventhouses are particularly useful for scenarios where **timely insights are crucial**. Eventhouses are **specifically tailored** to time-based, streaming events with multiple data formats. This data is automatically indexed and partitioned based on ingestion time.
 </div>
 
 ## 4. Create a new Eventstream 
-In this section we will be streaming events (impressions and clicks events) generated by a notebook. The events will be streamed into an eventstream and consumed by our Eventhouse KQL DB.
+In this section we will be streaming events (impressions and clicks events) generated by a notebook. The events will be streamed into an eventstream and consumed by our Eventhouse KQL Database.
 ![alt text](assets/fabrta73.png)
 
-1. Create an Eventstream called "RTADemoEventStream"  
+1. Create an Eventstream called "RTADemoEventStream".  
 ![alt text](assets/fabrta3.png)
 ![alt text](assets/fabrta4.png)
-2. For this lab, you **do not** need to check the box to enable Preview Features. If you enable the preview features you may proceed just as well, but some prompts may differ in the Eventstream User-Interface.
-3. Add a "Custom app" or "Custom Endpoint" as a source. This will create an event hub connected to the Eventstream. Name the new source "CustomApp" or as you prefer. 
+
+> For this lab, you **do not** need to check the box to enable Preview Features. If you enable the preview features you may proceed just as well, but some prompts may differ in the Eventstream User-Interface.
+
+2. Add a "Custom app" or "Custom Endpoint" as a source. This will create an event hub connected to the Eventstream. Name the new source "CustomApp" or as you prefer. 
 ![alt text](assets/fabrta5.png)
-4. Click on the Eventstream source - Custom App to get the "Event hub name" and "Connection string-primary key". We need these values to send the events from our Notebook.  
-5. Click on "Keys"
-6. Click the copy icon next to the **Event hub name** to copy it to a notepad.
+3. Click on the Eventstream source - Custom App to get the "Event hub name" and "Connection string-primary key". We need these values to send the events from our Notebook.  
+4. Click on "Keys".
+5. Click the copy icon next to the **Event hub name** to copy it to a notepad.
 ![alt text](assets/fabrta8.png)
-7. Click the view icon at the end of the **Connection string** (primary or secondary) to see it.
-8. Then, click the copy icon at the end of **Connection string** to copy it to a notepad. It must be visible in order to copy it.
+6. Click the view icon at the end of the **Connection string** (primary or secondary) to see it.
+7. Then, click the copy icon at the end of **Connection string** to copy it to a notepad. It must be visible in order to copy it.
 
 <div class="info" data-title="Note">
   
@@ -307,6 +324,7 @@ In this section we will be streaming events (impressions and clicks events) gene
 4. Click **Run all** at the top left to start generating streaming events. 
 5. Wait a few minutes for the first code cell to finish and it will proceed to next code cells automatically.
 6. Scroll down to the last code cell and it should begin to print the generated synthetic events in JSON format.
+![Notebook Success](assets/NotebookSuccess.png)
 
 
 ## 7. Define destination in the Eventstream
@@ -315,7 +333,7 @@ In this section we will be streaming events (impressions and clicks events) gene
 ![alt text](assets/fabrta17.png)
 3. Select your workspace and the KQL Database we created called "RTADemo".
 ![alt text](assets/fabrta18.png)
-5. Create a new table in our KQL DB called `events`.
+5. Create a new table in our KQL Database called `events`.
 ![alt text](assets/fabrta19.png)
 6. You will see a sample of the **streaming** data showing CLICK and IMPRESSION events, click Finish and Close.
 ![alt text](assets/fabrta20.png)
@@ -328,13 +346,12 @@ In this section we will be streaming events (impressions and clicks events) gene
 ## 8. Accessing your Eventhouse data in a Lakehouse
 This feature is also called "one logical copy" and it automatically allows KQL Database tables to be accessed from a Lakehouse, Notebooks, etc in delta-parquet format via OneLake.
 - When activated it will constantly copy the KQL data to your Fabric OneLake in delta format. It allows you to query KQL Database tables as delta tables using Spark or SQL endpoint on the Lakehouse. We recommend enabling this feature "before" we load the more data into our KQL Database. Also, consider this feature can be enabled/disabled per table if necessary. You can read more about this feature here: [Announcing Delta Lake support in Real-Time Intelligence KQL Database](<https://support.fabric.microsoft.com/blog/announcing-delta-support-in-real-time-analytics-kql-db?ft=All>).
-- Enabling data availability of KQL Database in OneLake means you can enjoy the best of both worlds. (1) Query the data with high-performance and low-latency in the KQL database and (2) Query the same data in Delta Lake format via any other Fabric engines such as Power BI Direct Lake mode, Warehouse, Lakehouse, Notebooks, and more.
-- KQL Database offers a robust mechanism to batch the incoming streams of data into one or more Parquet files suitable for analysis. The Delta Lake representation is provided to keep the data open and reusable. This logical copy is managed once, is paid for once and users should consider it a single data set.
+
 ![alt text](assets/fabrta70.png)
 
 ### Here's how to set this up
-1. Open your Eventhouse
-2. Select your KQL Database
+1. Open your Eventhouse.
+2. Select your KQL Database.
 3. Click on the pencil icon next to OneLake availability in the Database details pane. Click the toggle to activate it and click Done.
 ![alt text](assets/fabrta61.png)
 
@@ -348,27 +365,28 @@ This feature is also called "one logical copy" and it automatically allows KQL D
 
 7. Create new Lakehouse called "RTADemoLakehouse" in your workspace.
 ![alt text](assets/fabrta64.png)
-8. Click on "Get data" drop down, choose **New shortcut**
+8. Click on "Get data" drop down, choose **New shortcut**.
 9. ![alt text](assets/fabrta65.png)
-10. Select Microsoft OneLake
+10. Select Microsoft OneLake.
 ![alt text](assets/fabrta66.png)
-11. Select the "events" table in our Eventhouse KQL DB and click "Next". 
+11. Select the "events" table in our Eventhouse KQL Database and click "Next". 
 
 <div class="info" data-title="Note">
   
 > You may return to this step to create additional shortcuts, after running the [createAll.kql](<https://github.com/microsoft/FabricRTIWorkshop/blob/main/kql/createAll.kql>) database script which will create the additional tables. For now, you may proceed by selecting just the "events" table.
 </div>
 
-![alt text](assets/fabrta67.png)
+![alt text](assets/LakeShortcut1.png)
 
-10. Click "Create"
-![alt text](assets/fabrta68.png)
-11. Now you will have the Eventhouse KQL Database tables available in your Lakehouse. This also works across workspaces. You can query them like any other Lakehouse table.
+10. Click "Create".
+![alt text](assets/LakeShortcut2.png)
+
+12. Now you will have the Eventhouse KQL Database tables available in your Lakehouse. This also works across workspaces. You can query them like any other Lakehouse table.
 ![alt text](assets/fabrta69.png)
 
 
 ## 9. Build the KQL DB schema
-In this section we will create all the tables, functions, materialized-views, and enable update policies and in our Eventhouse KQL Database. Two of the tables (product and productCategory) are shortcuts to our SQL DB and the data is NOT being copied into our KQL DB.
+In this section we will create all the tables, functions, materialized-views, and enable update policies and in our Eventhouse KQL Database. Two of the tables (product and productCategory) are shortcuts to our SQL Database and the data is NOT being copied into our KQL Database.
 ![alt text](assets/fabrta71.png)
 
 1. Open the RTADemo KQL Database in the Eventhouse of your Fabric Workspace.
@@ -390,14 +408,16 @@ In this section we will create all the tables, functions, materialized-views, an
 In this section we will demonstrate how to use Fabric Data Factory pipeline to copy data from our SQL DB into our Eventhouse KQL DB via **batch** ingestion. This type of ingestion can be a one-time thing or scheduled to run periodically.
 ![alt text](assets/fabrta72.png)
 
+> for simplicity, the source SQL database used here is hosted by Microsoft
+
 1. Create the Data Pipelines that you can run periodically to copy data to our Eventhouse DB.
 ![alt text](assets/fabrta31.png)
 2. Name it "Copy Address table".  
 ![alt text](assets/fabrta32.png)
-3. Select the Pipeline Activity - **Copy data** activity 
+3. Select the Pipeline Activity - **Copy data** activity. 
 ![alt text](assets/fabrta33.png)
-4. Set the **Source** to External and click "+ New" to create a new connection
-![alt text](assets/fabrta34.png)
+4. From the **Source** tab, select the Connection dropbox and select the "More" option.
+![alt text](assets/pipeline_con.png)
 5. Choose **Azure SQL Database**, click Continue.
 ![alt text](assets/fabrta35.png)
 7. Enter the following Connection settings:  
@@ -406,18 +426,18 @@ In this section we will demonstrate how to use Fabric Data Factory pipeline to c
    - Username: `sqlread`
    - Password: `ChangeYourAdminPassword1`
 ![alt text](assets/fabrta36.png)
-8. Click Create
+8. Click Create.
 9. After creating and testing the External connection to the Azure SQL DB successfully, set the Database to `aworks` from the pick list.
 10. Set Table to `SalesLT.Address` from the pick list. Note, it may take a few seconds to display the list of tables.
 ![alt text](assets/fabrta37.png)
-11. Click on **Destination** tab, select "Workspace", set Workspace data store type to **KQL Database**, set KQL Database to **RTADemo**, and select Table **Address** from the pick list.
-![alt text](assets/fabrta38.png)
+11. Click on **Destination** tab, set Connection to **RTA Demo**, and select Table **Address** from the pick list.
+![alt text](assets/pipeline_des.png)
 12. (Optionally) You can click on the Mapping tab to Import schemas & verify all fields are mapped to the correct data types without warnings. However, this additional step is not required for this exercise.
 13. Click **Run** to execute the pipeline.
 ![alt text](assets/fabrta39.png)
 14. The **Output** tab should appear in a few seconds to monitor the progress.
 15. The pipeline will run until you see Pipeline status ✅ **Succeeded**.
-![alt text](assets/fabrta40.png)
+![alt text](assets/pipeline_success.png)
 16. Click the **Run** button again to run it a second time. We are running the pipeline **twice** to show how we are deduplicating rows. 
 17. After the pipeline ran twice successfully, let's check the data we copied.
 18. (Optional) Open the "RTADemo" KQL Database in your Fabric Workspace and click "Explore your data" on the top right to write a query. Copy the following query and click **Run**:
@@ -469,22 +489,33 @@ GoldAddress
 
 ## 11. Edit the Data Pipeline
 
-1. Copy/Paste or duplicate the "Address" Copy Data activity onto the canvas three-times (3x). One for each additional table, then **change the Source & Destination** accordingly.
-2. Notice how the Copy Activity Mapping for the **SalesOrderDetail** automatically maps sql data type `money` to `decimal` data type in KQL. You can see this by clicking Import schemas under the Mapping tab of the Copy Data activity. 
-3. Right-click and deactivate the "Address" Copy Data activity, then **Run** the pipeline **twice** to execute the same scenario for the additional three Copy Data activities. Note, they will run in parallel. 
+1. From the **General** tab, rename the activity to "Address".
+2. Copy/Paste or duplicate the "Address" Copy Data activity onto the canvas three-times (3x). One for each additional targeted tables, then **change the Name, Source, & Destination** accordingly.
+   - Customer
+   - Sales Order Header
+   - Sales Orde Detail
+![alt text](assets/pipeline_upd.png)
 
-![AddressDeactivate](assets/AddressDeactivateWide.png "Deactivate Activity")
+4. Notice how the Copy Activity Mapping for the **SalesOrderDetail** automatically maps sql data type `money` to `decimal` data type in KQL. You can see this by clicking Import schemas under the Mapping tab of the Copy Data activity.
 ![SalesOrderDetailMapping](assets/SalesOrderDetailMapping.png "SalesOrderDetail - Copy Data Mapping")
+ 
+6. Right-click and deactivate the "Address" Copy Data activity,
+![AddressDeactivate](assets/AddressDeactivateWide.png "Deactivate Activity")
+
+8. then **Run** the pipeline **twice** to execute the same scenario for the additional three Copy Data activities. Note, they will run in parallel. 
+![alt text](assets/pipeline_full_run.png)
+
 
 
 # 12. Real-Time Dashboard
-In this section, we will build a real-time dashboard to visualize the streaming data and set it to refresh every 30 seconds. (Optionally) A pre-built version of the dashboard is available to download [here](<https://github.com/microsoft/FabricRTIWorkshop/blob/main/dashboards/RTA%20dashboard/dashboard-RTA Dashboard.json>), which can be imported and configured to your KQL DB data source. 
+In this section, we will build a real-time dashboard to visualize the streaming data and set it to refresh every 30 seconds. (Optionally) A pre-built version of the dashboard is available to download [here](<https://github.com/microsoft/FabricRTIWorkshop/blob/main/dashboards/RTA%20dashboard/dashboard-RTA Dashboard.json>), which can be imported and configured to your KQL Database data source.
+- The Proctor Guide covers this process.
 ![Real-Time Dashboard](assets/RealTimeDashboard.png "Real-Time Dashboard")
 
 1. Click + Create (button is located at top left Menu underneath Home).
 2. Current workspace should be the same one.
-3. Scroll down and choose **Real-Time Dashboard**
-4. Name it "RTA Dashboard"
+3. Scroll down and choose **Real-Time Dashboard**.
+4. Name it "RTA Dashboard".
 5. Click **+ Add tile**.
 6. Click **+ Data source**. 
 7. Set the **Database** to "RTADemo" & click Create. 
@@ -519,7 +550,7 @@ events
 11. Click **+ Add tile** again to proceed with the next visuals.
 
 ### Impressions by hour
-12. Visual type: **Area chart**
+12. Visual type: **Area chart**.
 ```
 //Impressions by hour
 events 
@@ -531,7 +562,7 @@ events
 ![alt text](assets/fabrta53.png)
 
 ### Impressions by location
-12. Visual type: **Map**
+12. Visual type: **Map**.
 ```
 //Impressions by location
 events 
@@ -543,7 +574,7 @@ events
 ![alt text](assets/fabrta54.png)
 
 ### Average Page Load time
-13. Visual type: **Timechart**
+13. Visual type: **Timechart**.
 ```
 //Average Page Load time
 events 
@@ -557,8 +588,8 @@ events
 
 ### Impressions, Clicks & CTR
 14. Add a tile & paste the query below once. Note, this is a multi-statement query that uses multiple let statements & a query combined by semicolons. 
-15. Set Tile name: **Impressions**
-16. Visual type: **Stat**
+15. Set Tile name: **Impressions**.
+16. Visual type: **Stat**.
 17. Data Value column to `impressions`.
 18. Click **Apply changes**.
 19. Click the 3-dots (...) at the top right of the tile you just created to **Duplicate** it two more times.
@@ -610,6 +641,7 @@ events
 //Logo (Markdown Text Tile)
 ![AdventureWorks](https://vikasrajput.github.io/resources/PBIRptDev/AdventureWorksLogo.jpg "AdventureWorks")
 ```
+> The title can be resized on the dashboard canvas directly, rather than writing code. 
 
 ### Auto-refresh
 22. While editing the dashboard, click **Manage** > **Auto refresh**.
@@ -619,8 +651,8 @@ events
 
 ## 13. Reflex
 1. While editing the dashboard, click **Manage** > Set Alert.
-2. Choose "Clicks by hour"
-3. Select Condition "Becomes greater than"
+2. Choose "Clicks by hour".
+3. Select Condition "Becomes greater than".
 4. Set Value to 250.
 5. Action choose **Message me in Teams**.
 6. Click Create.
@@ -644,7 +676,7 @@ At this point you've completed the lab, so you may stop running the notebook.
 
 🎉 Congratulations on completing this lab! 
 
-Did you like it, did you not like it? Let us know in this short [Eval](<https://forms.office.com/r/xhW3GAtAhi>). Scan this QR Code to open the Eval form on your phone.
+Did you like it, did you not like it? Let us know in this short [Eval](<https://forms.office.com/r/xhW3GAtAhi>). Scan this QR Code to open the evaluation form on your phone.
 
 ![QR Code](assets/QRCodeLabEval-Small.png "QR Code")  
 
