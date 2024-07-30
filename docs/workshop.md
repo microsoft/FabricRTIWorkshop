@@ -363,7 +363,7 @@ This feature is also called "one logical copy" and it automatically allows KQL D
 
 7. Create new Lakehouse called "RTADemoLakehouse" in your workspace.
 ![alt text](assets/fabrta64.png)
-8. Click on "Get data" drop down, choose **New shortcut**.
+8. If your Lakehouse is using the Schemas then expand Tables, right-click dbo schema & select "New table shortcut". If Schemas do not appear under Tables, then click on "Get data" drop down, choose **New shortcut**.
 9. ![alt text](assets/fabrta65.png)
 10. Select Microsoft OneLake.
 ![alt text](assets/fabrta66.png)
