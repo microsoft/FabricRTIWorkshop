@@ -261,7 +261,13 @@ If you need a new Trial Tenant to complete the lab, suggest to register a new Ou
 
 # Building the platform
 ## 1. Login to Lab Environment
-1. Proceed to [app.fabric.microsoft.com](<https://app.fabric.microsoft.com/>).
+
+<div class="info" data-title="Note">
+  
+> Do **not** use an InPrivate browser window. Recommend using a Personal browser window to successfully run this lab.
+</div>
+
+1. Proceed to [app.fabric.microsoft.com](<https://app.fabric.microsoft.com/>). 
 2. Login with provided credentials, if a trial fabric tenant was previously setup (reference Pre-reqs). You may also choose to run the lab in your own Fabric Tenant if you already have one.
 3. Click **Real-Time Intelligence**.
 ![Fabric Home](assets/FabricHome.png "Real-Time Intelligence")
@@ -316,8 +322,9 @@ In this section we will be streaming events (impressions and clicks events) gene
 
 
 ## 6. Run the notebook
-1. Open the "Generate synthetic events" notebook in your Fabric Workspace.
-2. Paste your `eventHubConnString` value and `eventHubNameevents` value using the values your copied from the previous step - Eventstream keys.
+1. DO NOT use an InPrivate browser window. Recommend using a Personal browser window for the Notebook session to connect & run successfully.
+2. Open the "Generate synthetic events" notebook in your Fabric Workspace. 
+3. Paste your `eventHubConnString` value and `eventHubNameevents` value using the values your copied from the previous step - Eventstream keys.
 ![alt text](assets/fabrta9.png)
 4. Click **Run all** at the top left to start generating streaming events. 
 5. Wait a few minutes for the first code cell to finish and it will proceed to next code cells automatically.
