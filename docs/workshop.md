@@ -426,13 +426,13 @@ In this section we will demonstrate how to use Fabric Data Factory pipeline to c
 5. Choose **Azure SQL Database**, click Continue.
 ![alt text](assets/fabrta35.png)
 7. Enter the following Connection settings:  
-   - Server: `adxdemo.database.windows.net`
-   - Database: `aworks`
+   - Server: `sqllogical.database.windows.net`
+   - Database: `AdventureWorksLT`
    - Username: `sqlread`
    - Password: `ChangeYourAdminPassword1`
 ![alt text](assets/fabrta36.png)
 8. Click Create.
-9. After creating and testing the External connection to the Azure SQL DB successfully, set the Database to `aworks` from the pick list.
+9. After creating and testing the External connection to the Azure SQL DB successfully, set the Database to `AdventureWorksLT` from the pick list.
 10. Set Table to `SalesLT.Address` from the pick list. Note, it may take a few seconds to display the list of tables.
 ![alt text](assets/fabrta37.png)
 11. Click on **Destination** tab, set Connection to **RTA Demo**, and select Table **Address** from the pick list.
