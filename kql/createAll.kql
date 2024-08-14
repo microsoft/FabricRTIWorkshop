@@ -5,7 +5,7 @@
 kind=sql
 table=[SalesLT.Product]
 ( 
-   h@'Server=tcp:adxdemo.database.windows.net,1433;Initial Catalog=aworks;User Id=sqlread;Password=ChangeYourAdminPassword1'
+   h@'Server=tcp:sqllogical.database.windows.net,1433;Initial Catalog=AdventureWorksLT;User Id=sqlread;Password=ChangeYourAdminPassword1'
 )
 with 
 (
@@ -16,7 +16,7 @@ with
 kind=sql
 table=[SalesLT.ProductCategory]
 ( 
-   h@'Server=tcp:adxdemo.database.windows.net,1433;Initial Catalog=aworks;User Id=sqlread;Password=ChangeYourAdminPassword1'
+   h@'Server=tcp:sqllogical.database.windows.net,1433;Initial Catalog=AdventureWorksLT;User Id=sqlread;Password=ChangeYourAdminPassword1'
 )
 with 
 (
