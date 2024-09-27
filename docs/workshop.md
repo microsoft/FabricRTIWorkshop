@@ -15,6 +15,9 @@ audience: students, pro devs, analysts            # Optional. Audience of the wo
 tags: fabric, kql, realtime, intelligence, event, stream, sql, data, analytics, kusto, medallion, dashboard, reflex, activator         # Required. Tags for filtering and searching
 ---
 
+# Under Maintenance 
+This lab is currently undergoing maintentance. Please open the new version [FabConRTITutorial](<https://aka.ms/fabconrtitutorial>) instead.
+
 # Introduction
 Suppose you own an e-commerce website selling bike accessories. You have millions of visitors a month, you want to analyze the website traffic, consumer patterns and predict sales.  
 
