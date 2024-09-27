@@ -4,7 +4,8 @@
 
 To get started proceed to the moaw. 
 
-- https://aka.ms/fabricrtiworkshop (moaw)
+- Please open the new version https://aka.ms/fabconrtitutorial (moaw)
+- Deprecated: https://aka.ms/fabricrtiworkshop (moaw)
 - [moaw docs](docs/workshop.md)
 - Optional presentation ([PDF](docs/_Real-Time%20Intelligence%20in%20Fabric%20L200%20pitch%20deck.PDF))
 
