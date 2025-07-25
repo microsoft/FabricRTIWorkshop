@@ -16,6 +16,9 @@ Try **Office 365 E5 (no Teams)**. Save your username & sign-in. ie. summer@vacat
 7. Download the [CSV](Import_Users.csv) and replace all "TestProcedureTenant" with your tenant. ie. mine is "vacation2024". Save an upload the CSV. 
 8. Assign Licenses, Complete adding users, click Send email to Admin and click Download user details to save the list of Users & Passwords.
 
+### Azure Steps
+- [Visual Studio Subscription Portal](https://my.visualstudio.com/benefits?wt.mc_id=o~msft~devprogram~header&amp%3bcampaign=o~msft~devprogram~header)
+
 ### Fabric Steps
 8. https://app.fabric.microsoft.com Login as the admin, click **Start Trial**, goto **Admin portal** > tenant settings > search fabric on the top right > confirm both fabric toggles are enabled (_Users can create Fabric items_,  _Users can try Microsoft Fabric paid features_), search _dashboard_ on the top right and **enable** _Users can create Real-Time Dashboard (preview)_.
 9. From a **private browser** login as user01-4, set new password to the same as the old one, just append a 1 at the end, and click Start Trial as each one. Save the new password on the CSV file.
